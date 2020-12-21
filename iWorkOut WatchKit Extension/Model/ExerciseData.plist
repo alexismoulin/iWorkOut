@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>chest</key>
+	<dict>
+		<key>bodyOnly</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-0-0</string>
+				<key>name</key>
+				<string>Push up</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-0-1</string>
+				<key>name</key>
+				<string>Close Hand Pushup</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-0-2</string>
+				<key>name</key>
+				<string>Wide Hand Pushup</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-0-3</string>
+				<key>name</key>
+				<string>Push Up to Side Plank</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-0-4</string>
+				<key>name</key>
+				<string>Isometric Chest Squeeze</string>
+			</dict>
+		</array>
+	</dict>
+	<key>biceps</key>
+	<dict/>
+	<key>triceps</key>
+	<dict>
+		<key>bodyOnly</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>2-0-0</string>
+				<key>name</key>
+				<string>Close Triceps Pushup</string>
+			</dict>
+		</array>
+	</dict>
+	<key>forearm</key>
+	<dict/>
+	<key>back</key>
+	<dict/>
+	<key>shoulders</key>
+	<dict/>
+	<key>upperLegs</key>
+	<dict>
+		<key>bodyOnly</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>6-0-0</string>
+				<key>name</key>
+				<string>Dorsiflexion</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>6-0-1</string>
+				<key>name</key>
+				<string>Bodyweight Lunge</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>6-0-2</string>
+				<key>name</key>
+				<string>Sit Squat</string>
+			</dict>
+		</array>
+	</dict>
+	<key>lowerLegs</key>
+	<dict>
+		<key>bodyOnly</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>7-0-0</string>
+				<key>name</key>
+				<string>One Leg Calf Raise</string>
+			</dict>
+		</array>
+	</dict>
+	<key>abdominals</key>
+	<dict>
+		<key>bodyOnly</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>8-0-0</string>
+				<key>name</key>
+				<string>Crunches</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>8-0-1</string>
+				<key>name</key>
+				<string>Leg Raise</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>8-0-2</string>
+				<key>name</key>
+				<string>Air Bike</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>8-0-3</string>
+				<key>name</key>
+				<string>Alternate Heel Touchers</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>8-0-4</string>
+				<key>name</key>
+				<string>Plank</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>8-0-5</string>
+				<key>name</key>
+				<string>Side Bridge</string>
+			</dict>
+		</array>
+	</dict>
+	<key>cardio</key>
+	<dict/>
+</dict>
+</plist>
