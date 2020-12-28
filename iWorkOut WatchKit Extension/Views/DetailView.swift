@@ -2,9 +2,25 @@ import SwiftUI
 
 struct DetailView: View {
     let exercise: Exercise
+    let record: Record?
     
     @State private var reps: Double = 0
     @State private var isFocused: Bool = false
+    
+    init(exercise: Exercise) {
+        self.exercise = exercise
+        let fetchRecord = FetchRequest<Record>(
+            entity: Record.entity(),
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "id = %@", exercise.id)
+        )
+        record = fetchRecord.wrappedValue.first
+        if record == nil {
+            print("failure fetching data")
+        } else {
+            print("data fetched successfully")
+        }
+    }
     
     var body: some View {
         ScrollView {
@@ -28,7 +44,7 @@ struct DetailView: View {
                 Button("Save"){ }
                 Divider()
                 Text("🏆").font(.largeTitle)
-                Text("15")
+                Text("\(record?.value ?? 0)")
                 Spacer()
             }
         }.navigationTitle(exercise.name)

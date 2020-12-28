@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct EquipmentView: View {
+    @EnvironmentObject var dataController: DataController
+    @Environment(\.managedObjectContext) var moc
     let selectedMuscle: String
     var body: some View {
         List(Equipment.allCases) { equipment in

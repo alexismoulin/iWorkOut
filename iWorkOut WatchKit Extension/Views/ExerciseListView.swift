@@ -4,9 +4,19 @@ struct ExerciseListView: View {
     
     let selectedMuscle: String
     let selectedEquipment: String
+    let exerciseList: [Exercise]
+    let recordId = "0-0-0"
+    let fetched: FetchRequest<Record>
     
-    var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "999", name: "Error")]
+    init(selectedMuscle: String, selectedEquipment: String) {
+        self.selectedMuscle = selectedMuscle
+        self.selectedEquipment = selectedEquipment
+        exerciseList = loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "999", name: "Error")]
+        fetched = FetchRequest<Record>(
+            entity: Record.entity(),
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "id = %@", recordId)
+        )
     }
     
     var body: some View {

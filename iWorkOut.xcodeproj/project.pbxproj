@@ -10,6 +10,9 @@
 		5E38A720258CF82200574232 /* EquipmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38A71F258CF82200574232 /* EquipmentView.swift */; };
 		5E38A725258D022300574232 /* ExerciseData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E38A724258D022300574232 /* ExerciseData.plist */; };
 		5E458194258E756200D1A0E1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E458193258E756200D1A0E1 /* DetailView.swift */; };
+		5E51344E2598BFD9008D4195 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */; };
+		5E5134532598C09D008D4195 /* Record-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5134522598C09D008D4195 /* Record-CoreDataHelpers.swift */; };
+		5E5134592598C147008D4195 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5134582598C147008D4195 /* DataController.swift */; };
 		5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59E0258D15FF0049CDD9 /* Exercise.swift */; };
 		5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
@@ -71,6 +74,9 @@
 		5E38A71F258CF82200574232 /* EquipmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentView.swift; sourceTree = "<group>"; };
 		5E38A724258D022300574232 /* ExerciseData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExerciseData.plist; sourceTree = "<group>"; };
 		5E458193258E756200D1A0E1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5E51344D2598BFD9008D4195 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		5E5134522598C09D008D4195 /* Record-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		5E5134582598C147008D4195 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5E6B59E0258D15FF0049CDD9 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -100,6 +106,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E5134462598BEAA008D4195 /* ExerciseModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E7E7071258CE3650030B507 /* MuscleGroup.swift */,
+				5E7E707C258CE4320030B507 /* Equipment.swift */,
+				5E6B59E0258D15FF0049CDD9 /* Exercise.swift */,
+				5E38A724258D022300574232 /* ExerciseData.plist */,
+			);
+			path = ExerciseModel;
+			sourceTree = "<group>";
+		};
+		5E5134472598BF1C008D4195 /* RecordModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */,
+				5E5134522598C09D008D4195 /* Record-CoreDataHelpers.swift */,
+			);
+			path = RecordModel;
+			sourceTree = "<group>";
+		};
+		5E5134482598BF85008D4195 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		5E5134572598C112008D4195 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E7E7057258CE2AE0030B507 /* ComplicationController.swift */,
+				5E5134582598C147008D4195 /* DataController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		5E7E7037258CE2AD0030B507 = {
 			isa = PBXGroup;
 			children = (
@@ -132,11 +175,11 @@
 			isa = PBXGroup;
 			children = (
 				5E7E7055258CE2AE0030B507 /* iWorkOutApp.swift */,
-				5E7E7070258CE32A0030B507 /* Model */,
-				5E7E706F258CE2CF0030B507 /* Views */,
-				5E7E7057258CE2AE0030B507 /* ComplicationController.swift */,
-				5E7E7059258CE2AE0030B507 /* Assets.xcassets */,
 				5E7E705E258CE2AE0030B507 /* Info.plist */,
+				5E7E7070258CE32A0030B507 /* Models */,
+				5E7E706F258CE2CF0030B507 /* Views */,
+				5E5134572598C112008D4195 /* Controllers */,
+				5E7E7059258CE2AE0030B507 /* Assets.xcassets */,
 				5E7E705B258CE2AE0030B507 /* Preview Content */,
 			);
 			path = "iWorkOut WatchKit Extension";
@@ -157,20 +200,18 @@
 				5E38A71F258CF82200574232 /* EquipmentView.swift */,
 				5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */,
 				5E458193258E756200D1A0E1 /* DetailView.swift */,
-				5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */,
+				5E5134482598BF85008D4195 /* Misc */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		5E7E7070258CE32A0030B507 /* Model */ = {
+		5E7E7070258CE32A0030B507 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5E7E7071258CE3650030B507 /* MuscleGroup.swift */,
-				5E7E707C258CE4320030B507 /* Equipment.swift */,
-				5E6B59E0258D15FF0049CDD9 /* Exercise.swift */,
-				5E38A724258D022300574232 /* ExerciseData.plist */,
+				5E5134462598BEAA008D4195 /* ExerciseModel */,
+				5E5134472598BF1C008D4195 /* RecordModel */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */,
+				5E5134532598C09D008D4195 /* Record-CoreDataHelpers.swift in Sources */,
 				5E458194258E756200D1A0E1 /* DetailView.swift in Sources */,
 				5E7E7054258CE2AE0030B507 /* MuscleView.swift in Sources */,
 				5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */,
@@ -309,6 +351,8 @@
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,
 				5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */,
 				5E7E7058258CE2AE0030B507 /* ComplicationController.swift in Sources */,
+				5E51344E2598BFD9008D4195 /* Main.xcdatamodeld in Sources */,
+				5E5134592598C147008D4195 /* DataController.swift in Sources */,
 				5E7E707D258CE4320030B507 /* Equipment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +643,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5E51344D2598BFD9008D4195 /* Main.xcdatamodel */,
+			);
+			currentVersion = 5E51344D2598BFD9008D4195 /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5E7E7038258CE2AD0030B507 /* Project object */;
 }
