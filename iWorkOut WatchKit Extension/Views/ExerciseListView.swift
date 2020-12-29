@@ -1,28 +1,21 @@
 import SwiftUI
 
 struct ExerciseListView: View {
-    
+    @EnvironmentObject var dataController: DataController
     let selectedMuscle: String
     let selectedEquipment: String
-    let exerciseList: [Exercise]
-    let recordId = "0-0-0"
-    let fetched: FetchRequest<Record>
     
-    init(selectedMuscle: String, selectedEquipment: String) {
-        self.selectedMuscle = selectedMuscle
-        self.selectedEquipment = selectedEquipment
-        exerciseList = loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "999", name: "Error")]
-        fetched = FetchRequest<Record>(
-            entity: Record.entity(),
-            sortDescriptors: [],
-            predicate: NSPredicate(format: "id = %@", recordId)
-        )
+    var exerciseList: [Exercise] {
+        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "999", name: "Error")]
     }
     
     var body: some View {
         GeometryReader { geo in
             List(exerciseList) { exercise in
-                NavigationLink(destination: DetailView(exercise: exercise)) {
+                NavigationLink(destination: DetailView(exercise: exercise)
+                                .environment(\.managedObjectContext, dataController.container.viewContext)
+                                .environmentObject(dataController)
+                ) {
                     HStack {
                         Text(exercise.name)
                         Spacer()

@@ -6,14 +6,13 @@ struct iWorkOutApp: App {
     init() {
         let dataController = DataController(inMemory: true)
         _dataController = StateObject(wrappedValue: dataController)
-        dataController.createSamples()
     }
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 MuscleView()
-                    .environment(\.managedObjectContext, dataController.container.viewContext)
                     .environmentObject(dataController)
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
             }
         }
     }
