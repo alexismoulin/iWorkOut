@@ -24,6 +24,8 @@ struct ExerciseListView: View {
                     }.frame(height: 60, alignment: .center)
                 }
             }
-        }.navigationTitle("\(selectedMuscle) - \(selectedEquipment)")
+        }
+        .navigationTitle("\(selectedMuscle) - \(selectedEquipment)")
+        .onAppear { print("Loading ExerciseListView") }
     }
 }
