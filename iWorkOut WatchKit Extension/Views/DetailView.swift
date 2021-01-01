@@ -35,7 +35,7 @@ struct DetailView: View {
                 }
                 Button("Save"){
                     if let record = record {
-                        if Int16(reps) > record.value {
+                        if Int64(reps) > record.value {
                             record.value = Int64(reps)
                             dataController.save()
                         } else {
