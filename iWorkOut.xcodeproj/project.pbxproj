@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E1267D6259B889900A47AAC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E1267D5259B889900A47AAC /* CloudKit.framework */; };
 		5E38A720258CF82200574232 /* EquipmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38A71F258CF82200574232 /* EquipmentView.swift */; };
 		5E38A725258D022300574232 /* ExerciseData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E38A724258D022300574232 /* ExerciseData.plist */; };
 		5E458194258E756200D1A0E1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E458193258E756200D1A0E1 /* DetailView.swift */; };
@@ -16,6 +17,7 @@
 		5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59E0258D15FF0049CDD9 /* Exercise.swift */; };
 		5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
+		5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7B5B2A259B995800911571 /* CoreData.framework */; };
 		5E7E7043258CE2AD0030B507 /* iWorkOut WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5E7E7042258CE2AD0030B507 /* iWorkOut WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E7E7048258CE2AE0030B507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E7047258CE2AE0030B507 /* Assets.xcassets */; };
 		5E7E704F258CE2AE0030B507 /* iWorkOut WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E7E704E258CE2AE0030B507 /* iWorkOut WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E1267D0259B889300A47AAC /* iWorkOut WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iWorkOut WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		5E1267D5259B889900A47AAC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E38A71F258CF82200574232 /* EquipmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentView.swift; sourceTree = "<group>"; };
 		5E38A724258D022300574232 /* ExerciseData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExerciseData.plist; sourceTree = "<group>"; };
 		5E458193258E756200D1A0E1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		5E6B59E0258D15FF0049CDD9 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		5E7B5B2A259B995800911571 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5E7E703E258CE2AD0030B507 /* iWorkOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWorkOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7E7042258CE2AD0030B507 /* iWorkOut WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iWorkOut WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7E7047258CE2AE0030B507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,12 +105,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E1267D6259B889900A47AAC /* CloudKit.framework in Frameworks */,
+				5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E1267D4259B889900A47AAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E7B5B2A259B995800911571 /* CoreData.framework */,
+				5E1267D5259B889900A47AAC /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E5134462598BEAA008D4195 /* ExerciseModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +165,7 @@
 				5E7E7046258CE2AD0030B507 /* iWorkOut WatchKit App */,
 				5E7E7052258CE2AE0030B507 /* iWorkOut WatchKit Extension */,
 				5E7E703F258CE2AD0030B507 /* Products */,
+				5E1267D4259B889900A47AAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +191,7 @@
 		5E7E7052258CE2AE0030B507 /* iWorkOut WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5E1267D0259B889300A47AAC /* iWorkOut WatchKit Extension.entitlements */,
 				5E7E7055258CE2AE0030B507 /* iWorkOutApp.swift */,
 				5E7E705E258CE2AE0030B507 /* Info.plist */,
 				5E7E7070258CE32A0030B507 /* Models */,
@@ -493,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "iWorkOut WatchKit Extension/iWorkOut WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iWorkOut WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R28KNM82KD;
@@ -517,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "iWorkOut WatchKit Extension/iWorkOut WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iWorkOut WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R28KNM82KD;

@@ -1,12 +1,4 @@
-//
-//  ComplicationController.swift
-//  iWorkOut WatchKit Extension
-//
-//  Created by Alexis Moulin on 2020-12-18.
-//
-
 import ClockKit
-
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     

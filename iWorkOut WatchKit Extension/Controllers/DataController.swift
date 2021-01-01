@@ -5,9 +5,16 @@ class DataController: ObservableObject {
     
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Main")
+        
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
+        
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("Could not retrieve a persistent store description.")
+        }
+        print("OK - \(description)")
+        
         container.loadPersistentStores { storeDescription, error in
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")

@@ -4,7 +4,6 @@ struct DetailView: View {
     @EnvironmentObject var dataController: DataController
     
     let exercise: Exercise
-    let testId = "0-0-0"
     
     @State private var reps: Double = 0
     @State private var isFocused: Bool = false
@@ -37,7 +36,7 @@ struct DetailView: View {
                 Button("Save"){
                     if let record = record {
                         if Int16(reps) > record.value {
-                            record.value = Int16(reps)
+                            record.value = Int64(reps)
                             dataController.save()
                         } else {
                             return
@@ -45,7 +44,7 @@ struct DetailView: View {
                     } else {
                         let newRecord = Record(context: dataController.container.viewContext)
                         newRecord.id = exercise.id
-                        newRecord.value = Int16(reps)
+                        newRecord.value = Int64(reps)
                     }
                 }
                 Divider()
