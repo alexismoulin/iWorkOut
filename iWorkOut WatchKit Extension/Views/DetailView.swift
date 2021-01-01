@@ -1,11 +1,18 @@
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject var dataController: DataController
+    
     let exercise: Exercise
     
     @State private var reps: Double = 0
     @State private var isFocused: Bool = false
-    let defaults = UserDefaults.standard
+    
+    @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
+    
+    var record: Record? {
+        fetchedResults.first(where: {$0.id == exercise.id})
+    }
     
     var body: some View {
         ScrollView {
@@ -27,16 +34,24 @@ struct DetailView: View {
                         .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
                 }
                 Button("Save"){
-                    defaults.set(Int(reps), forKey: exercise.id)
-                    print(defaults.integer(forKey: exercise.id))
+                    if let record = record {
+                        if Int16(reps) > record.value {
+                            record.value = Int64(reps)
+                            dataController.save()
+                        } else {
+                            return
+                        }
+                    } else {
+                        let newRecord = Record(context: dataController.container.viewContext)
+                        newRecord.id = exercise.id
+                        newRecord.value = Int64(reps)
+                    }
                 }
                 Divider()
                 Text("🏆").font(.largeTitle)
-                Text("\(Int(reps))")
+                Text("\(record?.value ?? 0)")
                 Spacer()
             }
-        }
-        .navigationTitle(exercise.name)
-        .onAppear { reps = Double(defaults.integer(forKey: exercise.id)) }
+        }.navigationTitle(exercise.name)
     }
 }

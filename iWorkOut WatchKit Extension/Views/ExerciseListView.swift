@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ExerciseListView: View {
-    
+    @EnvironmentObject var dataController: DataController
     let selectedMuscle: String
     let selectedEquipment: String
     
@@ -12,7 +12,10 @@ struct ExerciseListView: View {
     var body: some View {
         GeometryReader { geo in
             List(exerciseList) { exercise in
-                NavigationLink(destination: DetailView(exercise: exercise)) {
+                NavigationLink(destination: DetailView(exercise: exercise)
+                                .environment(\.managedObjectContext, dataController.container.viewContext)
+                                .environmentObject(dataController)
+                ) {
                     HStack {
                         Text(exercise.name)
                         Spacer()
