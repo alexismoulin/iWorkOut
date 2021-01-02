@@ -7,6 +7,7 @@ struct DetailView: View {
     
     @State private var reps: Double = 0
     @State private var isFocused: Bool = false
+    @State private var displayInstructions: Bool = false
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
     
@@ -17,10 +18,23 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image(exercise.id)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                ZStack(alignment: .topTrailing) {
+                    Image(exercise.id)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    Image("instruction")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                        .shadow(radius: 2)
+                        .offset(x: -10, y: 10)
+                        .onTapGesture {
+                            displayInstructions = true
+                        }
+                }
                 Divider()
                 HStack {
                     Text("Reps")
@@ -52,6 +66,14 @@ struct DetailView: View {
                 Text("\(record?.value ?? 0)")
                 Spacer()
             }
-        }.navigationTitle(exercise.name)
+        }
+        .navigationTitle(exercise.name)
+        .sheet(isPresented: $displayInstructions, content: {
+            ScrollView {
+                Text("How to perform the exercise").font(.system(size: 12)).fontWeight(.bold)
+                Divider()
+                Text("test data").font(.system(size: 12))
+            }
+        })
     }
 }

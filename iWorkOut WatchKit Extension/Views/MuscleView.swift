@@ -8,8 +8,15 @@ struct MuscleView: View {
                             .environment(\.managedObjectContext, dataController.container.viewContext)
                             .environmentObject(dataController)
             ) {
-                Text(muscle.rawValue.uppercased()).foregroundColor(.lime)
+                HStack {
+                    Text(muscle.rawValue.uppercased()).foregroundColor(.lime)
+                    Spacer()
+                    Image(muscle.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50, alignment: .trailing)
+                }
             }
-        }.navigationTitle("Muscle Group")
+        }.navigationTitle("Exercise")
     }
 }

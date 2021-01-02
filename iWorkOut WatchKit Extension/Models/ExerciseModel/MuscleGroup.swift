@@ -11,7 +11,7 @@ enum MuscleGroup: String, CaseIterable, Identifiable {
     case shoulders // 5
     case upperLegs // 6
     case lowerLegs // 7
-    case abdominals // 8
+    case abdos // 8
     case cardio // 9
 }
 

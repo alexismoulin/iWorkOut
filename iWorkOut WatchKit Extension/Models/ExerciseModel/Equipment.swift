@@ -8,7 +8,7 @@ enum Equipment: String, CaseIterable, Identifiable {
     case barbell // 2
     case pullBar // 3
     case dumbbell // 4
-    case exerciseBall // 5
+    case ball // 5
     case kettleBell // 6
     case weightPlate // 7
     case machine // 8

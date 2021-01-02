@@ -5,26 +5,6 @@ struct Exercise: Identifiable, Codable {
     let name: String
 }
 
-// loader for json data - unused
-func createExercises() -> [Exercise] {
-    var exerciseArray = [Exercise]()
-    let url = Bundle.main.url(forResource: "ExerciseData", withExtension: "json")!
-    let data = try! Data(contentsOf: url)
-    do {
-        let JSON = try JSONDecoder().decode([Exercise].self, from: data)
-        print(".........." , JSON , ".......")
-        for exercise in JSON {
-            let id = exercise.id
-            let name = exercise.name
-            exerciseArray.append(Exercise(id: id, name: name))
-        }
-    } catch {
-        print(error.localizedDescription)
-    }
-    
-    return exerciseArray
-}
-
 //loader for plist data - returns nil if there is any issue duriong the process
 func loadData(muscleGroup: String, equipment: String) -> [Exercise]? {
     //load the plist data

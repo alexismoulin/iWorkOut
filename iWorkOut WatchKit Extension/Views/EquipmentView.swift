@@ -9,7 +9,14 @@ struct EquipmentView: View {
                             .environment(\.managedObjectContext, dataController.container.viewContext)
                             .environmentObject(dataController)
             ) {
-                Text(equipment.rawValue.uppercased()).foregroundColor(.yellow2)
+                HStack {
+                    Text(equipment.rawValue.uppercased()).foregroundColor(.yellow2)
+                    Spacer()
+                    Image(equipment.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50, alignment: .trailing)
+                }
             }
         }.navigationTitle(selectedMuscle)
     }
