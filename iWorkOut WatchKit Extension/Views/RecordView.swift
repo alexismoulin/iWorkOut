@@ -7,7 +7,7 @@ struct RecordView: View {
     @State private var selectedEquipment: Equipment = .bodyOnly
     
     var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ?? [Exercise(id: "999", name: "No Exercise")]
+        loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ?? [Exercise(id: "999", name: "No Exercise", instructions: "no data")]
     }
     
     func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> String {

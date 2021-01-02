@@ -70,9 +70,9 @@ struct DetailView: View {
         .navigationTitle(exercise.name)
         .sheet(isPresented: $displayInstructions, content: {
             ScrollView {
-                Text("How to perform the exercise").font(.system(size: 12)).fontWeight(.bold)
+                Text("Instructions")
                 Divider()
-                Text("test data").font(.system(size: 12))
+                Text(exercise.instructions).font(.system(size: 12))
             }
         })
     }

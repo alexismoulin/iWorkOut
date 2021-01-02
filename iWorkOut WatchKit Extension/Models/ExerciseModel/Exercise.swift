@@ -3,6 +3,7 @@ import Foundation
 struct Exercise: Identifiable, Codable {
     let id: String
     let name: String
+    let instructions: String
 }
 
 //loader for plist data - returns nil if there is any issue duriong the process
@@ -21,7 +22,8 @@ func loadData(muscleGroup: String, equipment: String) -> [Exercise]? {
     for exercise in shortList {
         guard let id = exercise["id"] else { return nil }
         guard let name = exercise["name"] else { return nil }
-        exerciseArray.append(Exercise(id: id, name: name))
+        guard let instructions = exercise["instructions"] else { return nil }
+        exerciseArray.append(Exercise(id: id, name: name, instructions: instructions))
     }
     return exerciseArray
 }

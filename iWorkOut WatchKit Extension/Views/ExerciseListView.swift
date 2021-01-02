@@ -8,7 +8,7 @@ struct ExerciseListView: View {
     var noExercise: Bool = false
     
     var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "null", name: "No Exercise")]
+        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "null", name: "No Exercise", instructions: "no data")]
     }
     
     var body: some View {
