@@ -5,7 +5,7 @@ struct ContentView: View {
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
     var body: some View {
         TabView {
-            MuscleView()
+            StartView()
                 .environmentObject(dataController)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
             RecordView(fetchedResults: fetchedResults)

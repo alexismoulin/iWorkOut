@@ -14,6 +14,7 @@
 		5E51344E2598BFD9008D4195 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */; };
 		5E5134532598C09D008D4195 /* Record-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5134522598C09D008D4195 /* Record-CoreDataHelpers.swift */; };
 		5E5134592598C147008D4195 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5134582598C147008D4195 /* DataController.swift */; };
+		5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E52F0B325A11F1C00A5AC34 /* StartView.swift */; };
 		5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59E0258D15FF0049CDD9 /* Exercise.swift */; };
 		5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
@@ -83,6 +84,7 @@
 		5E51344D2598BFD9008D4195 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		5E5134522598C09D008D4195 /* Record-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		5E5134582598C147008D4195 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5E52F0B325A11F1C00A5AC34 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		5E6B59E0258D15FF0049CDD9 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				5EAC61D0259FF07400E90941 /* ContentView.swift */,
+				5E52F0B325A11F1C00A5AC34 /* StartView.swift */,
 				5E7E7053258CE2AE0030B507 /* MuscleView.swift */,
 				5EAC61D5259FF20300E90941 /* RecordView.swift */,
 				5E38A71F258CF82200574232 /* EquipmentView.swift */,
@@ -368,6 +371,7 @@
 				5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */,
 				5E5134532598C09D008D4195 /* Record-CoreDataHelpers.swift in Sources */,
 				5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */,
+				5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */,
 				5E458194258E756200D1A0E1 /* DetailView.swift in Sources */,
 				5E7E7054258CE2AE0030B507 /* MuscleView.swift in Sources */,
 				5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */,
