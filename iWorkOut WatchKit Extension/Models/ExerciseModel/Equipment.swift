@@ -5,17 +5,14 @@ enum Equipment: String, CaseIterable, Identifiable {
     
     case bodyOnly // 0
     case bench // 1
-    case bands // 2
-    case barbell // 3
-    case ezBar // 4
-    case pullBar // 5
-    case dumbbell // 6
-    case exerciseBall // 7
-    case kettleBell // 8
-    case cardioMachine // 9
-    case strengthMachine // 10
-    case weightPlate // 11
-    case other // 12
+    case barbell // 2
+    case pullBar // 3
+    case dumbbell // 4
+    case exerciseBall // 5
+    case kettleBell // 6
+    case weightPlate // 7
+    case machine // 8
+    case other // 9
 }
 
 struct EquipmentStruct: Codable {

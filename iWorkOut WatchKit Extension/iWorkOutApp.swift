@@ -10,7 +10,7 @@ struct iWorkOutApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                MuscleView()
+                ContentView()
                     .environmentObject(dataController)
                     .environment(\.managedObjectContext, dataController.container.viewContext)
             }
