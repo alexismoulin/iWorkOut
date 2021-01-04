@@ -1,25 +1,18 @@
 import CoreData
+import SwiftUI
 
 class DataController: ObservableObject {
+    //let container: NSPersistentContainer
     let container: NSPersistentCloudKitContainer
     
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
-        
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
-        
-        guard let description = container.persistentStoreDescriptions.first else {
-            fatalError("Could not retrieve a persistent store description.")
-        }
-        print("OK - \(description.description)")
-        
         container.loadPersistentStores { storeDescription, error in
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
-            } else {
-                print("Store description: \(storeDescription)")
             }
         }
     }

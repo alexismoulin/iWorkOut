@@ -128,7 +128,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5E5134462598BEAA008D4195 /* ExerciseModel */ = {
+		5E5134462598BEAA008D4195 /* Exercise-PListModel */ = {
 			isa = PBXGroup;
 			children = (
 				5E7E7071258CE3650030B507 /* MuscleGroup.swift */,
@@ -136,16 +136,16 @@
 				5E6B59E0258D15FF0049CDD9 /* Exercise.swift */,
 				5E38A724258D022300574232 /* ExerciseData.plist */,
 			);
-			path = ExerciseModel;
+			path = "Exercise-PListModel";
 			sourceTree = "<group>";
 		};
-		5E5134472598BF1C008D4195 /* RecordModel */ = {
+		5E5134472598BF1C008D4195 /* Record-CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
 				5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */,
 				5E5134522598C09D008D4195 /* Record-CoreDataHelpers.swift */,
 			);
-			path = RecordModel;
+			path = "Record-CoreDataModel";
 			sourceTree = "<group>";
 		};
 		5E5134482598BF85008D4195 /* Misc */ = {
@@ -235,8 +235,8 @@
 		5E7E7070258CE32A0030B507 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5E5134462598BEAA008D4195 /* ExerciseModel */,
-				5E5134472598BF1C008D4195 /* RecordModel */,
+				5E5134462598BEAA008D4195 /* Exercise-PListModel */,
+				5E5134472598BF1C008D4195 /* Record-CoreDataModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
