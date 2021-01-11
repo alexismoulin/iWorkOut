@@ -6,13 +6,16 @@ struct DetailView: View {
     let exercise: Exercise
     
     @State private var reps: Double = 0
-    @State private var isFocused: Bool = false
     @State private var displayInstructions: Bool = false
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
     
-    var record: Record? {
-        fetchedResults.first(where: {$0.id == exercise.id})
+    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> String {
+        let record = recordList.first(where: {$0.id == exerciseId})
+        let record1: Int64 = record?.set1 ?? 0
+        let record2: Int64 = record?.set2 ?? 0
+        let record3: Int64 = record?.set3 ?? 0
+        return String(record1 + record2 + record3)
     }
     
     var body: some View {
@@ -36,34 +39,15 @@ struct DetailView: View {
                         }
                 }
                 Divider()
-                HStack {
-                    Text("Reps")
-                    Spacer()
-                    Text("\(Int(reps))")
-                        .padding()
-                        .frame(width: 50)
-                        .contentShape(Rectangle())
-                        .focusable { isFocused = $0 }
-                        .digitalCrownRotation($reps, from: 0, through: 100, by: 1, sensitivity: .low, isContinuous: false, isHapticFeedbackEnabled: true)
-                        .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
-                }
-                Button("Save"){
-                    if let record = record {
-                        if Int64(reps) > record.value {
-                            record.value = Int64(reps)
-                            dataController.save()
-                        } else {
-                            return
-                        }
-                    } else {
-                        let newRecord = Record(context: dataController.container.viewContext)
-                        newRecord.id = exercise.id
-                        newRecord.value = Int64(reps)
-                    }
+                NavigationLink(destination: ActivityView(exercise: exercise)
+                                .environment(\.managedObjectContext, dataController.container.viewContext)
+                                .environmentObject(dataController)
+                ) {
+                    Text("Start")
                 }
                 Divider()
                 Text("🏆").font(.largeTitle)
-                Text("\(record?.value ?? 0)")
+                Text("\(getRecord(recordList: fetchedResults, exerciseId: exercise.id))")
                 Spacer()
             }
         }

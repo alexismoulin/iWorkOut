@@ -6,7 +6,9 @@ class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     
     init(inMemory: Bool = false) {
+        //container = NSPersistentContainer(name: "Main")
         container = NSPersistentCloudKitContainer(name: "Main")
+        
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -21,9 +23,19 @@ class DataController: ObservableObject {
         if container.viewContext.hasChanges {
             do {
                 try container.viewContext.save()
+                print("Saved")
             } catch {
                 print("Cannot save data: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func save2() {
+        do {
+            try container.viewContext.save()
+            print("Saved")
+        } catch {
+            print("Cannot save data: \(error.localizedDescription)")
         }
     }
     
@@ -31,10 +43,12 @@ class DataController: ObservableObject {
         container.viewContext.delete(object)
     }
     
-    func createSamples() {
+    func createSample() {
         let newRecord = Record(context: container.viewContext)
         newRecord.id = "0-0-0"
-        newRecord.value = 3
+        newRecord.set1 = 3
+        newRecord.set2 = 3
+        newRecord.set3 = 3
         save()
         print("sample successfully created")
     }

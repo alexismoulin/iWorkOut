@@ -12,7 +12,10 @@ struct RecordView: View {
     
     func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> String {
         let record = recordList.first(where: {$0.id == exerciseId})
-        return String(record?.value ?? 0)
+        let record1: Int64 = record?.set1 ?? 0
+        let record2: Int64 = record?.set2 ?? 0
+        let record3: Int64 = record?.set3 ?? 0
+        return String(record1 + record2 + record3)
     }
     
     func createPickerHeadLiner(text: String, color: Color) -> some View {

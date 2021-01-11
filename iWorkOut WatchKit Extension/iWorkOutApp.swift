@@ -7,6 +7,7 @@ struct iWorkOutApp: App {
     init() {
         let dataController = DataController()
         _dataController = StateObject(wrappedValue: dataController)
+        print("starting")
     }
     
     var body: some Scene {
