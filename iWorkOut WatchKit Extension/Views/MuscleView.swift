@@ -2,9 +2,10 @@ import SwiftUI
 
 struct MuscleView: View {
     @EnvironmentObject var dataController: DataController
+    @ObservedObject var dataManager: DataManager
     var body: some View {
         List(MuscleGroup.allCases) { muscle in
-            NavigationLink(destination: EquipmentView(selectedMuscle: muscle.rawValue)
+            NavigationLink(destination: EquipmentView(dataManager: dataManager, selectedMuscle: muscle.rawValue)
                             .environment(\.managedObjectContext, dataController.container.viewContext)
                             .environmentObject(dataController)
             ) {

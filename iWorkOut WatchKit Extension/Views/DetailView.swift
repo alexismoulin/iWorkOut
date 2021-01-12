@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var dataController: DataController
+    @ObservedObject var dataManager: DataManager
     
     let exercise: Exercise
     
@@ -38,8 +39,7 @@ struct DetailView: View {
                             displayInstructions = true
                         }
                 }
-                Divider()
-                NavigationLink(destination: ActivityView(exercise: exercise)
+                NavigationLink(destination: ActivityView(dataManager: dataManager, exercise: exercise)
                                 .environment(\.managedObjectContext, dataController.container.viewContext)
                                 .environmentObject(dataController)
                 ) {

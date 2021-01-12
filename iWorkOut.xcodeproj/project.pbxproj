@@ -14,6 +14,7 @@
 		5E51344E2598BFD9008D4195 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */; };
 		5E5134592598C147008D4195 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5134582598C147008D4195 /* DataController.swift */; };
 		5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E52F0B325A11F1C00A5AC34 /* StartView.swift */; };
+		5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E570CA525AD4B8B002D4D64 /* TimedRing.swift */; };
 		5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59E0258D15FF0049CDD9 /* Exercise.swift */; };
 		5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
@@ -28,6 +29,8 @@
 		5E7E705D258CE2AE0030B507 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E705C258CE2AE0030B507 /* Preview Assets.xcassets */; };
 		5E7E7072258CE3650030B507 /* MuscleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E7071258CE3650030B507 /* MuscleGroup.swift */; };
 		5E7E707D258CE4320030B507 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E707C258CE4320030B507 /* Equipment.swift */; };
+		5E9B5BF725ABDAD00073E757 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9B5BF625ABDAD00073E757 /* HealthKit.framework */; };
+		5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B5BF925ABDB530073E757 /* DataManager.swift */; };
 		5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D0259FF07400E90941 /* ContentView.swift */; };
 		5EAC61D6259FF20300E90941 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D5259FF20300E90941 /* RecordView.swift */; };
 		5EDA2C9A25AB576900FAFB2F /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA2C9925AB576900FAFB2F /* ActivityView.swift */; };
@@ -85,6 +88,7 @@
 		5E51344D2598BFD9008D4195 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		5E5134582598C147008D4195 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5E52F0B325A11F1C00A5AC34 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		5E570CA525AD4B8B002D4D64 /* TimedRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedRing.swift; sourceTree = "<group>"; };
 		5E6B59E0258D15FF0049CDD9 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		5E7E705E258CE2AE0030B507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E7E7071258CE3650030B507 /* MuscleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleGroup.swift; sourceTree = "<group>"; };
 		5E7E707C258CE4320030B507 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		5E9B5BF625ABDAD00073E757 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		5E9B5BF925ABDB530073E757 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5EAC61D0259FF07400E90941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5EAC61D5259FF20300E90941 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		5EDA2C9925AB576900FAFB2F /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9B5BF725ABDAD00073E757 /* HealthKit.framework in Frameworks */,
 				5E1267D6259B889900A47AAC /* CloudKit.framework in Frameworks */,
 				5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */,
 			);
@@ -124,6 +131,7 @@
 		5E1267D4259B889900A47AAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E9B5BF625ABDAD00073E757 /* HealthKit.framework */,
 				5E7B5B2A259B995800911571 /* CoreData.framework */,
 				5E1267D5259B889900A47AAC /* CloudKit.framework */,
 			);
@@ -164,6 +172,15 @@
 				5E5134582598C147008D4195 /* DataController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5E570CAA25AD50DA002D4D64 /* ActivityRing */ = {
+			isa = PBXGroup;
+			children = (
+				5E570CA525AD4B8B002D4D64 /* TimedRing.swift */,
+				5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */,
+			);
+			path = ActivityRing;
 			sourceTree = "<group>";
 		};
 		5E7E7037258CE2AD0030B507 = {
@@ -229,7 +246,7 @@
 				5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */,
 				5E458193258E756200D1A0E1 /* DetailView.swift */,
 				5EDA2C9925AB576900FAFB2F /* ActivityView.swift */,
-				5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */,
+				5E570CAA25AD50DA002D4D64 /* ActivityRing */,
 				5E5134482598BF85008D4195 /* Misc */,
 			);
 			path = Views;
@@ -238,10 +255,19 @@
 		5E7E7070258CE32A0030B507 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5E9B5BF825ABDB3E0073E757 /* HKManager */,
 				5E5134462598BEAA008D4195 /* Exercise-PListModel */,
 				5E5134472598BF1C008D4195 /* Record-CoreDataModel */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5E9B5BF825ABDB3E0073E757 /* HKManager */ = {
+			isa = PBXGroup;
+			children = (
+				5E9B5BF925ABDB530073E757 /* DataManager.swift */,
+			);
+			path = HKManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,11 +404,13 @@
 				5E7E7054258CE2AE0030B507 /* MuscleView.swift in Sources */,
 				5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */,
 				5EDA2C9F25AB5F5400FAFB2F /* Ring.swift in Sources */,
+				5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */,
 				5E7E7056258CE2AE0030B507 /* iWorkOutApp.swift in Sources */,
 				5EDA2C9A25AB576900FAFB2F /* ActivityView.swift in Sources */,
 				5E7E7072258CE3650030B507 /* MuscleGroup.swift in Sources */,
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,
 				5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */,
+				5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */,
 				5E7E7058258CE2AE0030B507 /* ComplicationController.swift in Sources */,
 				5E51344E2598BFD9008D4195 /* Main.xcdatamodeld in Sources */,
 				5E5134592598C147008D4195 /* DataController.swift in Sources */,

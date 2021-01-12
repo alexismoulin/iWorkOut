@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ExerciseListView: View {
     @EnvironmentObject var dataController: DataController
+    @ObservedObject var dataManager: DataManager
     let selectedMuscle: String
     let selectedEquipment: String
     
@@ -17,7 +18,7 @@ struct ExerciseListView: View {
                 if exercise.id == "null" {
                     Text(exercise.name)
                 } else {
-                    NavigationLink(destination: DetailView(exercise: exercise)
+                    NavigationLink(destination: DetailView(dataManager: dataManager, exercise: exercise)
                                     .environment(\.managedObjectContext, dataController.container.viewContext)
                                     .environmentObject(dataController)
                     ) {
