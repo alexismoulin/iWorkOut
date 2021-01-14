@@ -11,12 +11,17 @@ struct DetailView: View {
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
     
-    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> String {
+    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> (set1: Int64, set2: Int64, set3: Int64, total: Int64, calories: Int64) {
         let record = recordList.first(where: {$0.id == exerciseId})
         let record1: Int64 = record?.set1 ?? 0
         let record2: Int64 = record?.set2 ?? 0
         let record3: Int64 = record?.set3 ?? 0
-        return String(record1 + record2 + record3)
+        let calories: Int64 = record?.calories ?? 0
+        return (set1: record1, set2: record2, set3: record3, total: record1 + record2 + record3, calories: calories)
+    }
+    
+    var record: (set1: Int64, set2: Int64, set3: Int64, total: Int64, calories: Int64) {
+        getRecord(recordList: fetchedResults, exerciseId: exercise.id)
     }
     
     var body: some View {
@@ -43,11 +48,12 @@ struct DetailView: View {
                                 .environment(\.managedObjectContext, dataController.container.viewContext)
                                 .environmentObject(dataController)
                 ) {
-                    Text("Start")
+                    Text("START").foregroundColor(.lime)
                 }
+                .padding(.vertical)
                 Divider()
                 Text("🏆").font(.largeTitle)
-                Text("\(getRecord(recordList: fetchedResults, exerciseId: exercise.id))")
+                Text("\(record.total)").fontWeight(.bold)
                 Spacer()
             }
         }

@@ -16,6 +16,7 @@ struct TimedRing: View {
                 .font(.largeTitle)
                 .onTapGesture {
                     timeRemaining = 0
+                    percent = 100
                 }
                 .onReceive(timer) { _ in
                     if timeRemaining > -1 {

@@ -17,6 +17,8 @@ struct ActivityView: View {
     @State private var isPresented: Bool = false
     @State private var alertTitle: String = ""
     @State private var alertBody: String = ""
+    @State private var displayMode: DisplayMode = .energy
+    @State private var showingAlert: Bool = false
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
     
@@ -27,9 +29,6 @@ struct ActivityView: View {
     enum DisplayMode {
         case energy, heartRate
     }
-    
-    @State private var displayMode: DisplayMode = .energy
-    @State private var showingAlert: Bool = false
     
     var quantity: String {
         switch displayMode {
@@ -79,6 +78,7 @@ struct ActivityView: View {
             newRecord.set1 = Int64(record[1]!)
             newRecord.set2 = Int64(record[2]!)
             newRecord.set3 = Int64(record[3]!)
+            newRecord.calories = Int64(dataManager.totalEnergyBurned)
             print("saving new record")
             dataController.save()
             isPresented = true
@@ -90,6 +90,7 @@ struct ActivityView: View {
                 CDRecord?.set1 = Int64(record[1]!)
                 CDRecord?.set2 = Int64(record[2]!)
                 CDRecord?.set3 = Int64(record[3]!)
+                CDRecord?.calories = Int64(dataManager.totalEnergyBurned)
                 print("preparing update your record")
                 dataController.save()
                 isPresented = true
@@ -107,9 +108,6 @@ struct ActivityView: View {
             if set < 4 {
                 if timeRemaining > -1 {
                     TimedRing(totalSeconds: set == 1 ? 3 : 120, percent: $percent, timeRemaining: $timeRemaining)
-                        .onAppear {
-                            dataManager.pause()
-                        }
                 } else {
                     HStack {
                         Text("Reps")
@@ -123,7 +121,11 @@ struct ActivityView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
                     }.onAppear {
                         title = "Set \(set)"
-                        dataManager.start()
+                        if set == 1 {
+                            dataManager.start()
+                        } else {
+                            dataManager.resume()
+                        }
                     }
                     Spacer()
                     
@@ -144,11 +146,44 @@ struct ActivityView: View {
                     }
                 }
             } else {
-                Text("Set 1: \(record[1] ?? 0)")
-                Text("Set 2: \(record[2] ?? 0)")
-                Text("Set 3: \(record[3] ?? 0)")
-                Button("Save") {
-                    saveWorkout(CDRecordTotal: getRecord(CDRecord: CDRecord, exerciseId: exercise.id))
+                Form {
+                    Section(header: Text("Reps per set")) {
+                        HStack {
+                            Text("Set 1:")
+                            Spacer()
+                            Text("\(record[1] ?? 0)")
+                        }
+                        HStack {
+                            Text("Set 2:")
+                            Spacer()
+                            Text("\(record[2] ?? 0)")
+                        }
+                        HStack {
+                            Text("Set 3:")
+                            Spacer()
+                            Text("\(record[3] ?? 0)")
+                        }
+                    }
+                    Section(header: Text("Total")) {
+                        HStack {
+                            Text("Total sum:")
+                            Spacer()
+                            Text("\((record[1] ?? 0) + (record[2] ?? 0) + (record[3] ?? 0))")
+                        }
+                    }
+                    Section(header: Text("Colories")) {
+                        HStack {
+                            Text("Total burned:")
+                            Spacer()
+                            Text("\(Int(dataManager.totalEnergyBurned))")
+                        }
+                    }
+                    Button("Save") {
+                        dataManager.end()
+                        saveWorkout(CDRecordTotal: getRecord(CDRecord: CDRecord, exerciseId: exercise.id))
+                    }.foregroundColor(.green)
+                }.onAppear {
+                    title = "Summary"
                 }
             }
         }
