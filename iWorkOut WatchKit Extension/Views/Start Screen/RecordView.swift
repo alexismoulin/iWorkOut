@@ -44,7 +44,7 @@ struct RecordView: View {
                 .accentColor(.lime)
                 .frame(height: 60)
                 .clipped()
-                Picker(selection: $selectedEquipment, label: createPickerHeadLiner(text: "Equipment", color: .yellow2)) {
+                Picker(selection: $selectedEquipment, label: createPickerHeadLiner(text: "Equipment", color: .green)) {
                     Text("Body Only").font(.system(size: pickerFontSize)).tag(Equipment.bodyOnly) // 0
                     Text("Bench").font(.system(size: pickerFontSize)).tag(Equipment.bench) // 1
                     Text("Barbell").font(.system(size: pickerFontSize)).tag(Equipment.barbell) // 2

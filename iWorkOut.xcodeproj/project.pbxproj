@@ -17,6 +17,7 @@
 		5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E570CA525AD4B8B002D4D64 /* TimedRing.swift */; };
 		5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59E0258D15FF0049CDD9 /* Exercise.swift */; };
 		5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */; };
+		5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D294425B1E2D5005C0E77 /* DebugView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
 		5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7B5B2A259B995800911571 /* CoreData.framework */; };
 		5E7E7043258CE2AD0030B507 /* iWorkOut WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5E7E7042258CE2AD0030B507 /* iWorkOut WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -92,6 +93,7 @@
 		5E570CA525AD4B8B002D4D64 /* TimedRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedRing.swift; sourceTree = "<group>"; };
 		5E6B59E0258D15FF0049CDD9 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
+		5E6D294425B1E2D5005C0E77 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5E7B5B2A259B995800911571 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5E7E703E258CE2AD0030B507 /* iWorkOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWorkOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,12 +161,12 @@
 			path = "Record-CoreDataModel";
 			sourceTree = "<group>";
 		};
-		5E5134482598BF85008D4195 /* Misc */ = {
+		5E5134482598BF85008D4195 /* Custom Colors */ = {
 			isa = PBXGroup;
 			children = (
 				5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */,
 			);
-			path = Misc;
+			path = "Custom Colors";
 			sourceTree = "<group>";
 		};
 		5E5134572598C112008D4195 /* Controllers */ = {
@@ -183,6 +185,25 @@
 				5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */,
 			);
 			path = ActivityRing;
+			sourceTree = "<group>";
+		};
+		5E6D294025B1E163005C0E77 /* AlertContent */ = {
+			isa = PBXGroup;
+			children = (
+				5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */,
+			);
+			path = AlertContent;
+			sourceTree = "<group>";
+		};
+		5E6D294925B1E35C005C0E77 /* Start Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5EAC61D0259FF07400E90941 /* ContentView.swift */,
+				5E52F0B325A11F1C00A5AC34 /* StartView.swift */,
+				5EAC61D5259FF20300E90941 /* RecordView.swift */,
+				5E6D294425B1E2D5005C0E77 /* DebugView.swift */,
+			);
+			path = "Start Screen";
 			sourceTree = "<group>";
 		};
 		5E7E7037258CE2AD0030B507 = {
@@ -240,17 +261,15 @@
 		5E7E706F258CE2CF0030B507 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5EAC61D0259FF07400E90941 /* ContentView.swift */,
-				5E52F0B325A11F1C00A5AC34 /* StartView.swift */,
+				5E6D294925B1E35C005C0E77 /* Start Screen */,
 				5E7E7053258CE2AE0030B507 /* MuscleView.swift */,
-				5EAC61D5259FF20300E90941 /* RecordView.swift */,
 				5E38A71F258CF82200574232 /* EquipmentView.swift */,
 				5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */,
 				5E458193258E756200D1A0E1 /* DetailView.swift */,
 				5EDA2C9925AB576900FAFB2F /* ActivityView.swift */,
-				5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */,
+				5E6D294025B1E163005C0E77 /* AlertContent */,
 				5E570CAA25AD50DA002D4D64 /* ActivityRing */,
-				5E5134482598BF85008D4195 /* Misc */,
+				5E5134482598BF85008D4195 /* Custom Colors */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +422,7 @@
 				5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */,
 				5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */,
 				5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */,
+				5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */,
 				5E458194258E756200D1A0E1 /* DetailView.swift in Sources */,
 				5E7E7054258CE2AE0030B507 /* MuscleView.swift in Sources */,
 				5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */,

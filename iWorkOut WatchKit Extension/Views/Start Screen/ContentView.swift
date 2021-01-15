@@ -10,6 +10,9 @@ struct ContentView: View {
                 .environmentObject(dataController)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
             RecordView(fetchedResults: fetchedResults)
+            DebugView()
+                .environmentObject(dataController)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

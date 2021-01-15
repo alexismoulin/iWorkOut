@@ -12,10 +12,6 @@ struct StartView: View {
             label: {
                 Text("Start an Exercise")
             })
-            Button("Delete all") {
-                dataController.deleteAll()
-                print("records deleted")
-            }
         }
     }
 }
