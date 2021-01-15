@@ -10,7 +10,11 @@ struct RecordView: View {
         loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ?? [Exercise(id: "999", name: "No Exercise", instructions: "no data")]
     }
     
-    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> String {
+    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> Record? {
+        return recordList.first(where: {$0.id == exerciseId})
+    }
+    
+    func getRecordScore(recordList: FetchedResults<Record>, exerciseId: String) -> String {
         let record = recordList.first(where: {$0.id == exerciseId})
         let record1: Int64 = record?.set1 ?? 0
         let record2: Int64 = record?.set2 ?? 0
@@ -58,10 +62,12 @@ struct RecordView: View {
                 }.frame(height: 60).clipped()
             }
             List(exerciseList) { exercise in
-                HStack {
-                    Text((exercise.name))
-                    Spacer()
-                    Text("🏆 \(getRecord(recordList: fetchedResults, exerciseId: exercise.id))")
+                NavigationLink(destination: RecordForm(record: getRecord(recordList: fetchedResults, exerciseId: exercise.id))) {
+                    HStack {
+                        Text((exercise.name))
+                        Spacer()
+                        Text("🏆 \(getRecordScore(recordList: fetchedResults, exerciseId: exercise.id))")
+                    }
                 }
             }
         }.navigationTitle("Records")
