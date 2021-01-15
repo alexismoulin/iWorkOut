@@ -35,6 +35,7 @@
 		5EAC61D6259FF20300E90941 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D5259FF20300E90941 /* RecordView.swift */; };
 		5EDA2C9A25AB576900FAFB2F /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA2C9925AB576900FAFB2F /* ActivityView.swift */; };
 		5EDA2C9F25AB5F5400FAFB2F /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */; };
+		5EEE97E925B1BE8D00B06D0F /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		5EAC61D5259FF20300E90941 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		5EDA2C9925AB576900FAFB2F /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
+		5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */,
 				5E458193258E756200D1A0E1 /* DetailView.swift */,
 				5EDA2C9925AB576900FAFB2F /* ActivityView.swift */,
+				5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */,
 				5E570CAA25AD50DA002D4D64 /* ActivityRing */,
 				5E5134482598BF85008D4195 /* Misc */,
 			);
@@ -416,6 +419,7 @@
 				5E5134592598C147008D4195 /* DataController.swift in Sources */,
 				5EAC61D6259FF20300E90941 /* RecordView.swift in Sources */,
 				5E7E707D258CE4320030B507 /* Equipment.swift in Sources */,
+				5EEE97E925B1BE8D00B06D0F /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

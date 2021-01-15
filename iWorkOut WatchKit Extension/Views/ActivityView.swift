@@ -10,15 +10,14 @@ struct ActivityView: View {
     @State private var record: [Int: Int] = [1: 0, 2: 0, 3: 0]
     @State private var setValue: Double = 0
     @State private var isFocused: Bool = false
-    @State private var set: Int = 1
+    @State private var setNumber: Int = 1
     @State private var timeRemaining: Int = 3
     @State private var percent: Double = 0
     @State private var title: String = "Get Ready!"
     @State private var isPresented: Bool = false
-    @State private var alertTitle: String = ""
-    @State private var alertBody: String = ""
     @State private var displayMode: DisplayMode = .energy
     @State private var showingAlert: Bool = false
+    @State private var alertType: Int = 0
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
     
@@ -71,8 +70,7 @@ struct ActivityView: View {
     func saveWorkout(CDRecordTotal: Int64) {
         if CDRecordTotal == 0 {
             //create new Record
-            alertTitle = "Congratulations"
-            alertBody = "You have completed a New Exercise. Your record is: \(record[1]! + record[2]! + record[3]!)"
+            alertType = 1
             let newRecord = Record(context: dataController.container.viewContext)
             newRecord.id = exercise.id
             newRecord.set1 = Int64(record[1]!)
@@ -85,8 +83,7 @@ struct ActivityView: View {
         } else {
             // update existing record
             if record[1]! + record[2]! + record[3]! > CDRecordTotal {
-                alertTitle = "Congratulations"
-                alertBody = "You have beaten your previous record of \(CDRecord!.set1 + CDRecord!.set2 + CDRecord!.set3). \nYour new record is: \(record[1]! + record[2]! + record[3]!)"
+                alertType = 2
                 CDRecord?.set1 = Int64(record[1]!)
                 CDRecord?.set2 = Int64(record[2]!)
                 CDRecord?.set3 = Int64(record[3]!)
@@ -96,8 +93,7 @@ struct ActivityView: View {
                 isPresented = true
             } else {
                 // didnt beat your record
-                alertTitle = "Try again"
-                alertBody = "You didn't beat your previous record of \(CDRecord!.set1 + CDRecord!.set2 + CDRecord!.set3). \nYour score is: \(record[1]! + record[2]! + record[3]!)"
+                alertType = 3
                 isPresented = true
             }
         }
@@ -105,9 +101,9 @@ struct ActivityView: View {
     
     var body: some View {
         VStack {
-            if set < 4 {
+            if setNumber < 4 {
                 if timeRemaining > -1 {
-                    TimedRing(totalSeconds: set == 1 ? 3 : 120, percent: $percent, timeRemaining: $timeRemaining)
+                    TimedRing(totalSeconds: setNumber == 1 ? 3 : 120, percent: $percent, timeRemaining: $timeRemaining)
                 } else {
                     HStack {
                         Text("Reps")
@@ -120,8 +116,8 @@ struct ActivityView: View {
                             .digitalCrownRotation($setValue, from: 0, through: 100, by: 1, sensitivity: .low, isContinuous: false, isHapticFeedbackEnabled: true)
                             .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
                     }.onAppear {
-                        title = "Set \(set)"
-                        if set == 1 {
+                        title = "Set \(setNumber)"
+                        if setNumber == 1 {
                             dataManager.start()
                         } else {
                             dataManager.resume()
@@ -137,10 +133,10 @@ struct ActivityView: View {
                     }
                     Spacer()
                     Button("Done") {
-                        record[set] = Int(setValue)
+                        record[setNumber] = Int(setValue)
                         title = "Rest"
                         timeRemaining = 120
-                        set += 1
+                        setNumber += 1
                         percent = 0
                         dataManager.pause()
                     }
@@ -178,7 +174,7 @@ struct ActivityView: View {
                             Text("\(Int(dataManager.totalEnergyBurned))")
                         }
                     }
-                    Button("Save") {
+                    Button("SAVE") {
                         dataManager.end()
                         saveWorkout(CDRecordTotal: getRecord(CDRecord: CDRecord, exerciseId: exercise.id))
                     }.foregroundColor(.green)
@@ -189,9 +185,17 @@ struct ActivityView: View {
         }
         .navigationTitle(title)
         .alert(isPresented: $isPresented) { () -> Alert in
-            Alert(title: Text(alertTitle), message: Text(alertBody), dismissButton: .default(Text("Ok"), action: {
-                presentation.wrappedValue.dismiss()
-            }))
+            Alert(
+                title: createAlertTile(type: alertType),
+                message: createAlertBody(
+                    type: alertType,
+                    CDRecord: CDRecord!.set1 + CDRecord!.set2 + CDRecord!.set3,
+                    currentRecord: record[1]! + record[2]! + record[3]!
+                ),
+                dismissButton: .default(Text("Ok"), action: {
+                    presentation.wrappedValue.dismiss()
+                })
+            )
         }
     }
 }
