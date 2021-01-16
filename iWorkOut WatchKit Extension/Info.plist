@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>We need to save your completed workouts</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>We read your health data during workouts</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -36,12 +32,19 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We read your health data during workouts</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>We need to save your completed workouts</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>
 	<key>WKBackgroundModes</key>
-	<array/>
+	<array>
+		<string>physical-therapy</string>
+		<string>workout-processing</string>
+	</array>
 	<key>WKWatchOnly</key>
 	<true/>
 </dict>

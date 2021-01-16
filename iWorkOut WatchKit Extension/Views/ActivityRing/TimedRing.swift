@@ -25,6 +25,9 @@ struct TimedRing: View {
                             percent += 100 / totalSeconds
                         }
                     }
+                    if timeRemaining == 0 {
+                        WKInterfaceDevice.current().play(.start)
+                    }
                 }
         }
     }
