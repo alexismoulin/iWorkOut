@@ -3,8 +3,11 @@ import SwiftUI
 struct TimedRing: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let totalSeconds: Double
+    
     @Binding var percent: Double
     @Binding var timeRemaining: Int
+    
+    //MARK: - Body
     var body: some View {
         ZStack {
             PercentageRing(
@@ -14,7 +17,7 @@ struct TimedRing: View {
             )
             Text("\(timeRemaining)")
                 .font(.largeTitle)
-                .onTapGesture {
+                .onLongPressGesture {
                     timeRemaining = 0
                     percent = 100
                 }
@@ -27,10 +30,12 @@ struct TimedRing: View {
                     }
                     if timeRemaining == 0 {
                         WKInterfaceDevice.current().play(.start)
+                        timer.upstream.connect().cancel()
                     }
                 }
         }
     }
+
 }
 
 

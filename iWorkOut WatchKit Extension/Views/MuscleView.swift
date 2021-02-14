@@ -2,12 +2,13 @@ import SwiftUI
 
 struct MuscleView: View {
     @EnvironmentObject var dataController: DataController
-    @ObservedObject var dataManager: DataManager
+    @EnvironmentObject var dataManager: DataManager
     var body: some View {
         List(MuscleGroup.allCases) { muscle in
-            NavigationLink(destination: EquipmentView(dataManager: dataManager, selectedMuscle: muscle.rawValue)
+            NavigationLink(destination: EquipmentView(selectedMuscle: muscle.rawValue)
                             .environment(\.managedObjectContext, dataController.container.viewContext)
                             .environmentObject(dataController)
+                            .environmentObject(dataManager)
             ) {
                 HStack {
                     Text(muscle.rawValue.uppercased()).foregroundColor(.lime)

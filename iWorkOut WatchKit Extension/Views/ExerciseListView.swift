@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ExerciseListView: View {
     @EnvironmentObject var dataController: DataController
-    @ObservedObject var dataManager: DataManager
+    @EnvironmentObject var dataManager: DataManager
     let selectedMuscle: String
     let selectedEquipment: String
     
@@ -18,9 +18,10 @@ struct ExerciseListView: View {
                 if exercise.id == "null" {
                     Text(exercise.name)
                 } else {
-                    NavigationLink(destination: DetailView(dataManager: dataManager, exercise: exercise)
+                    NavigationLink(destination: DetailView(exercise: exercise)
                                     .environment(\.managedObjectContext, dataController.container.viewContext)
                                     .environmentObject(dataController)
+                                    .environmentObject(dataManager)
                     ) {
                         HStack {
                             Text(exercise.name)

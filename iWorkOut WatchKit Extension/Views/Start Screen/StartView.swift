@@ -1,17 +1,20 @@
 import SwiftUI
+import UserNotifications
 
 struct StartView: View {
     @EnvironmentObject var dataController: DataController
-    @ObservedObject var dataManager: DataManager
+    @EnvironmentObject var dataManager: DataManager
+    
     var body: some View {
         VStack {
-        NavigationLink(
-            destination: MuscleView(dataManager: dataManager)
-                .environment(\.managedObjectContext, dataController.container.viewContext)
-                .environmentObject(dataController),
-            label: {
-                Text("Start an Exercise")
-            })
+            NavigationLink(
+                destination: MuscleView()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                    .environmentObject(dataController)
+                    .environmentObject(dataManager),
+                label: {
+                    Text("Start an Exercise")
+                })
         }
     }
 }

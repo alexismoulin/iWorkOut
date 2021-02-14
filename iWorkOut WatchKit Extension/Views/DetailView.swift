@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var dataController: DataController
-    @ObservedObject var dataManager: DataManager
+    @EnvironmentObject var dataManager: DataManager
     
     let exercise: Exercise
     
@@ -44,9 +44,10 @@ struct DetailView: View {
                             displayInstructions = true
                         }
                 }
-                NavigationLink(destination: ActivityView(dataManager: dataManager, exercise: exercise)
+                NavigationLink(destination: ActivityView(exercise: exercise)
                                 .environment(\.managedObjectContext, dataController.container.viewContext)
                                 .environmentObject(dataController)
+                                .environmentObject(dataManager)
                 ) {
                     Text("START").foregroundColor(.lime)
                 }

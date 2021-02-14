@@ -44,3 +44,15 @@ func createAlertBody(type: Int, CDRecord: Int64, currentRecord: Int) -> Text {
     }
 }
 
+func createCustomAlert(alertType: Int, CDRecordSum: Int64, currentRecordSum: Int, dismissfunction: @escaping () -> Void) -> Alert {
+    return Alert(
+        title: createAlertTile(type: alertType),
+        message: createAlertBody(
+            type: alertType,
+            CDRecord: CDRecordSum,
+            currentRecord: currentRecordSum
+        ),
+        dismissButton: .default(Text("Ok"), action: dismissfunction)
+    )
+}
+
