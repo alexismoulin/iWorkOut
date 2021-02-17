@@ -25,6 +25,7 @@ struct ActivityView: View {
     @State private var showingAlert: Bool = false
     @State private var alertType: Int = 0
     @State private var notificationDate: Date = Date()
+    @State private var correction: Bool = false
     
     //MARK: - CoreData functions and variables
     
@@ -183,6 +184,19 @@ struct ActivityView: View {
         }
     }
     
+    func createCorrection() -> some View {
+        VStack {
+            createReps()
+            Spacer()
+            Button("Correction") {
+                record[setNumber] = Int(setValue)
+                title = "Rest"
+                setNumber += 1
+                correction = false
+            }
+        }
+    }
+    
     func createSummary() -> some View {
         Form {
             Section(header: Text("Reps per set")) {
@@ -228,25 +242,47 @@ struct ActivityView: View {
     
     var body: some View {
         VStack {
-            if setNumber < 4 {
-                if timeRemaining > -1 {
-                    TimedRing(totalSeconds: setNumber == 1 ? 3 : 120, percent: $percent, timeRemaining: $timeRemaining)
-                } else {
-                    createSetActivity()
-                        .onAppear {
-                            title = "Set \(setNumber)"
-                            if setNumber == 1 {
-                                dataManager.start() // start dataManager
-                            } else {
-                                dataManager.resume() // resume dataManager
-                            }
-                        }
-                }
+            if correction {
+                createCorrection()
             } else {
-                createSummary()
-                    .onAppear {
-                        title = "Summary"
+                if setNumber < 4 {
+                    if timeRemaining > -1 {
+                        TimedRing(totalSeconds: setNumber == 1 ? 3 : 120, percent: $percent, timeRemaining: $timeRemaining)
+                            .gesture(
+                                DragGesture(minimumDistance: 50, coordinateSpace: .local)
+                                    .onEnded { _ in
+                                        if setNumber > 1 {
+                                            setNumber -= 1
+                                            title = "Set \(setNumber)"
+                                            correction = true
+                                        }
+                                    }
+                            )
+                    } else {
+                        createSetActivity()
+                            .onAppear {
+                                title = "Set \(setNumber)"
+                                if setNumber == 1 {
+                                    dataManager.start() // start dataManager
+                                } else {
+                                    dataManager.resume() // resume dataManager
+                                }
+                            }
                     }
+                } else {
+                    createSummary()
+                        .onAppear {
+                            title = "Summary"
+                        }
+                        .gesture(
+                            DragGesture(minimumDistance: 50, coordinateSpace: .local)
+                                .onEnded { _ in
+                                    setNumber -= 1
+                                    title = "Set \(setNumber)"
+                                    correction = true
+                                }
+                        )
+                }
             }
         }
         .navigationTitle(title)
