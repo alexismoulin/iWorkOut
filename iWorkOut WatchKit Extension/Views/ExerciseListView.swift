@@ -9,7 +9,7 @@ struct ExerciseListView: View {
     var noExercise: Bool = false
     
     var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "null", name: "No Exercise", instructions: "no data")]
+        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "null", name: "No Exercise", type: "0")]
     }
     
     var body: some View {
@@ -26,7 +26,7 @@ struct ExerciseListView: View {
                         HStack {
                             Text(exercise.name)
                             Spacer()
-                            Image(exercise.id)
+                            Image("\(exercise.id)-a")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width * 0.45)

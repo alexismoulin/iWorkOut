@@ -7,6 +7,7 @@ struct DetailView: View {
     let exercise: Exercise
     
     @State private var reps: Double = 0
+    @State private var imageAnimationFrame: Int = 0
     @State private var displayInstructions: Bool = false
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
@@ -27,23 +28,11 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                ZStack(alignment: .topTrailing) {
-                    Image(exercise.id)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                    Image("instruction")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                        .shadow(radius: 2)
-                        .offset(x: -10, y: 10)
-                        .onTapGesture {
-                            displayInstructions = true
-                        }
-                }
+                Image(imageAnimationFrame % 2 == 0 ? "\(exercise.id)-a" : "\(exercise.id)-b")
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                
                 NavigationLink(destination: ActivityView(exercise: exercise)
                                 .environment(\.managedObjectContext, dataController.container.viewContext)
                                 .environmentObject(dataController)
@@ -59,12 +48,14 @@ struct DetailView: View {
             }
         }
         .navigationTitle(exercise.name)
-        .sheet(isPresented: $displayInstructions, content: {
-            ScrollView {
-                Text("Instructions")
-                Divider()
-                Text(exercise.instructions).font(.system(size: 12))
+        .onAppear {
+            for i in 0..<20 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(i)) {
+                    imageAnimationFrame += 1
+                }
             }
-        })
+        }
     }
 }
+
+

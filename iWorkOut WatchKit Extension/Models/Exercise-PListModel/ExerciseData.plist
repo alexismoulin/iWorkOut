@@ -11,88 +11,40 @@
 				<string>0-0-0</string>
 				<key>name</key>
 				<string>Push up</string>
-				<key>instructions</key>
-				<string>The push up exercise is one of the best exercises available for building a strong chest, arms, core and back.
-
-Steps : 
-
-1.) Start off by lying face down on the floor or on a mat with your feet together and arms shoulder width apart.
-
-2.) Slowly draw your abs in, inhale and raise your body off of the floor until your arms are straight, keeping your head and neck level with your body as this will be your starting position.
-
-3.) As you lower yourself down towards the ground, exhale until your chest almost touches the ground and you feel a stretch in your chest muscles.
-
-4.) Hold for a count at the bottom position and then return back up to the starting position.
-
-Tips :
-
-1.) A close grip works more of the inner pectorals and a wide grip works more of the outer pectorals.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>0-0-1</string>
 				<key>name</key>
 				<string>Close Hand Pushup</string>
-				<key>instructions</key>
-				<string>Steps :
-
-1.) Start off laying on the floor in a push up position with your feet extended out behind you and your hands shoulder width apart.
-
-2.) Slowly walk your hands inward so that your fingertips and your thumbs are touching and creating almost a diamond shape or as close together as possible.
-
-3.) Lower yourself towards the ground until your chest almost touches the floor and hold.
-
-4.) Return back to the starting position squeezing your chest on the way back up.
-
-5.) Repeat for as many reps and sets as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>0-0-2</string>
 				<key>name</key>
 				<string>Wide Hand Pushup</string>
-				<key>instructions</key>
-				<string>Steps :
-
-1.) Start off laying on the floor in a push up position with your feet extended out behind you and your hands shoulder width apart.
-
-2.) Slowly walk your hands outward so that your hands are a bit further out than shoulder width apart.
-
-3.) Lower yourself towards the ground until your chest almost touches the floor and hold.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>0-0-3</string>
 				<key>name</key>
 				<string>Push Up to Side Plank</string>
-				<key>instructions</key>
-				<string>Steps :
-
-1.) Start off in a push up position on the floor with your toes extended out and arms at shoulder level.
-
-2.) Once in position perform a push up and then quickly come back up, but shift your weight to one side of your body twisting to one side and bringing the arm on the twisted side up towards the ceiling.
-
-3.) Hold this position for a count then return back to the starting position for another push up.
-
-4.) Repeat for as many reps and sets as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>0-0-4</string>
 				<key>name</key>
 				<string>Isometric Chest Squeeze</string>
-				<key>instructions</key>
-				<string>Steps :
-
-1.) Start off standing up straight with your arms at your sides and your feet shoulder width apart.
-
-2.) Place your arms in a 90 degree angle right in front of your chest with your palms together.
-
-3.) Push your hands against each other and contract your chest until you feel tension in your muscles.
-
-4.) Hold onto this position for 15 to 30 seconds then return back to the starting position.
-
-5.) Repeat for as many reps and duration as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 		</array>
 	</dict>
@@ -107,20 +59,8 @@ Tips :
 				<string>2-0-0</string>
 				<key>name</key>
 				<string>Close Triceps Pushup</string>
-				<key>instructions</key>
-				<string>The close triceps pushup exercise is a version of the push up that isolate the tricep muscles.
-
-Steps : 
-
-1.) Start off kneeling down on the floor or a mat, placing your hands with thumbs together and raise your body up on your toes.
-
-2.) Draw your abs in and keep your back and neck in a straight line.
-
-3.) Slowly lower your body towards the floor until you are nearly touching the ground.
-
-4.) In a controlled manner raise your body back up to the starting position.
-
-5.) Repeat for as many reps and sets as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 		</array>
 	</dict>
@@ -136,35 +76,19 @@ Steps :
 		<array>
 			<dict>
 				<key>id</key>
-				<string>6-0-1</string>
+				<string>6-0-0</string>
 				<key>name</key>
 				<string>Bodyweight Lunge</string>
-				<key>instructions</key>
-				<string>Steps :
-
-1.) Start off standing up straight with your knees slightly bent then get into a lunge position, and squat down through your hips.
-
-2.) Squat down so that your front leg is parallel with the floor and hold for a count.
-
-3.) Return back to the starting position.
-
-4.) Repeat for as many reps and sets as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
-				<string>6-0-2</string>
+				<string>6-0-1</string>
 				<key>name</key>
 				<string>Sit Squat</string>
-				<key>instructions</key>
-				<string>Steps : 
-
-1.) To begin this exercise; start off by standing feet shoulder width apart and flex at your knees and torso sitting back with your hips.
-
-2.) Extend your arms out in front of you with your hands clasped together and squat down until your knees are parallel with your glutes.
-
-3.) Return back to the starting position.
-
-4.) Repeat this exercise for as many repetitions as needed</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 		</array>
 	</dict>
@@ -177,16 +101,8 @@ Steps :
 				<string>7-0-0</string>
 				<key>name</key>
 				<string>One Leg Calf Raise</string>
-				<key>instructions</key>
-				<string>Steps :
-
-1.) Start off standing to the side of either a smith machine or a support structure and holding onto it.
-
-2.) Slowly elevate one of your heels off of the floor as far as possible, keeping the other leg extended behind you, and squeeze your calf.
-
-3.) Hold for a count and return back to the starting position.
-
-4.) Repeat for as many reps and sets as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 		</array>
 	</dict>
@@ -199,104 +115,40 @@ Steps :
 				<string>8-0-0</string>
 				<key>name</key>
 				<string>Crunches</string>
-				<key>instructions</key>
-				<string>The crunch exercise is the most common abdominal exercise and often is improperly performed.
-
-Steps : 
-
-1.) Start off by placing your hands across your chest or on either side of your head as this will be your starting position.
-
-2.) Then slowly raise your upper body (head, shoulders and chest) up off of the floor and towards your knees, squeezing and crunching your abs.
-
-3) Hold this position for a count, squeezing your abs, then return back to the starting position.
-
-Tips :
-
-1.) Make sure to keep your hips straight and your lower back against the floor during this exercise.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>8-0-1</string>
 				<key>name</key>
 				<string>Leg Raise</string>
-				<key>instructions</key>
-				<string>The leg raise exercise helps work and strengthen your lower abs which are typically a hard muscle to target.
-
-Steps : 
-
-1.) Start off either lying on a flat bench or lying down on the floor, keeping your hands under your hips to support your back as this will be the starting position of the exercise.
-
-2.) Once in position, keep your feet together and your toes pointed out, slowly raise your legs up towards the ceiling squeezing your ab muscles in the process.
-
-3.) Continue on the motion upward while squeezing your lower abs then once you reach the top position, pause and hold for a count, then slowly return back to the starting position in a controlled manner.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>8-0-2</string>
 				<key>name</key>
 				<string>Air Bike</string>
-				<key>instructions</key>
-				<string>Steps : 
-
-1.) Start off lying flat as if you were going to perform a sit up putting your hands behind your your head and lifting your shoulders into a crunch position.
-
-2.) Bring your knees up so that they are perpendicular with the floor and your lower legs are parallel with the ground as this will be your starting position.
-
-3.) Slowly go through a cycle pedal motion kicking forward with your right leg and bringing in the knee of the left leg.
-
-4.) Next bring your right elbow close to your left knee by crunching to the side.
-
-5.) Return back to the starting position as you breathe in then crunch to the opposite side as you cycle your legs and bring your left elbow close to your right knee.
-
-6.) Repeat with each side for as many reps and sets as desired.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>8-0-3</string>
 				<key>name</key>
 				<string>Alternate Heel Touchers</string>
-				<key>instructions</key>
-				<string>Steps : 
-
-1.) Start off lying on the floor with your knees bent, your feet on the floor at around 18 to 24 inches apart, and your arms extended by your side.
-
-2.) Once in the starting position, crunch forward over your torso to the right side and touch your right heel.
-
-3.) Hold this position for a few seconds, squeezing your abs and then return back to the starting position.
-
-4.) Switch to the other side, crunching over your torso on the left side and touching your left heel, squeezing your abs and holding the contraction for a count.</string>
-			</dict>
-			<dict>
-				<key>id</key>
-				<string>8-0-4</string>
-				<key>name</key>
-				<string>Plank</string>
-				<key>instructions</key>
-				<string>Steps : 
-
-1.) Start off by kneeling on all fours and aligning both hands right below your shoulders keep your knees beneath your hips.
-
-2.) Extend both of your feet out behind you and squeeze on your core muscles, making sure that your body is aligned straight 
-
-3.) Hold this position for about 30 seconds to a minute.
-
-4.) Release, return back to the starting position and repeat for as many times as you would like to perform this exercise.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>8-0-5</string>
 				<key>name</key>
 				<string>Side Bridge</string>
-				<key>instructions</key>
-				<string>The side bridge exercise is a great core workout to improve strength and conditioning.
-
-Steps : 
-
-1.) Start off lying on one side of your body with your legs extended out straight and your forearm perpendicular to your body.
-
-2.) Once in position, draw your abs in and slowly raise yourself up so that you are balanced on your feet and forearm.
-
-3.) Hold onto this position for a count, squeezing your abdominals and then return back to the starting position.</string>
+				<key>type</key>
+				<string>rep</string>
 			</dict>
 		</array>
 	</dict>
