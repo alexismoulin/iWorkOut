@@ -15,6 +15,7 @@
 		5E5134592598C147008D4195 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5134582598C147008D4195 /* DataController.swift */; };
 		5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E52F0B325A11F1C00A5AC34 /* StartView.swift */; };
 		5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E570CA525AD4B8B002D4D64 /* TimedRing.swift */; };
+		5E69D60025F16B7E008D397C /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69D5FF25F16B7E008D397C /* StopWatchManager.swift */; };
 		5E6B59E1258D15FF0049CDD9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59E0258D15FF0049CDD9 /* Exercise.swift */; };
 		5E6B59EC258D42B80049CDD9 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */; };
 		5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D294425B1E2D5005C0E77 /* DebugView.swift */; };
@@ -92,6 +93,7 @@
 		5E5134582598C147008D4195 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5E52F0B325A11F1C00A5AC34 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		5E570CA525AD4B8B002D4D64 /* TimedRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedRing.swift; sourceTree = "<group>"; };
+		5E69D5FF25F16B7E008D397C /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
 		5E6B59E0258D15FF0049CDD9 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		5E6D294425B1E2D5005C0E77 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 			path = ActivityRing;
 			sourceTree = "<group>";
 		};
+		5E69D60425F16DEB008D397C /* StopWatchManager */ = {
+			isa = PBXGroup;
+			children = (
+				5E69D5FF25F16B7E008D397C /* StopWatchManager.swift */,
+			);
+			path = StopWatchManager;
+			sourceTree = "<group>";
+		};
 		5E6D294025B1E163005C0E77 /* AlertContent */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +293,7 @@
 				5E9B5BF825ABDB3E0073E757 /* HKManager */,
 				5E5134462598BEAA008D4195 /* Exercise-PListModel */,
 				5E5134472598BF1C008D4195 /* Record-CoreDataModel */,
+				5E69D60425F16DEB008D397C /* StopWatchManager */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +443,7 @@
 				5EDA2C9F25AB5F5400FAFB2F /* Ring.swift in Sources */,
 				5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */,
 				5E7E7056258CE2AE0030B507 /* iWorkOutApp.swift in Sources */,
+				5E69D60025F16B7E008D397C /* StopWatchManager.swift in Sources */,
 				5EDA2C9A25AB576900FAFB2F /* ActivityView.swift in Sources */,
 				5E7E7072258CE3650030B507 /* MuscleGroup.swift in Sources */,
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,

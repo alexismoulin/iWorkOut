@@ -27,6 +27,8 @@ struct ActivityView: View {
     @State private var notificationDate: Date = Date()
     @State private var correction: Bool = false
     
+    @StateObject private var stopWatchManager = StopWatchManager()
+    
     //MARK: - CoreData functions and variables
     
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
@@ -90,7 +92,7 @@ struct ActivityView: View {
     //MARK: - HealthKit functions and variables
     
     enum DisplayMode {
-        case energy, heartRate
+        case energy, heartRate, time
     }
     
     var quantity: String {
@@ -99,6 +101,8 @@ struct ActivityView: View {
             return String(format: "%.0f", dataManager.totalEnergyBurned)
         case .heartRate:
             return String(Int(dataManager.lastHeartRate))
+        case .time:
+            return String(stopWatchManager.secondsElapsed)
         }
     }
     
@@ -108,6 +112,8 @@ struct ActivityView: View {
             return "calories"
         case .heartRate:
             return "beats / minute"
+        case .time:
+            return "seconds"
         }
     }
     
@@ -116,6 +122,8 @@ struct ActivityView: View {
         case .energy:
             displayMode = .heartRate
         case .heartRate:
+            displayMode = .time
+        case .time:
             displayMode = .energy
         }
     }
@@ -151,15 +159,33 @@ struct ActivityView: View {
     //MARK: - components functions
     
     func createReps() -> some View {
-        HStack {
-            Text("Reps")
+        var type: String
+        switch exercise.type {
+        case "rep":
+            type = "Reps:"
+        case "time":
+            type = "Time(s)"
+        default:
+            type = "Error"
+        }
+
+        return HStack {
+            Text(type)
             Spacer()
             Text("\(Int(setValue))")
                 .padding()
                 .frame(width: 50)
                 .contentShape(Rectangle())
                 .focusable { isFocused = $0 }
-                .digitalCrownRotation($setValue, from: 0, through: 100, by: 1, sensitivity: .low, isContinuous: false, isHapticFeedbackEnabled: true)
+                .digitalCrownRotation(
+                    $setValue,
+                    from: 0,
+                    through: exercise.type != "time" ? 100 : 1000,
+                    by: exercise.type != "time" ? 1 : 5,
+                    sensitivity: .low,
+                    isContinuous: false,
+                    isHapticFeedbackEnabled: true
+                )
                 .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
         }
     }
@@ -180,6 +206,7 @@ struct ActivityView: View {
                 setNumber += 1
                 percent = 0
                 dataManager.pause() // pause dataManager
+                stopWatchManager.stop()
             }
         }
     }
@@ -238,6 +265,11 @@ struct ActivityView: View {
         }
     }
     
+    func createTimedRing() -> some View {
+        let totalSeconds: Double = setNumber == 1 ? 3 : 120
+        return TimedRing(totalSeconds: totalSeconds, percent: $percent, timeRemaining: $timeRemaining)
+    }
+    
     //MARK: - Main body
     
     var body: some View {
@@ -264,8 +296,10 @@ struct ActivityView: View {
                                 title = "Set \(setNumber)"
                                 if setNumber == 1 {
                                     dataManager.start() // start dataManager
+                                    stopWatchManager.start()
                                 } else {
                                     dataManager.resume() // resume dataManager
+                                    stopWatchManager.start()
                                 }
                             }
                     }

@@ -38,14 +38,6 @@
 				<key>type</key>
 				<string>rep</string>
 			</dict>
-			<dict>
-				<key>id</key>
-				<string>0-0-4</string>
-				<key>name</key>
-				<string>Isometric Chest Squeeze</string>
-				<key>type</key>
-				<string>rep</string>
-			</dict>
 		</array>
 	</dict>
 	<key>biceps</key>
@@ -141,6 +133,14 @@
 				<string>Alternate Heel Touchers</string>
 				<key>type</key>
 				<string>rep</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>8-0-4</string>
+				<key>name</key>
+				<string>Plank</string>
+				<key>type</key>
+				<string>time</string>
 			</dict>
 			<dict>
 				<key>id</key>

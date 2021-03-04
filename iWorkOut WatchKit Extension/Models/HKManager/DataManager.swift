@@ -18,9 +18,7 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
     @Published var lastHeartRate: Double = 0
 
     
-    func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
-    
-    }
+    func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) { }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         DispatchQueue.main.async {
@@ -42,9 +40,7 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
         
     }
     
-    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        
-    }
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) { }
     
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         for type in collectedTypes {
@@ -68,13 +64,19 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
     }
     
     func start() {
-        let sampleTypes: Set<HKSampleType> = [
+        let writing: Set<HKSampleType> = [
             .workoutType(),
             .quantityType(forIdentifier: .heartRate)!,
-            .quantityType(forIdentifier: .activeEnergyBurned)!,
+            .quantityType(forIdentifier: .activeEnergyBurned)!
         ]
         
-        healthStore.requestAuthorization(toShare: sampleTypes, read: sampleTypes) { success, error in
+        let reading: Set<HKObjectType> = [
+            .workoutType(),
+            .quantityType(forIdentifier: .heartRate)!,
+            .quantityType(forIdentifier: .activeEnergyBurned)!
+        ]
+        
+        healthStore.requestAuthorization(toShare: writing, read: reading) { success, error in
             if success {
                 self.beginWorkout()
             }
