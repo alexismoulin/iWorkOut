@@ -332,12 +332,15 @@ struct ActivityView: View {
             print("Moving to the background")
             notificationDate = Date()
             scheduleNotification()
+            stopWatchManager.pause()
         }
         .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
             print("Moving to the foreground")
             let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
             timeRemaining -= deltaTime
             percent += Double(deltaTime) / 1.2
+            stopWatchManager.secondsElapsed += deltaTime
+            stopWatchManager.start()
         }
         .onAppear(perform: requestPermission)
     }

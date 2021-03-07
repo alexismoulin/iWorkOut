@@ -5,13 +5,17 @@ class StopWatchManager: ObservableObject {
     var timer: Timer = Timer()
     
     func start() {
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
-            self.secondsElapsed += 5
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.secondsElapsed += 1
         }
     }
     
     func stop() {
         timer.invalidate()
         secondsElapsed = 0
+    }
+    
+    func pause() {
+        timer.invalidate()
     }
 }
