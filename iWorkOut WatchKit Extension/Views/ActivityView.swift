@@ -265,11 +265,6 @@ struct ActivityView: View {
         }
     }
     
-    func createTimedRing() -> some View {
-        let totalSeconds: Double = setNumber == 1 ? 3 : 120
-        return TimedRing(totalSeconds: totalSeconds, percent: $percent, timeRemaining: $timeRemaining)
-    }
-    
     //MARK: - Main body
     
     var body: some View {
@@ -331,16 +326,22 @@ struct ActivityView: View {
         .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification)) { _ in
             print("Moving to the background")
             notificationDate = Date()
-            scheduleNotification()
-            stopWatchManager.pause()
+            // StopWatchManager timer only
+            if timeRemaining == -1 {
+                stopWatchManager.pause()
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
             print("Moving to the foreground")
             let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
-            timeRemaining -= deltaTime
-            percent += Double(deltaTime) / 1.2
-            stopWatchManager.secondsElapsed += deltaTime
-            stopWatchManager.start()
+            // A regarder
+            if timeRemaining > -1 {
+                timeRemaining -= deltaTime
+                percent += Double(deltaTime) / 1.2
+            } else {
+                stopWatchManager.secondsElapsed += deltaTime
+                stopWatchManager.start()
+            }
         }
         .onAppear(perform: requestPermission)
     }
