@@ -3,11 +3,11 @@ import SwiftUI
 struct TimedRing: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let totalSeconds: Double
-    
+
     @Binding var percent: Double
     @Binding var timeRemaining: Int
-    
-    //MARK: - Body
+
+    // MARK: - Body
     var body: some View {
         ZStack {
             PercentageRing(
@@ -37,5 +37,3 @@ struct TimedRing: View {
     }
 
 }
-
-

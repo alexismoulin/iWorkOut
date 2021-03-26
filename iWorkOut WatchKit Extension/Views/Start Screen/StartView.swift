@@ -4,7 +4,7 @@ import UserNotifications
 struct StartView: View {
     @EnvironmentObject var dataController: DataController
     @EnvironmentObject var dataManager: DataManager
-    
+
     var body: some View {
         VStack {
             NavigationLink(

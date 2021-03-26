@@ -16,7 +16,6 @@ func createAlertTile(type: Int) -> Text {
     }
 }
 
-
 func createAlertBody(type: Int, CDRecord: Int64, currentRecord: Int) -> Text {
     let alertBody1: Text =
         Text("You have completed a New Exercise.\nYour record is ") +
@@ -31,7 +30,7 @@ func createAlertBody(type: Int, CDRecord: Int64, currentRecord: Int) -> Text {
         Text("\(CDRecord)").fontWeight(.bold).foregroundColor(.yellow2) +
         Text("\nYour current score is ") +
         Text("\(currentRecord)").fontWeight(.bold).foregroundColor(.lime)
-    
+
     switch type {
     case 1:
         return alertBody1
@@ -44,7 +43,12 @@ func createAlertBody(type: Int, CDRecord: Int64, currentRecord: Int) -> Text {
     }
 }
 
-func createCustomAlert(alertType: Int, CDRecordSum: Int64, currentRecordSum: Int, dismissfunction: @escaping () -> Void) -> Alert {
+func createCustomAlert(
+    alertType: Int,
+    CDRecordSum: Int64,
+    currentRecordSum: Int,
+    dismissfunction: @escaping () -> Void
+) -> Alert {
     return Alert(
         title: createAlertTile(type: alertType),
         message: createAlertBody(
@@ -55,4 +59,3 @@ func createCustomAlert(alertType: Int, CDRecordSum: Int64, currentRecordSum: Int
         dismissButton: .default(Text("Ok"), action: dismissfunction)
     )
 }
-

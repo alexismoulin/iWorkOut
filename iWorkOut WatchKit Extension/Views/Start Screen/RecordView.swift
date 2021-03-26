@@ -5,15 +5,16 @@ struct RecordView: View {
     let pickerFontSize: CGFloat = 15
     @State private var selectedMuscle: MuscleGroup = .chest
     @State private var selectedEquipment: Equipment = .bodyOnly
-    
+
     var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ?? [Exercise(id: "999", name: "No Exercise", type: "0")]
+        loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ??
+            [Exercise(id: "999", name: "No Exercise", type: "0")]
     }
-    
+
     func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> Record? {
         return recordList.first(where: {$0.id == exerciseId})
     }
-    
+
     func getRecordScore(recordList: FetchedResults<Record>, exerciseId: String) -> String {
         let record = recordList.first(where: {$0.id == exerciseId})
         let record1: Int64 = record?.set1 ?? 0
@@ -21,7 +22,7 @@ struct RecordView: View {
         let record3: Int64 = record?.set3 ?? 0
         return String(record1 + record2 + record3)
     }
-    
+
     func createPickerHeadLiner(text: String, color: Color) -> some View {
         Text(text)
             .foregroundColor(.black)
@@ -29,7 +30,7 @@ struct RecordView: View {
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 2))
     }
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -62,7 +63,9 @@ struct RecordView: View {
                 }.frame(height: 60).clipped()
             }
             List(exerciseList) { exercise in
-                NavigationLink(destination: RecordForm(record: getRecord(recordList: fetchedResults, exerciseId: exercise.id))) {
+                NavigationLink(
+                    destination: RecordForm(record: getRecord(recordList: fetchedResults, exerciseId: exercise.id))
+                ) {
                     HStack {
                         Text((exercise.name))
                         Spacer()

@@ -2,7 +2,7 @@ import Foundation
 
 enum MuscleGroup: String, CaseIterable, Identifiable {
     var id: String { rawValue }
-    
+
     case chest // 0
     case biceps // 1
     case triceps // 2

@@ -2,7 +2,7 @@ import Foundation
 
 enum Equipment: String, CaseIterable, Identifiable {
     var id: String { rawValue }
-    
+
     case bodyOnly // 0
     case bench // 1
     case barbell // 2

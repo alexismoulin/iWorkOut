@@ -350,6 +350,7 @@
 				5E7E704A258CE2AE0030B507 /* Sources */,
 				5E7E704B258CE2AE0030B507 /* Frameworks */,
 				5E7E704C258CE2AE0030B507 /* Resources */,
+				5E4EB740260D755400EC46EF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -427,6 +428,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E4EB740260D755400EC46EF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E7E704A258CE2AE0030B507 /* Sources */ = {

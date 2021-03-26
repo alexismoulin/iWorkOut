@@ -2,17 +2,17 @@ import SwiftUI
 import UserNotifications
 
 struct ActivityView: View {
-    
+
     let exercise: Exercise
-    
-    //MARK: - Environment variables
-    
+
+    // MARK: - Environment variables
+
     @EnvironmentObject var dataController: DataController
     @EnvironmentObject var dataManager: DataManager
     @Environment(\.presentationMode) var presentation
-    
-    //MARK: - States
-    
+
+    // MARK: - States
+
     @State private var record: [Int: Int] = [1: 0, 2: 0, 3: 0]
     @State private var setValue: Double = 0
     @State private var isFocused: Bool = false
@@ -26,17 +26,17 @@ struct ActivityView: View {
     @State private var alertType: Int = 0
     @State private var notificationDate: Date = Date()
     @State private var correction: Bool = false
-    
+
     @StateObject private var stopWatchManager = StopWatchManager()
-    
-    //MARK: - CoreData functions and variables
-    
+
+    // MARK: - CoreData functions and variables
+
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
-    
+
     var CDRecord: Record? {
         fetchedResults.first(where: {$0.id == exercise.id})
     }
-    
+
     func getRecord(CDRecord: Record?, exerciseId: String) -> Int64 {
         if let record = CDRecord {
             let record1: Int64 = record.set1
@@ -47,7 +47,7 @@ struct ActivityView: View {
             return 0
         }
     }
-    
+
     func createNewRecord() {
         alertType = 1
         let newRecord = Record(context: dataController.container.viewContext)
@@ -60,7 +60,7 @@ struct ActivityView: View {
         dataController.save()
         isPresented = true
     }
-    
+
     func updateExistingRecord() {
         alertType = 2
         CDRecord?.set1 = Int64(record[1]!)
@@ -71,12 +71,12 @@ struct ActivityView: View {
         dataController.save()
         isPresented = true
     }
-    
+
     func failedBeatRecord() {
         alertType = 3
         isPresented = true
     }
-    
+
     func saveWorkout(CDRecordTotal: Int64) {
         if CDRecordTotal == 0 {
            createNewRecord()
@@ -88,13 +88,13 @@ struct ActivityView: View {
             }
         }
     }
-    
-    //MARK: - HealthKit functions and variables
-    
+
+    // MARK: - HealthKit functions and variables
+
     enum DisplayMode {
         case energy, heartRate, time
     }
-    
+
     var quantity: String {
         switch displayMode {
         case .energy:
@@ -105,7 +105,7 @@ struct ActivityView: View {
             return String(stopWatchManager.secondsElapsed)
         }
     }
-    
+
     var unit: String {
         switch displayMode {
         case .energy:
@@ -116,7 +116,7 @@ struct ActivityView: View {
             return "seconds"
         }
     }
-    
+
     func changeDisplayMode() {
         switch displayMode {
         case .energy:
@@ -127,9 +127,9 @@ struct ActivityView: View {
             displayMode = .energy
         }
     }
-    
-    //MARK: - User Notifications
-    
+
+    // MARK: - User Notifications
+
     func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
@@ -139,7 +139,7 @@ struct ActivityView: View {
             }
         }
     }
-    
+
     func scheduleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Rest time is over"
@@ -155,9 +155,30 @@ struct ActivityView: View {
         // add our notification request
         UNUserNotificationCenter.current().add(request)
     }
-    
-    //MARK: - components functions
-    
+
+    func movingToBackground() {
+        print("Moving to the background")
+        notificationDate = Date()
+        // StopWatchManager timer only
+        if timeRemaining == -1 {
+            stopWatchManager.pause()
+        }
+    }
+
+    func movingToForeground() {
+        print("Moving to the foreground")
+        let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
+        if timeRemaining > -1 {
+            timeRemaining -= deltaTime
+            percent += Double(deltaTime) / 1.2
+        } else {
+            stopWatchManager.secondsElapsed += deltaTime
+            stopWatchManager.start()
+        }
+    }
+
+    // MARK: - components functions
+
     func createReps() -> some View {
         var type: String
         switch exercise.type {
@@ -186,10 +207,11 @@ struct ActivityView: View {
                     isContinuous: false,
                     isHapticFeedbackEnabled: true
                 )
-                .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                            .strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
         }
     }
-    
+
     func createSetActivity() -> some View {
         VStack {
             createReps()
@@ -210,7 +232,7 @@ struct ActivityView: View {
             }
         }
     }
-    
+
     func createCorrection() -> some View {
         VStack {
             createReps()
@@ -223,7 +245,7 @@ struct ActivityView: View {
             }
         }
     }
-    
+
     func createSummary() -> some View {
         Form {
             Section(header: Text("Reps per set")) {
@@ -264,9 +286,9 @@ struct ActivityView: View {
             .foregroundColor(.green)
         }
     }
-    
-    //MARK: - Main body
-    
+
+    // MARK: - Main body
+
     var body: some View {
         VStack {
             if correction {
@@ -274,41 +296,29 @@ struct ActivityView: View {
             } else {
                 if setNumber < 4 {
                     if timeRemaining > -1 {
-                        TimedRing(totalSeconds: setNumber == 1 ? 3 : 120, percent: $percent, timeRemaining: $timeRemaining)
+                        TimedRing(
+                            totalSeconds: setNumber == 1 ? 3 : 120,
+                            percent: $percent,
+                            timeRemaining: $timeRemaining
+                        )
                             .gesture(
                                 DragGesture(minimumDistance: 50, coordinateSpace: .local)
                                     .onEnded { _ in
-                                        if setNumber > 1 {
-                                            setNumber -= 1
-                                            title = "Set \(setNumber)"
-                                            correction = true
-                                        }
+                                        backScreen()
                                     }
                             )
                     } else {
                         createSetActivity()
-                            .onAppear {
-                                title = "Set \(setNumber)"
-                                if setNumber == 1 {
-                                    dataManager.start() // start dataManager
-                                    stopWatchManager.start()
-                                } else {
-                                    dataManager.resume() // resume dataManager
-                                    stopWatchManager.start()
-                                }
-                            }
+                            .onAppear(perform: setupSet)
                     }
                 } else {
                     createSummary()
-                        .onAppear {
-                            title = "Summary"
-                        }
+                        .onAppear { title = "Summary" }
+                        // see for extract custom gesture
                         .gesture(
                             DragGesture(minimumDistance: 50, coordinateSpace: .local)
                                 .onEnded { _ in
-                                    setNumber -= 1
-                                    title = "Set \(setNumber)"
-                                    correction = true
+                                    backScreen()
                                 }
                         )
                 }
@@ -323,26 +333,37 @@ struct ActivityView: View {
                 dismissfunction: { presentation.wrappedValue.dismiss() }
             )
         }
-        .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification)) { _ in
-            print("Moving to the background")
-            notificationDate = Date()
-            // StopWatchManager timer only
-            if timeRemaining == -1 {
-                stopWatchManager.pause()
-            }
+        .onReceive(NotificationCenter.default.publisher(
+                    for: WKExtension.applicationWillResignActiveNotification
+        )) { _ in
+            movingToBackground()
         }
-        .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
-            print("Moving to the foreground")
-            let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
-            // A regarder
-            if timeRemaining > -1 {
-                timeRemaining -= deltaTime
-                percent += Double(deltaTime) / 1.2
-            } else {
-                stopWatchManager.secondsElapsed += deltaTime
-                stopWatchManager.start()
-            }
+        .onReceive(NotificationCenter.default.publisher(
+                    for: WKExtension.applicationDidBecomeActiveNotification
+        )) { _ in
+            movingToForeground()
         }
         .onAppear(perform: requestPermission)
+    }
+
+    // MARK: - Helper functions
+
+    func backScreen() {
+        if setNumber > 1 {
+            setNumber -= 1
+            title = "Set \(setNumber)"
+            correction = true
+        }
+    }
+
+    func setupSet() {
+        title = "Set \(setNumber)"
+        if setNumber == 1 {
+            dataManager.start() // start dataManager
+            stopWatchManager.start()
+        } else {
+            dataManager.resume() // resume dataManager
+            stopWatchManager.start()
+        }
     }
 }

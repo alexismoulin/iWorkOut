@@ -2,23 +2,23 @@ import CoreData
 import SwiftUI
 
 class DataController: ObservableObject {
-    //let container: NSPersistentContainer
+    // let container: NSPersistentContainer
     let container: NSPersistentCloudKitContainer
-    
+
     init(inMemory: Bool = false) {
-        //container = NSPersistentContainer(name: "Main")
+        // container = NSPersistentContainer(name: "Main")
         container = NSPersistentCloudKitContainer(name: "Main")
-        
+
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores { storeDescription, error in
+        container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
         }
     }
-    
+
     func save() {
         if container.viewContext.hasChanges {
             do {
@@ -29,7 +29,7 @@ class DataController: ObservableObject {
             }
         }
     }
-    
+
     func save2() {
         do {
             try container.viewContext.save()
@@ -38,11 +38,11 @@ class DataController: ObservableObject {
             print("Cannot save data: \(error.localizedDescription)")
         }
     }
-    
+
     func delete(_ object: NSManagedObject) {
         container.viewContext.delete(object)
     }
-    
+
     func createSample() {
         let newRecord = Record(context: container.viewContext)
         newRecord.id = "0-0-0"
@@ -52,7 +52,7 @@ class DataController: ObservableObject {
         save()
         print("sample successfully created")
     }
-    
+
     func deleteAll() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Record.fetchRequest()
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)

@@ -1,17 +1,19 @@
 import SwiftUI
 
 struct ExerciseListView: View {
+
     @EnvironmentObject var dataController: DataController
     @EnvironmentObject var dataManager: DataManager
+
     let selectedMuscle: String
     let selectedEquipment: String
-    
     var noExercise: Bool = false
-    
+
     var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [Exercise(id: "null", name: "No Exercise", type: "0")]
+        loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ??
+            [Exercise(id: "null", name: "No Exercise", type: "0")]
     }
-    
+
     var body: some View {
         GeometryReader { geo in
             List(exerciseList) { exercise in

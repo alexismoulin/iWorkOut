@@ -18,7 +18,7 @@ struct RingShape: Shape {
     private var percent: Double
     private var startAngle: Double
     private let drawnClockwise: Bool
-    
+
     // This allows animations to run smoothly for percent values
     var animatableData: Double {
         get {
@@ -28,13 +28,13 @@ struct RingShape: Shape {
             percent = newValue
         }
     }
-    
+
     init(percent: Double = 100, startAngle: Double = -90, drawnClockwise: Bool = false) {
         self.percent = percent
         self.startAngle = startAngle
         self.drawnClockwise = drawnClockwise
     }
-    
+
     // This draws a simple arc from the start angle to the end angle
     func path(in rect: CGRect) -> Path {
         let width = rect.width
@@ -43,17 +43,23 @@ struct RingShape: Shape {
         let center = CGPoint(x: width / 2, y: height / 2)
         let endAngle = Angle(degrees: RingShape.percentToAngle(percent: self.percent, startAngle: self.startAngle))
         return Path { path in
-            path.addArc(center: center, radius: radius, startAngle: Angle(degrees: startAngle), endAngle: endAngle, clockwise: drawnClockwise)
+            path.addArc(
+                center: center,
+                radius: radius,
+                startAngle: Angle(degrees: startAngle),
+                endAngle: endAngle,
+                clockwise: drawnClockwise
+            )
         }
     }
 }
 
 struct PercentageRing: View {
-    
+
     private static let ShadowColor: Color = Color.black.opacity(0.2)
     private static let ShadowRadius: CGFloat = 5
     private static let ShadowOffsetMultiplier: CGFloat = ShadowRadius + 2
-    
+
     private let ringWidth: CGFloat
     private let percent: Double
     private let backgroundColor: Color
@@ -83,14 +89,14 @@ struct PercentageRing: View {
             endAngle: Angle(degrees: relativePercentageAngle)
         )
     }
-    
+
     init(ringWidth: CGFloat, percent: Double, backgroundColor: Color, foregroundColors: [Color]) {
         self.ringWidth = ringWidth
         self.percent = percent
         self.backgroundColor = backgroundColor
         self.foregroundColors = foregroundColors
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -119,14 +125,17 @@ struct PercentageRing: View {
         // Padding to ensure that the entire ring fits within the view size allocated
         .padding(self.ringWidth / 2)
     }
-    
+
     private func getEndCircleLocation(frame: CGSize) -> (CGFloat, CGFloat) {
         // Get angle of the end circle with respect to the start angle
         let angleOfEndInRadians: Double = relativePercentageAngle.toRadians()
         let offsetRadius = min(frame.width, frame.height) / 2
-        return (offsetRadius * cos(angleOfEndInRadians).toCGFloat(), offsetRadius * sin(angleOfEndInRadians).toCGFloat())
+        return (
+            offsetRadius * cos(angleOfEndInRadians).toCGFloat(),
+            offsetRadius * sin(angleOfEndInRadians).toCGFloat()
+        )
     }
-    
+
     private func getEndCircleShadowOffset() -> (CGFloat, CGFloat) {
         let angleForOffset = absolutePercentageAngle + (self.startAngle + 90)
         let angleForOffsetInRadians = angleForOffset.toRadians()
@@ -136,7 +145,7 @@ struct PercentageRing: View {
         let yOffset = relativeYOffset.toCGFloat() * PercentageRing.ShadowOffsetMultiplier
         return (xOffset, yOffset)
     }
-    
+
     private func getShowShadow(frame: CGSize) -> Bool {
         let circleRadius = min(frame.width, frame.height) / 2
         let remainingAngleInRadians = (360 - absolutePercentageAngle).toRadians().toCGFloat()
@@ -148,4 +157,3 @@ struct PercentageRing: View {
         return false
     }
 }
-
