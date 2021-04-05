@@ -1,6 +1,10 @@
 import Foundation
 import HealthKit
 
+enum DisplayMode {
+    case energy, heartRate, time
+}
+
 class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate, ObservableObject {
 
     enum WorkoutState {
@@ -152,4 +156,27 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
             }
         })
     }
+
+    func quantity(displayMode: DisplayMode, stopWatchManager: StopWatchManager) -> String {
+        switch displayMode {
+        case .energy:
+            return String(format: "%.0f", self.totalEnergyBurned)
+        case .heartRate:
+            return String(Int(self.lastHeartRate))
+        case .time:
+            return String(stopWatchManager.secondsElapsed)
+        }
+    }
+
+    func unit(displayMode: DisplayMode) -> String {
+        switch displayMode {
+        case .energy:
+            return "calories"
+        case .heartRate:
+            return "beats / minute"
+        case .time:
+            return "seconds"
+        }
+    }
+
 }

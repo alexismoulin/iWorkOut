@@ -37,17 +37,6 @@ struct ActivityView: View {
         fetchedResults.first(where: {$0.id == exercise.id})
     }
 
-    func getRecord(CDRecord: Record?, exerciseId: String) -> Int64 {
-        if let record = CDRecord {
-            let record1: Int64 = record.set1
-            let record2: Int64 = record.set2
-            let record3: Int64 = record.set3
-            return record1 + record2 + record3
-        } else {
-            return 0
-        }
-    }
-
     func createNewRecord() {
         alertType = 1
         let newRecord = Record(context: dataController.container.viewContext)
@@ -91,32 +80,6 @@ struct ActivityView: View {
 
     // MARK: - HealthKit functions and variables
 
-    enum DisplayMode {
-        case energy, heartRate, time
-    }
-
-    var quantity: String {
-        switch displayMode {
-        case .energy:
-            return String(format: "%.0f", dataManager.totalEnergyBurned)
-        case .heartRate:
-            return String(Int(dataManager.lastHeartRate))
-        case .time:
-            return String(stopWatchManager.secondsElapsed)
-        }
-    }
-
-    var unit: String {
-        switch displayMode {
-        case .energy:
-            return "calories"
-        case .heartRate:
-            return "beats / minute"
-        case .time:
-            return "seconds"
-        }
-    }
-
     func changeDisplayMode() {
         switch displayMode {
         case .energy:
@@ -128,33 +91,7 @@ struct ActivityView: View {
         }
     }
 
-    // MARK: - User Notifications
-
-    func requestPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if success {
-                print("All set!")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-
-    func scheduleNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Rest time is over"
-        content.subtitle = "Be ready for the next set"
-        content.sound = UNNotificationSound.default
-
-        // show this notification five seconds from now
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-        // choose a random identifier
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        // add our notification request
-        UNUserNotificationCenter.current().add(request)
-    }
+    // MARK: - Custom User Notifications
 
     func movingToBackground() {
         print("Moving to the background")
@@ -217,8 +154,10 @@ struct ActivityView: View {
             createReps()
             Spacer()
             Group {
-                Text(quantity).font(.largeTitle)
-                Text(unit).textCase(.uppercase)
+                Text(dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
+                    .font(.largeTitle)
+                Text(dataManager.unit(displayMode: displayMode))
+                    .textCase(.uppercase)
             }.onTapGesture(perform: changeDisplayMode)
             Spacer()
             Button("Done") {
@@ -281,7 +220,7 @@ struct ActivityView: View {
             }
             Button("SAVE") {
                 dataManager.end()
-                saveWorkout(CDRecordTotal: getRecord(CDRecord: CDRecord, exerciseId: exercise.id))
+                saveWorkout(CDRecordTotal: Record.getRecord(CDRecord: CDRecord, exerciseId: exercise.id))
             }
             .foregroundColor(.green)
         }
