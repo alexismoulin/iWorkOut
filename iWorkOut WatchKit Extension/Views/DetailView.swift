@@ -19,6 +19,46 @@ struct DetailView: View {
         getRecord(recordList: fetchedResults, exerciseId: exercise.id)
     }
 
+    // MARK: - Components
+
+    func createRecordRow() -> some View {
+        HStack {
+            VStack {
+                Image(systemName: "flame")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.orange)
+                    .frame(height: 32)
+                Text("\(fetchedResults.first?.calories ?? 0)").fontWeight(.bold)
+            }
+            Spacer()
+            VStack {
+                Image(systemName: "crown")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.yellow)
+                    .frame(height: 32)
+                Text("\(fetchedResults.first?.sum ?? 0)").fontWeight(.bold)
+            }
+            Spacer()
+            VStack {
+                ZStack {
+                Image(systemName: "heart")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.red)
+                    .frame(height: 32)
+                Image(systemName: "waveform.path.ecg")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.red)
+                    .frame(height: 30)
+                }
+                Text("TBD").fontWeight(.bold)
+            }
+        }.padding()
+    }
+
     // MARK: - body
 
     var body: some View {
@@ -38,8 +78,7 @@ struct DetailView: View {
                 }
                 .padding(.vertical)
                 Divider()
-                Text("🏆").font(.largeTitle)
-                Text("\(record)").fontWeight(.bold)
+                createRecordRow()
                 Spacer()
             }
         }
