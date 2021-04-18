@@ -11,7 +11,7 @@ extension DetailView {
         let exercise: Exercise
 
         private let recordController: NSFetchedResultsController<Record>
-        @Published var records: [Record] = []
+        @Published var fetchedRecord: Record?
 
         // MARK: - Custom init
 
@@ -34,7 +34,7 @@ extension DetailView {
 
             do {
                 try recordController.performFetch()
-                records = recordController.fetchedObjects ?? []
+                fetchedRecord = recordController.fetchedObjects?.first
             } catch {
                 print("Failed to fetch the saved records: \(error.localizedDescription)")
             }
@@ -43,9 +43,10 @@ extension DetailView {
         // MARK: - Functions
 
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-            if let newRecords = controller.fetchedObjects as? [Record] {
-                records = newRecords
+            if let newRecord = controller.fetchedObjects?.first as? Record {
+                fetchedRecord = newRecord
             }
         }
+
     }
 }

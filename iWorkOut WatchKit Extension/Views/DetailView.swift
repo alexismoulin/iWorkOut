@@ -10,10 +10,6 @@ struct DetailView: View {
     @State private var imageAnimationFrame: Int = 0
     @State private var displayInstructions: Bool = false
 
-    var record: Int {
-        getRecord(recordList: viewModel.records, exerciseId: viewModel.exercise.id)
-    }
-
     // MARK: - Custom init
     init(dataController: DataController, dataManager: DataManager, exercise: Exercise) {
         let viewModel = ViewModel(dataController: dataController, dataManager: dataManager, exercise: exercise)
@@ -30,7 +26,7 @@ struct DetailView: View {
                     .scaledToFit()
                     .foregroundColor(.orange)
                     .frame(height: 32)
-                Text("\(viewModel.records.first?.calories ?? 0)").fontWeight(.bold)
+                Text("\(viewModel.fetchedRecord?.calories ?? 0)").fontWeight(.bold)
             }
             Spacer()
             VStack {
@@ -39,7 +35,7 @@ struct DetailView: View {
                     .scaledToFit()
                     .foregroundColor(.yellow)
                     .frame(height: 32)
-                Text("\(viewModel.records.first?.sum ?? 0)").fontWeight(.bold)
+                Text("\(viewModel.fetchedRecord?.sum ?? 0)").fontWeight(.bold)
             }
             Spacer()
             VStack {
@@ -88,15 +84,6 @@ struct DetailView: View {
     }
 
     // MARK: - functions
-
-    func getRecord(recordList: [Record], exerciseId: String) -> Int {
-        let record = recordList.first(where: { $0.id == exerciseId })
-        let record1: Int64 = record?.set1 ?? 0
-        let record2: Int64 = record?.set2 ?? 0
-        let record3: Int64 = record?.set3 ?? 0
-        // let calories: Int64 = record?.calories ?? 0
-        return Int(record1 + record2 + record3)
-    }
 
     func animateExerciseImage() {
         for halfSecond in 0..<20 {
