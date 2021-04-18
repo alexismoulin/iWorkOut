@@ -26,32 +26,14 @@ struct ActivityView: View {
 
     // MARK: - Custom init
 
-    init(dataController: DataController, dataManager: DataManager, exercise: Exercise) {
-        let viewModel = ViewModel(dataController: dataController, dataManager: dataManager, exercise: exercise)
+    init(dataController: DataController, dataManager: DataManager, exercise: Exercise, fetchedRecord: Record?) {
+        let viewModel = ViewModel(
+            dataController: dataController,
+            dataManager: dataManager,
+            exercise: exercise,
+            fetchedRecord: fetchedRecord
+        )
         _viewModel = StateObject(wrappedValue: viewModel)
-    }
-
-    // MARK: - Custom User Notifications
-
-    func movingToBackground() {
-        print("Moving to the background")
-        notificationDate = Date()
-        // StopWatchManager timer only
-        if timeRemaining == -1 {
-            stopWatchManager.pause()
-        }
-    }
-
-    func movingToForeground() {
-        print("Moving to the foreground")
-        let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
-        if timeRemaining > -1 {
-            timeRemaining -= deltaTime
-            percent += Double(deltaTime) / 1.2
-        } else {
-            stopWatchManager.secondsElapsed += deltaTime
-            stopWatchManager.start()
-        }
     }
 
     // MARK: - components functions
@@ -62,7 +44,7 @@ struct ActivityView: View {
         case "rep":
             type = "Reps:"
         case "time":
-            type = "Time(s)"
+            type = "Duration(s)"
         default:
             type = "Error"
         }
@@ -160,9 +142,10 @@ struct ActivityView: View {
             }
             Button("SAVE") {
                 viewModel.dataManager.end()
-                saveWorkout(
-                    CDRecordTotal: Record.getRecord(CDRecord: viewModel.CDRecord, exerciseId: viewModel.exercise.id)
-                )
+                saveWorkout(CDRecordTotal: Record.getRecord(
+                    CDRecord: viewModel.fetchedRecord,
+                    exerciseId: viewModel.exercise.id
+                ))
             }
             .foregroundColor(.green)
         }
@@ -209,7 +192,7 @@ struct ActivityView: View {
         .alert(isPresented: $isPresented) {
             createCustomAlert(
                 alertType: alertType,
-                CDRecordSum: viewModel.CDRecord!.set1 + viewModel.CDRecord!.set2 + viewModel.CDRecord!.set3,
+                CDRecordSum: viewModel.fetchedRecord?.sum ?? 0,
                 currentRecordSum: record[1]! + record[2]! + record[3]!,
                 dismissfunction: { presentation.wrappedValue.dismiss() }
             )
@@ -287,6 +270,27 @@ struct ActivityView: View {
             displayMode = .time
         case .time:
             displayMode = .energy
+        }
+    }
+
+    func movingToBackground() {
+        print("Moving to the background")
+        notificationDate = Date()
+        // StopWatchManager timer only
+        if timeRemaining == -1 {
+            stopWatchManager.pause()
+        }
+    }
+
+    func movingToForeground() {
+        print("Moving to the foreground")
+        let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
+        if timeRemaining > -1 {
+            timeRemaining -= deltaTime
+            percent += Double(deltaTime) / 1.2
+        } else {
+            stopWatchManager.secondsElapsed += deltaTime
+            stopWatchManager.start()
         }
     }
 }

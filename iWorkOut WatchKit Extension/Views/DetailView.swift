@@ -11,6 +11,7 @@ struct DetailView: View {
     @State private var displayInstructions: Bool = false
 
     // MARK: - Custom init
+
     init(dataController: DataController, dataManager: DataManager, exercise: Exercise) {
         let viewModel = ViewModel(dataController: dataController, dataManager: dataManager, exercise: exercise)
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -69,7 +70,8 @@ struct DetailView: View {
                 NavigationLink(destination: ActivityView(
                     dataController: viewModel.dataController,
                     dataManager: viewModel.dataManager,
-                    exercise: viewModel.exercise
+                    exercise: viewModel.exercise,
+                    fetchedRecord: viewModel.fetchedRecord
                 )) {
                     Text("START").foregroundColor(.lime)
                 }
