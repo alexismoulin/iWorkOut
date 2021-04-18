@@ -3,15 +3,9 @@ import UserNotifications
 
 struct ActivityView: View {
 
-    let exercise: Exercise
+    // MARK: - Properties and States
 
-    // MARK: - Environment variables
-
-    @EnvironmentObject var dataController: DataController
-    @EnvironmentObject var dataManager: DataManager
     @Environment(\.presentationMode) var presentation
-
-    // MARK: - States
 
     @State private var record: [Int: Int] = [1: 0, 2: 0, 3: 0]
     @State private var setValue: Double = 0
@@ -28,67 +22,13 @@ struct ActivityView: View {
     @State private var correction: Bool = false
 
     @StateObject private var stopWatchManager = StopWatchManager()
+    @StateObject private var viewModel: ViewModel
 
-    // MARK: - CoreData functions and variables
+    // MARK: - Custom init
 
-    @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
-
-    var CDRecord: Record? {
-        fetchedResults.first(where: {$0.id == exercise.id})
-    }
-
-    func createNewRecord() {
-        alertType = 1
-        let newRecord = Record(context: dataController.container.viewContext)
-        newRecord.id = exercise.id
-        newRecord.set1 = Int64(record[1]!)
-        newRecord.set2 = Int64(record[2]!)
-        newRecord.set3 = Int64(record[3]!)
-        newRecord.calories = Int64(dataManager.totalEnergyBurned)
-        print("saving new record")
-        dataController.save()
-        isPresented = true
-    }
-
-    func updateExistingRecord() {
-        alertType = 2
-        CDRecord?.set1 = Int64(record[1]!)
-        CDRecord?.set2 = Int64(record[2]!)
-        CDRecord?.set3 = Int64(record[3]!)
-        CDRecord?.calories = Int64(dataManager.totalEnergyBurned)
-        print("preparing update your record")
-        dataController.save()
-        isPresented = true
-    }
-
-    func failedBeatRecord() {
-        alertType = 3
-        isPresented = true
-    }
-
-    func saveWorkout(CDRecordTotal: Int64) {
-        if CDRecordTotal == 0 {
-           createNewRecord()
-        } else {
-            if record[1]! + record[2]! + record[3]! > CDRecordTotal {
-                updateExistingRecord()
-            } else {
-                failedBeatRecord()
-            }
-        }
-    }
-
-    // MARK: - HealthKit functions and variables
-
-    func changeDisplayMode() {
-        switch displayMode {
-        case .energy:
-            displayMode = .heartRate
-        case .heartRate:
-            displayMode = .time
-        case .time:
-            displayMode = .energy
-        }
+    init(dataController: DataController, dataManager: DataManager, exercise: Exercise) {
+        let viewModel = ViewModel(dataController: dataController, dataManager: dataManager, exercise: exercise)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     // MARK: - Custom User Notifications
@@ -118,7 +58,7 @@ struct ActivityView: View {
 
     func createReps() -> some View {
         var type: String
-        switch exercise.type {
+        switch viewModel.exercise.type {
         case "rep":
             type = "Reps:"
         case "time":
@@ -138,8 +78,8 @@ struct ActivityView: View {
                 .digitalCrownRotation(
                     $setValue,
                     from: 0,
-                    through: exercise.type != "time" ? 100 : 1000,
-                    by: exercise.type != "time" ? 1 : 5,
+                    through: viewModel.exercise.type != "time" ? 100 : 1000,
+                    by: viewModel.exercise.type != "time" ? 1 : 5,
                     sensitivity: .low,
                     isContinuous: false,
                     isHapticFeedbackEnabled: true
@@ -154,9 +94,9 @@ struct ActivityView: View {
             createReps()
             Spacer()
             Group {
-                Text(dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
+                Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
                     .font(.largeTitle)
-                Text(dataManager.unit(displayMode: displayMode))
+                Text(viewModel.dataManager.unit(displayMode: displayMode))
                     .textCase(.uppercase)
             }.onTapGesture(perform: changeDisplayMode)
             Spacer()
@@ -166,7 +106,7 @@ struct ActivityView: View {
                 timeRemaining = 120
                 setNumber += 1
                 percent = 0
-                dataManager.pause() // pause dataManager
+                viewModel.dataManager.pause() // pause dataManager
                 stopWatchManager.stop()
             }
         }
@@ -215,12 +155,14 @@ struct ActivityView: View {
                 HStack {
                     Text("Total burned:")
                     Spacer()
-                    Text("\(Int(dataManager.totalEnergyBurned))")
+                    Text("\(Int(viewModel.dataManager.totalEnergyBurned))")
                 }
             }
             Button("SAVE") {
-                dataManager.end()
-                saveWorkout(CDRecordTotal: Record.getRecord(CDRecord: CDRecord, exerciseId: exercise.id))
+                viewModel.dataManager.end()
+                saveWorkout(
+                    CDRecordTotal: Record.getRecord(CDRecord: viewModel.CDRecord, exerciseId: viewModel.exercise.id)
+                )
             }
             .foregroundColor(.green)
         }
@@ -267,21 +209,23 @@ struct ActivityView: View {
         .alert(isPresented: $isPresented) {
             createCustomAlert(
                 alertType: alertType,
-                CDRecordSum: CDRecord!.set1 + CDRecord!.set2 + CDRecord!.set3,
+                CDRecordSum: viewModel.CDRecord!.set1 + viewModel.CDRecord!.set2 + viewModel.CDRecord!.set3,
                 currentRecordSum: record[1]! + record[2]! + record[3]!,
                 dismissfunction: { presentation.wrappedValue.dismiss() }
             )
         }
-        .onReceive(NotificationCenter.default.publisher(
-                    for: WKExtension.applicationWillResignActiveNotification
-        )) { _ in
-            movingToBackground()
-        }
-        .onReceive(NotificationCenter.default.publisher(
-                    for: WKExtension.applicationDidBecomeActiveNotification
-        )) { _ in
-            movingToForeground()
-        }
+        .onReceive(
+            NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification),
+            perform: { _ in
+                movingToBackground()
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification),
+            perform: { _ in
+                movingToForeground()
+            }
+        )
         .onAppear(perform: requestPermission)
     }
 
@@ -298,11 +242,51 @@ struct ActivityView: View {
     func setupSet() {
         title = "Set \(setNumber)"
         if setNumber == 1 {
-            dataManager.start() // start dataManager
+            viewModel.dataManager.start() // start dataManager
             stopWatchManager.start()
         } else {
-            dataManager.resume() // resume dataManager
+            viewModel.dataManager.resume() // resume dataManager
             stopWatchManager.start()
+        }
+    }
+
+    func createNewRecord() {
+        alertType = 1
+        viewModel.createNewRecord(record: record)
+        isPresented = true
+    }
+
+    func updateExistingRecord() {
+        alertType = 2
+        viewModel.updateExistingRecord(record: record)
+        isPresented = true
+    }
+
+    func failedBeatRecord() {
+        alertType = 3
+        isPresented = true
+    }
+
+    func saveWorkout(CDRecordTotal: Int64) {
+        if CDRecordTotal == 0 {
+           createNewRecord()
+        } else {
+            if record[1]! + record[2]! + record[3]! > CDRecordTotal {
+                updateExistingRecord()
+            } else {
+                failedBeatRecord()
+            }
+        }
+    }
+
+    func changeDisplayMode() {
+        switch displayMode {
+        case .energy:
+            displayMode = .heartRate
+        case .heartRate:
+            displayMode = .time
+        case .time:
+            displayMode = .energy
         }
     }
 }

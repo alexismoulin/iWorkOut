@@ -25,11 +25,11 @@ struct ExerciseListView: View {
                             .foregroundColor(.red)
                     }
                 } else {
-                    NavigationLink(destination: DetailView(exercise: exercise)
-                                    .environment(\.managedObjectContext, dataController.container.viewContext)
-                                    .environmentObject(dataController)
-                                    .environmentObject(dataManager)
-                    ) {
+                    NavigationLink(destination: DetailView(
+                        dataController: dataController,
+                        dataManager: dataManager,
+                        exercise: exercise
+                    )) {
                         HStack {
                             Text(exercise.name)
                             Spacer()
