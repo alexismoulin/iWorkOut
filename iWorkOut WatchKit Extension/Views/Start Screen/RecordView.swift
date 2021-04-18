@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct RecordView: View {
+
+    // MARK: - Properties
+
     let fetchedResults: FetchedResults<Record>
     let pickerFontSize: CGFloat = 15
     @State private var selectedMuscle: MuscleGroup = .chest
@@ -8,19 +11,32 @@ struct RecordView: View {
 
     var exerciseList: [Exercise] {
         loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ??
-            [Exercise(id: "999", name: "No Exercise", type: "0")]
+            [Exercise(id: "null", name: "No Exercise", type: "0")]
     }
 
-    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> Record? {
-        return recordList.first(where: {$0.id == exerciseId})
-    }
+    // MARK: - Componenents
 
-    func getRecordScore(recordList: FetchedResults<Record>, exerciseId: String) -> String {
-        let record = recordList.first(where: {$0.id == exerciseId})
-        let record1: Int64 = record?.set1 ?? 0
-        let record2: Int64 = record?.set2 ?? 0
-        let record3: Int64 = record?.set3 ?? 0
-        return String(record1 + record2 + record3)
+    func createExerciseRow(exercise: Exercise) -> some View {
+        if exercise.id != "null" {
+            return AnyView(NavigationLink(
+                destination: RecordForm(record: getRecord(recordList: fetchedResults, exerciseId: exercise.id))
+            ) {
+                HStack {
+                    Text((exercise.name))
+                    Spacer()
+                    Text("🏆 \(getRecordScore(recordList: fetchedResults, exerciseId: exercise.id))")
+                }
+            })
+        } else {
+            return AnyView(
+                HStack {
+                    Text(exercise.name)
+                    Spacer()
+                    Text("✘")
+                        .foregroundColor(.red)
+                }
+            )
+        }
     }
 
     func createPickerHeadLiner(text: String, color: Color) -> some View {
@@ -30,6 +46,8 @@ struct RecordView: View {
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: 2))
     }
+
+    // MARK: - body
 
     var body: some View {
         VStack {
@@ -63,16 +81,22 @@ struct RecordView: View {
                 }.frame(height: 60).clipped()
             }
             List(exerciseList) { exercise in
-                NavigationLink(
-                    destination: RecordForm(record: getRecord(recordList: fetchedResults, exerciseId: exercise.id))
-                ) {
-                    HStack {
-                        Text((exercise.name))
-                        Spacer()
-                        Text("🏆 \(getRecordScore(recordList: fetchedResults, exerciseId: exercise.id))")
-                    }
-                }
+                createExerciseRow(exercise: exercise)
             }
         }.navigationTitle("Records")
+    }
+
+    // MARK: - Helper functions
+
+    func getRecord(recordList: FetchedResults<Record>, exerciseId: String) -> Record? {
+        return recordList.first(where: {$0.id == exerciseId})
+    }
+
+    func getRecordScore(recordList: FetchedResults<Record>, exerciseId: String) -> String {
+        let record = recordList.first(where: {$0.id == exerciseId})
+        let record1: Int64 = record?.set1 ?? 0
+        let record2: Int64 = record?.set2 ?? 0
+        let record3: Int64 = record?.set3 ?? 0
+        return String(record1 + record2 + record3)
     }
 }

@@ -18,7 +18,12 @@ struct ExerciseListView: View {
         GeometryReader { geo in
             List(exerciseList) { exercise in
                 if exercise.id == "null" {
-                    Text(exercise.name)
+                    HStack {
+                        Text(exercise.name)
+                        Spacer()
+                        Text("✘")
+                            .foregroundColor(.red)
+                    }
                 } else {
                     NavigationLink(destination: DetailView(exercise: exercise)
                                     .environment(\.managedObjectContext, dataController.container.viewContext)
