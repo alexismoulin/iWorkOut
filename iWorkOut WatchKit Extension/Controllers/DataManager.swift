@@ -20,6 +20,7 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
     @Published var state: WorkoutState = .inactive
     @Published var totalEnergyBurned: Double = 0
     @Published var lastHeartRate: Double = 0
+    @Published var heartRateValues: [Double] = []
 
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) { }
 
@@ -59,7 +60,9 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
 
                 case HKQuantityType.quantityType(forIdentifier: .heartRate):
                     let heartRateUnit = HKUnit.count().unitDivided(by: .minute())
-                    self.lastHeartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                    let lastHeartRateMeasure = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                    self.lastHeartRate = lastHeartRateMeasure
+                    self.heartRateValues.append(lastHeartRateMeasure)
 
                 default:
                     let value = statistics.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? 0

@@ -62,7 +62,7 @@ struct ActivityView: View {
                     from: 0,
                     through: viewModel.exercise.type != "time" ? 100 : 1000,
                     by: viewModel.exercise.type != "time" ? 1 : 5,
-                    sensitivity: .low,
+                    sensitivity: viewModel.exercise.type != "time" ? .low : .medium,
                     isContinuous: false,
                     isHapticFeedbackEnabled: true
                 )
@@ -138,6 +138,13 @@ struct ActivityView: View {
                     Text("Total burned:")
                     Spacer()
                     Text("\(Int(viewModel.dataManager.totalEnergyBurned))")
+                }
+            }
+            Section(header: Text("Heart Rate")) {
+                HStack {
+                    Text("Average BPM:")
+                    Spacer()
+                    Text("\(calculateBPM())")
                 }
             }
             Button("SAVE") {
@@ -248,6 +255,16 @@ struct ActivityView: View {
     func failedBeatRecord() {
         alertType = 3
         isPresented = true
+    }
+
+    func calculateBPM() -> Int {
+        let sumBPM: Double =  viewModel.dataManager.heartRateValues.reduce(0, +)
+        let sumMeasurements: Double = Double(viewModel.dataManager.heartRateValues.count)
+        if sumMeasurements == 0 {
+            return 0
+        } else {
+            return Int(sumBPM / sumMeasurements)
+        }
     }
 
     func saveWorkout(CDRecordTotal: Int64) {

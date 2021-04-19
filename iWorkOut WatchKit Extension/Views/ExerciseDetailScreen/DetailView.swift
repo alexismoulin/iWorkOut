@@ -52,7 +52,7 @@ struct DetailView: View {
                     .foregroundColor(.red)
                     .frame(height: 30)
                 }
-                Text("TBD").fontWeight(.bold)
+                Text("\(viewModel.fetchedRecord?.heartRate ?? 0)").fontWeight(.bold)
             }
         }.padding()
     }

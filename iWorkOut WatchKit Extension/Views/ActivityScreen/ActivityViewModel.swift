@@ -29,6 +29,9 @@ extension ActivityView {
             newRecord.set2 = Int64(record[2]!)
             newRecord.set3 = Int64(record[3]!)
             newRecord.calories = Int64(dataManager.totalEnergyBurned)
+            newRecord.heartRate = Int64(
+                dataManager.heartRateValues.reduce(0, +) / Double(dataManager.heartRateValues.count)
+            )
             print("saving new record")
             dataController.save()
         }
@@ -38,6 +41,9 @@ extension ActivityView {
             fetchedRecord?.set2 = Int64(record[2]!)
             fetchedRecord?.set3 = Int64(record[3]!)
             fetchedRecord?.calories = Int64(dataManager.totalEnergyBurned)
+            fetchedRecord?.heartRate = Int64(
+                dataManager.heartRateValues.reduce(0, +) / Double(dataManager.heartRateValues.count)
+            )
             print("preparing update your record")
             dataController.save()
         }
