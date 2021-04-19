@@ -75,12 +75,18 @@ struct ActivityView: View {
         VStack {
             createReps()
             Spacer()
-            Group {
-                Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
-                    .font(.largeTitle)
-                Text(viewModel.dataManager.unit(displayMode: displayMode))
-                    .textCase(.uppercase)
-            }.onTapGesture(perform: changeDisplayMode)
+            HStack {
+                IconView(size: 3, displayMode: displayMode).padding(.leading, 20)
+                Spacer()
+                VStack {
+                    Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
+                        .font(.largeTitle)
+                    Text(viewModel.dataManager.unit(displayMode: displayMode))
+                        .textCase(.uppercase)
+                }
+            }
+            .contentShape(Rectangle())
+            .onTapGesture(perform: changeDisplayMode)
             Spacer()
             Button("Done") {
                 record[setNumber] = Int(setValue)

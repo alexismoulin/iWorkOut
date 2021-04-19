@@ -174,11 +174,11 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
     func unit(displayMode: DisplayMode) -> String {
         switch displayMode {
         case .energy:
-            return "calories"
+            return " calories  "
         case .heartRate:
-            return "beats / minute"
+            return "beats / min"
         case .time:
-            return "seconds"
+            return "  seconds  "
         }
     }
 

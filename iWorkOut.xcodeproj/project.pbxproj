@@ -40,6 +40,7 @@
 		5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B5BF925ABDB530073E757 /* DataManager.swift */; };
 		5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D0259FF07400E90941 /* ContentView.swift */; };
 		5EAC61D6259FF20300E90941 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D5259FF20300E90941 /* RecordView.swift */; };
+		5EB437C3262E3C6B00F09B6F /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB437C2262E3C6B00F09B6F /* IconView.swift */; };
 		5ED69EC0262C70D5002A6DFF /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED69EBF262C70D5002A6DFF /* ActivityViewModel.swift */; };
 		5EDA2C9A25AB576900FAFB2F /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA2C9925AB576900FAFB2F /* ActivityView.swift */; };
 		5EDA2C9F25AB5F5400FAFB2F /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */; };
@@ -126,6 +127,7 @@
 		5E9B5BF925ABDB530073E757 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5EAC61D0259FF07400E90941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5EAC61D5259FF20300E90941 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		5EB437C2262E3C6B00F09B6F /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		5ED69EBF262C70D5002A6DFF /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		5EDA2C9925AB576900FAFB2F /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */,
 				5E7448AE262D0BEE0036616C /* SummaryView.swift */,
+				5EB437C2262E3C6B00F09B6F /* IconView.swift */,
 				5E570CAA25AD50DA002D4D64 /* ActivityRing */,
 			);
 			path = SharedComponents;
@@ -503,6 +506,7 @@
 				5E7E7072258CE3650030B507 /* MuscleGroup.swift in Sources */,
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,
 				5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */,
+				5EB437C3262E3C6B00F09B6F /* IconView.swift in Sources */,
 				5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */,
 				5ED69EC0262C70D5002A6DFF /* ActivityViewModel.swift in Sources */,
 				5E7E7058258CE2AE0030B507 /* ComplicationController.swift in Sources */,
