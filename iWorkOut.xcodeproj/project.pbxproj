@@ -21,7 +21,7 @@
 		5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D294425B1E2D5005C0E77 /* DebugView.swift */; };
 		5E6D294E25B1F2EB005C0E77 /* RecordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D294D25B1F2EB005C0E77 /* RecordForm.swift */; };
 		5E74489D262CA0AA0036616C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74489C262CA0AA0036616C /* DetailViewModel.swift */; };
-		5E7448AF262D0BEE0036616C /* SummaryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7448AE262D0BEE0036616C /* SummaryFormView.swift */; };
+		5E7448AF262D0BEE0036616C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7448AE262D0BEE0036616C /* SummaryView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
 		5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7B5B2A259B995800911571 /* CoreData.framework */; };
 		5E7C6795260E672C00DEB68D /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C6794260E672C00DEB68D /* Notifications.swift */; };
@@ -104,7 +104,7 @@
 		5E6D294425B1E2D5005C0E77 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		5E6D294D25B1F2EB005C0E77 /* RecordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordForm.swift; sourceTree = "<group>"; };
 		5E74489C262CA0AA0036616C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		5E7448AE262D0BEE0036616C /* SummaryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryFormView.swift; sourceTree = "<group>"; };
+		5E7448AE262D0BEE0036616C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5E7B5B2A259B995800911571 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5E7C6794260E672C00DEB68D /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				5EEE97E825B1BE8D00B06D0F /* CustomAlert.swift */,
-				5E7448AE262D0BEE0036616C /* SummaryFormView.swift */,
+				5E7448AE262D0BEE0036616C /* SummaryView.swift */,
 				5E570CAA25AD50DA002D4D64 /* ActivityRing */,
 			);
 			path = SharedComponents;
@@ -490,7 +490,7 @@
 				5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */,
 				5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */,
 				5E74489D262CA0AA0036616C /* DetailViewModel.swift in Sources */,
-				5E7448AF262D0BEE0036616C /* SummaryFormView.swift in Sources */,
+				5E7448AF262D0BEE0036616C /* SummaryView.swift in Sources */,
 				5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */,
 				5E458194258E756200D1A0E1 /* DetailView.swift in Sources */,
 				5E7E7054258CE2AE0030B507 /* MuscleView.swift in Sources */,

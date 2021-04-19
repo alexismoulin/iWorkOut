@@ -109,44 +109,13 @@ struct ActivityView: View {
 
     func createSummary() -> some View {
         Form {
-            Section(header: Text("Reps per set")) {
-                HStack {
-                    Text("Set 1:")
-                    Spacer()
-                    Text("\(record[1] ?? 0)")
-                }
-                HStack {
-                    Text("Set 2:")
-                    Spacer()
-                    Text("\(record[2] ?? 0)")
-                }
-                HStack {
-                    Text("Set 3:")
-                    Spacer()
-                    Text("\(record[3] ?? 0)")
-                }
-            }
-            Section(header: Text("Total")) {
-                HStack {
-                    Text("Total sum:")
-                    Spacer()
-                    Text("\((record[1] ?? 0) + (record[2] ?? 0) + (record[3] ?? 0))")
-                }
-            }
-            Section(header: Text("Colories")) {
-                HStack {
-                    Text("Total burned:")
-                    Spacer()
-                    Text("\(Int(viewModel.dataManager.totalEnergyBurned))")
-                }
-            }
-            Section(header: Text("Heart Rate")) {
-                HStack {
-                    Text("Average BPM:")
-                    Spacer()
-                    Text("\(calculateBPM())")
-                }
-            }
+            SummaryView(
+                set1Value: record[1] ?? 0,
+                set2Value: record[2] ?? 0,
+                set3Value: record[3] ?? 0,
+                calories: Int(viewModel.dataManager.totalEnergyBurned),
+                heartRate: calculateBPM()
+            )
             Button("SAVE") {
                 viewModel.dataManager.end()
                 saveWorkout(CDRecordTotal: Record.getRecord(

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SummaryFormView: View {
+struct SummaryView: View {
 
     // MARK: - Properties
 
@@ -16,7 +16,7 @@ struct SummaryFormView: View {
     // MARK: - body
 
     var body: some View {
-        Form {
+        Group {
             Section(header: Text("Reps per set")) {
                 HStack {
                     Text("Set 1:")
