@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Not used
 class StopWatchManager: ObservableObject {
     @Published var secondsElapsed: Int = 0
     var timer: Timer = Timer()

@@ -20,16 +20,6 @@ struct DetailView: View {
     // MARK: - Components
 
     func createRecordRow() -> some View {
-        HStack {
-            VStack {
-                Image(systemName: "flame")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.orange)
-                    .frame(height: 32)
-                Text("\(viewModel.fetchedRecord?.calories ?? 0)").fontWeight(.bold)
-            }
-            Spacer()
             VStack {
                 Image(systemName: "crown")
                     .resizable()
@@ -38,23 +28,6 @@ struct DetailView: View {
                     .frame(height: 32)
                 Text("\(viewModel.fetchedRecord?.sum ?? 0)").fontWeight(.bold)
             }
-            Spacer()
-            VStack {
-                ZStack {
-                Image(systemName: "heart")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.red)
-                    .frame(height: 32)
-                Image(systemName: "waveform.path.ecg")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.red)
-                    .frame(height: 30)
-                }
-                Text("\(viewModel.fetchedRecord?.heartRate ?? 0)").fontWeight(.bold)
-            }
-        }.padding()
     }
 
     // MARK: - body

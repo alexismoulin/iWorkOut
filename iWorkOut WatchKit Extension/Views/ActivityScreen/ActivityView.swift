@@ -21,7 +21,6 @@ struct ActivityView: View {
     @State private var notificationDate: Date = Date()
     @State private var correction: Bool = false
 
-    @StateObject private var stopWatchManager = StopWatchManager()
     @StateObject private var viewModel: ViewModel
 
     // MARK: - Custom init
@@ -60,9 +59,9 @@ struct ActivityView: View {
                 .digitalCrownRotation(
                     $setValue,
                     from: 0,
-                    through: viewModel.exercise.type != "time" ? 100 : 1000,
-                    by: viewModel.exercise.type != "time" ? 1 : 5,
-                    sensitivity: viewModel.exercise.type != "time" ? .low : .medium,
+                    through: 100,
+                    by: 1,
+                    sensitivity: .low,
                     isContinuous: false,
                     isHapticFeedbackEnabled: true
                 )
@@ -79,7 +78,7 @@ struct ActivityView: View {
                 IconView(size: 3, displayMode: displayMode).padding(.leading, 20)
                 Spacer()
                 VStack {
-                    Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
+                    Text(viewModel.dataManager.quantity(displayMode: displayMode))
                         .font(.largeTitle)
                     Text(viewModel.dataManager.unit(displayMode: displayMode))
                         .textCase(.uppercase)
@@ -95,7 +94,6 @@ struct ActivityView: View {
                 setNumber += 1
                 percent = 0
                 viewModel.dataManager.pause() // pause dataManager
-                stopWatchManager.stop()
             }
         }
     }
@@ -208,10 +206,8 @@ struct ActivityView: View {
         title = "Set \(setNumber)"
         if setNumber == 1 {
             viewModel.dataManager.start() // start dataManager
-            stopWatchManager.start()
         } else {
             viewModel.dataManager.resume() // resume dataManager
-            stopWatchManager.start()
         }
     }
 
@@ -259,8 +255,8 @@ struct ActivityView: View {
         case .energy:
             displayMode = .heartRate
         case .heartRate:
-            displayMode = .time
-        case .time:
+            displayMode = .oxygenSaturation
+        case .oxygenSaturation:
             displayMode = .energy
         }
     }
@@ -268,10 +264,6 @@ struct ActivityView: View {
     func movingToBackground() {
         print("Moving to the background")
         notificationDate = Date()
-        // StopWatchManager timer only
-        if timeRemaining == -1 {
-            stopWatchManager.pause()
-        }
     }
 
     func movingToForeground() {
@@ -280,9 +272,6 @@ struct ActivityView: View {
         if timeRemaining > -1 {
             timeRemaining -= deltaTime
             percent += Double(deltaTime) / 1.2
-        } else {
-            stopWatchManager.secondsElapsed += deltaTime
-            stopWatchManager.start()
         }
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 import HealthKit
 
 enum DisplayMode {
-    case energy, heartRate, time
+    case energy, heartRate, oxygenSaturation
 }
 
 class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate, ObservableObject {
@@ -21,6 +21,8 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
     @Published var totalEnergyBurned: Double = 0
     @Published var lastHeartRate: Double = 0
     @Published var heartRateValues: [Double] = []
+    @Published var lastBloodOxygenValue: Double = 0
+    @Published var bloodOxygenValues: [Double] = []
 
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) { }
 
@@ -41,6 +43,7 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
                 self.state = .inactive
                 self.totalEnergyBurned = 0
                 self.lastHeartRate = 0
+                self.lastBloodOxygenValue = 0
             default:
                 break
             }
@@ -64,6 +67,11 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
                     self.lastHeartRate = lastHeartRateMeasure
                     self.heartRateValues.append(lastHeartRateMeasure)
 
+                case HKQuantityType.quantityType(forIdentifier: .oxygenSaturation):
+                    let lastBloodOxygenMeasure = statistics.mostRecentQuantity()?.doubleValue(for: .percent()) ?? 0
+                    self.lastBloodOxygenValue = lastBloodOxygenMeasure
+                    self.bloodOxygenValues.append(lastBloodOxygenMeasure)
+
                 default:
                     let value = statistics.sumQuantity()?.doubleValue(for: .kilocalorie()) ?? 0
                     self.totalEnergyBurned = value
@@ -77,12 +85,14 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
         let writing: Set<HKSampleType> = [
             .workoutType(),
             .quantityType(forIdentifier: .heartRate)!,
+            .quantityType(forIdentifier: .oxygenSaturation)!,
             .quantityType(forIdentifier: .activeEnergyBurned)!
         ]
 
         let reading: Set<HKObjectType> = [
             .workoutType(),
             .quantityType(forIdentifier: .heartRate)!,
+            .quantityType(forIdentifier: .oxygenSaturation)!,
             .quantityType(forIdentifier: .activeEnergyBurned)!
         ]
 
@@ -160,14 +170,14 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
         })
     }
 
-    func quantity(displayMode: DisplayMode, stopWatchManager: StopWatchManager) -> String {
+    func quantity(displayMode: DisplayMode) -> String {
         switch displayMode {
         case .energy:
             return String(format: "%.0f", self.totalEnergyBurned)
         case .heartRate:
             return String(Int(self.lastHeartRate))
-        case .time:
-            return String(stopWatchManager.secondsElapsed)
+        case .oxygenSaturation:
+            return String(Int(self.lastBloodOxygenValue))
         }
     }
 
@@ -177,8 +187,8 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
             return " calories  "
         case .heartRate:
             return "beats / min"
-        case .time:
-            return "  seconds  "
+        case .oxygenSaturation:
+            return " % oxygen  "
         }
     }
 
