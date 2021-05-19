@@ -38,6 +38,7 @@
 		5E7E707D258CE4320030B507 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E707C258CE4320030B507 /* Equipment.swift */; };
 		5E9B5BF725ABDAD00073E757 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9B5BF625ABDAD00073E757 /* HealthKit.framework */; };
 		5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B5BF925ABDB530073E757 /* DataManager.swift */; };
+		5EA42E47264CA72800AC5CFF /* iWorkOut_WatchKit_ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA42E46264CA72800AC5CFF /* iWorkOut_WatchKit_ExtensionTests.swift */; };
 		5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D0259FF07400E90941 /* ContentView.swift */; };
 		5EAC61D6259FF20300E90941 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D5259FF20300E90941 /* RecordView.swift */; };
 		5EB437C3262E3C6B00F09B6F /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB437C2262E3C6B00F09B6F /* IconView.swift */; };
@@ -56,6 +57,13 @@
 			remoteInfo = "iWorkOut WatchKit App";
 		};
 		5E7E7050258CE2AE0030B507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E7E7038258CE2AD0030B507 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E7E704D258CE2AE0030B507;
+			remoteInfo = "iWorkOut WatchKit Extension";
+		};
+		5EA42E49264CA72800AC5CFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E7E7038258CE2AD0030B507 /* Project object */;
 			proxyType = 1;
@@ -125,6 +133,9 @@
 		5E7E707C258CE4320030B507 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		5E9B5BF625ABDAD00073E757 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E9B5BF925ABDB530073E757 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5EA42E44264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iWorkOut WatchKit ExtensionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EA42E46264CA72800AC5CFF /* iWorkOut_WatchKit_ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWorkOut_WatchKit_ExtensionTests.swift; sourceTree = "<group>"; };
+		5EA42E48264CA72800AC5CFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EAC61D0259FF07400E90941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5EAC61D5259FF20300E90941 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		5EB437C2262E3C6B00F09B6F /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
@@ -142,6 +153,13 @@
 				5E9B5BF725ABDAD00073E757 /* HealthKit.framework in Frameworks */,
 				5E1267D6259B889900A47AAC /* CloudKit.framework in Frameworks */,
 				5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EA42E41264CA72800AC5CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +278,7 @@
 			children = (
 				5E7E7046258CE2AD0030B507 /* iWorkOut WatchKit App */,
 				5E7E7052258CE2AE0030B507 /* iWorkOut WatchKit Extension */,
+				5EA42E45264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests */,
 				5E7E703F258CE2AD0030B507 /* Products */,
 				5E1267D4259B889900A47AAC /* Frameworks */,
 			);
@@ -271,6 +290,7 @@
 				5E7E703E258CE2AD0030B507 /* iWorkOut.app */,
 				5E7E7042258CE2AD0030B507 /* iWorkOut WatchKit App.app */,
 				5E7E704E258CE2AE0030B507 /* iWorkOut WatchKit Extension.appex */,
+				5EA42E44264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,6 +348,15 @@
 				5E5134472598BF1C008D4195 /* Record-CoreData */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5EA42E45264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests */ = {
+			isa = PBXGroup;
+			children = (
+				5EA42E46264CA72800AC5CFF /* iWorkOut_WatchKit_ExtensionTests.swift */,
+				5EA42E48264CA72800AC5CFF /* Info.plist */,
+			);
+			path = "iWorkOut WatchKit ExtensionTests";
 			sourceTree = "<group>";
 		};
 		5ED69EBB262C69E0002A6DFF /* Navigation */ = {
@@ -395,13 +424,31 @@
 			productReference = 5E7E704E258CE2AE0030B507 /* iWorkOut WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		5EA42E43264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EA42E4D264CA72800AC5CFF /* Build configuration list for PBXNativeTarget "iWorkOut WatchKit ExtensionTests" */;
+			buildPhases = (
+				5EA42E40264CA72800AC5CFF /* Sources */,
+				5EA42E41264CA72800AC5CFF /* Frameworks */,
+				5EA42E42264CA72800AC5CFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EA42E4A264CA72800AC5CFF /* PBXTargetDependency */,
+			);
+			name = "iWorkOut WatchKit ExtensionTests";
+			productName = "iWorkOut WatchKit ExtensionTests";
+			productReference = 5EA42E44264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5E7E7038258CE2AD0030B507 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					5E7E703D258CE2AD0030B507 = {
@@ -412,6 +459,10 @@
 					};
 					5E7E704D258CE2AE0030B507 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					5EA42E43264CA72800AC5CFF = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 5E7E704D258CE2AE0030B507;
 					};
 				};
 			};
@@ -431,6 +482,7 @@
 				5E7E703D258CE2AD0030B507 /* iWorkOut */,
 				5E7E7041258CE2AD0030B507 /* iWorkOut WatchKit App */,
 				5E7E704D258CE2AE0030B507 /* iWorkOut WatchKit Extension */,
+				5EA42E43264CA72800AC5CFF /* iWorkOut WatchKit ExtensionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -458,6 +510,13 @@
 				5E38A725258D022300574232 /* ExerciseData.plist in Resources */,
 				5E7E705D258CE2AE0030B507 /* Preview Assets.xcassets in Resources */,
 				5E7E705A258CE2AE0030B507 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EA42E42264CA72800AC5CFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +579,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EA42E40264CA72800AC5CFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA42E47264CA72800AC5CFF /* iWorkOut_WatchKit_ExtensionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -532,6 +599,11 @@
 			isa = PBXTargetDependency;
 			target = 5E7E704D258CE2AE0030B507 /* iWorkOut WatchKit Extension */;
 			targetProxy = 5E7E7050258CE2AE0030B507 /* PBXContainerItemProxy */;
+		};
+		5EA42E4A264CA72800AC5CFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E7E704D258CE2AE0030B507 /* iWorkOut WatchKit Extension */;
+			targetProxy = 5EA42E49264CA72800AC5CFF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -768,6 +840,50 @@
 			};
 			name = Release;
 		};
+		5EA42E4B264CA72800AC5CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R28KNM82KD;
+				INFOPLIST_FILE = "iWorkOut WatchKit ExtensionTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexis.iWorkOut-WatchKit-ExtensionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWorkOut WatchKit Extension.appex/iWorkOut WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		5EA42E4C264CA72800AC5CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R28KNM82KD;
+				INFOPLIST_FILE = "iWorkOut WatchKit ExtensionTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexis.iWorkOut-WatchKit-ExtensionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWorkOut WatchKit Extension.appex/iWorkOut WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -803,6 +919,15 @@
 			buildConfigurations = (
 				5E7E706A258CE2AE0030B507 /* Debug */,
 				5E7E706B258CE2AE0030B507 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EA42E4D264CA72800AC5CFF /* Build configuration list for PBXNativeTarget "iWorkOut WatchKit ExtensionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EA42E4B264CA72800AC5CFF /* Debug */,
+				5EA42E4C264CA72800AC5CFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
