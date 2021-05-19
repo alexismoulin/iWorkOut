@@ -10,19 +10,26 @@ struct IconView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.orange)
-                .frame(height: 16 * size)
+                .frame(width: 16 * size)
         case .heartRate:
             return Image(systemName: "heart")
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.red)
-                .frame(height: 16 * size)
+                .frame(width: 16 * size)
+        case .time:
+            return Image(systemName: "timer")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.white)
+                .frame(width: 16 * size)
         case .oxygenSaturation:
+            // not used yet
             return Image(systemName: "lungs")
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.blue)
-                .frame(height: 16 * size)
+                .frame(width: 16 * size)
         }
     }
 }

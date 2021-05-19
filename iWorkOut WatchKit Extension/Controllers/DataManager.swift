@@ -2,7 +2,7 @@ import Foundation
 import HealthKit
 
 enum DisplayMode {
-    case energy, heartRate, oxygenSaturation
+    case energy, heartRate, oxygenSaturation, time
 }
 
 class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate, ObservableObject {
@@ -178,6 +178,8 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
             return String(Int(self.lastHeartRate))
         case .oxygenSaturation:
             return String(Int(self.lastBloodOxygenValue))
+        case .time:
+            return String("T")
         }
     }
 
@@ -189,6 +191,8 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
             return "beats / min"
         case .oxygenSaturation:
             return " % oxygen  "
+        case .time:
+            return "  seconds  "
         }
     }
 

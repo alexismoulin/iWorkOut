@@ -9,6 +9,13 @@ struct DetailView: View {
     @State private var reps: Double = 0
     @State private var imageAnimationFrame: Int = 0
     @State private var displayInstructions: Bool = false
+    @State private var index: Int = 0
+
+    var images: [UIImage?] {
+        [UIImage(named: "\(viewModel.exercise.id)-a"), UIImage(named: "\(viewModel.exercise.id)-b")]
+    }
+
+    private var timer = AnimatedImageTimer()
 
     // MARK: - Custom init
 
@@ -35,10 +42,15 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image(imageAnimationFrame % 2 == 0 ? "\(viewModel.exercise.id)-a" : "\(viewModel.exercise.id)-b")
+                Image(uiImage: images[index % 2] ?? UIImage(named: "null")!)
                     .resizable()
                     .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .onReceive(timer.publisher) { _ in
+                        index += 1
+                    }
+                    .onAppear { self.timer.start() }
+                    .onDisappear { self.timer.cancel() }
 
                 NavigationLink(destination: ActivityView(
                     dataController: viewModel.dataController,
@@ -55,17 +67,6 @@ struct DetailView: View {
             }
         }
         .navigationTitle(viewModel.exercise.name)
-        .onAppear(perform: animateExerciseImage)
-    }
-
-    // MARK: - functions
-
-    func animateExerciseImage() {
-        for halfSecond in 0..<20 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(halfSecond)) {
-                imageAnimationFrame += 1
-            }
-        }
     }
 
 }

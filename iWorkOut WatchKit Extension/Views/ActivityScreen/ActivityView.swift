@@ -255,8 +255,10 @@ struct ActivityView: View {
         case .energy:
             displayMode = .heartRate
         case .heartRate:
-            displayMode = .oxygenSaturation
+            displayMode = .time
         case .oxygenSaturation:
+            displayMode = .energy
+        case .time:
             displayMode = .energy
         }
     }
