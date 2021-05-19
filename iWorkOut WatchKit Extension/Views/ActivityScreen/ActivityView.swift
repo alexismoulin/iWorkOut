@@ -22,6 +22,7 @@ struct ActivityView: View {
     @State private var correction: Bool = false
 
     @StateObject private var viewModel: ViewModel
+    @StateObject private var stopWatchManager = StopWatchManager()
 
     // MARK: - Custom init
 
@@ -75,10 +76,11 @@ struct ActivityView: View {
             createReps()
             Spacer()
             HStack {
-                IconView(size: 3, displayMode: displayMode).padding(.leading, 20)
+                IconView(size: 3, displayMode: displayMode)
+                    .padding(.leading, 20)
                 Spacer()
                 VStack {
-                    Text(viewModel.dataManager.quantity(displayMode: displayMode))
+                    Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
                         .font(.largeTitle)
                     Text(viewModel.dataManager.unit(displayMode: displayMode))
                         .textCase(.uppercase)
@@ -94,6 +96,7 @@ struct ActivityView: View {
                 setNumber += 1
                 percent = 0
                 viewModel.dataManager.pause() // pause dataManager
+                stopWatchManager.stop() // stops stopWatch
             }
         }
     }
@@ -206,8 +209,10 @@ struct ActivityView: View {
         title = "Set \(setNumber)"
         if setNumber == 1 {
             viewModel.dataManager.start() // start dataManager
+            stopWatchManager.start()
         } else {
             viewModel.dataManager.resume() // resume dataManager
+            stopWatchManager.start()
         }
     }
 
@@ -266,14 +271,21 @@ struct ActivityView: View {
     func movingToBackground() {
         print("Moving to the background")
         notificationDate = Date()
+        // StopWatchManager timer only
+        if timeRemaining == -1 {
+            stopWatchManager.pause()
+        }
     }
 
     func movingToForeground() {
         print("Moving to the foreground")
-        let deltaTime: Int = Int(Date().timeIntervalSince(notificationDate))
+        let deltaTime: Double = Date().timeIntervalSince(notificationDate)
         if timeRemaining > -1 {
-            timeRemaining -= deltaTime
-            percent += Double(deltaTime) / 1.2
+            timeRemaining -= Int(deltaTime)
+            percent += deltaTime / 1.2
+        } else {
+            stopWatchManager.secondsElapsed += deltaTime
+            stopWatchManager.start()
         }
     }
 }

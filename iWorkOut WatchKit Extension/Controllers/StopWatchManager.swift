@@ -1,13 +1,12 @@
 import SwiftUI
 
-// Not used
 class StopWatchManager: ObservableObject {
-    @Published var secondsElapsed: Int = 0
+    @Published var secondsElapsed: Double = 0
     var timer: Timer = Timer()
 
     func start() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.secondsElapsed += 1
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            self.secondsElapsed += 0.1
         }
     }
 

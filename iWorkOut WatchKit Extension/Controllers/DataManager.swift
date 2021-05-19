@@ -170,7 +170,7 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
         })
     }
 
-    func quantity(displayMode: DisplayMode) -> String {
+    func quantity(displayMode: DisplayMode, stopWatchManager: StopWatchManager) -> String {
         switch displayMode {
         case .energy:
             return String(format: "%.0f", self.totalEnergyBurned)
@@ -179,7 +179,7 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
         case .oxygenSaturation:
             return String(Int(self.lastBloodOxygenValue))
         case .time:
-            return String("T")
+            return String(format: "%.1f", stopWatchManager.secondsElapsed)
         }
     }
 
