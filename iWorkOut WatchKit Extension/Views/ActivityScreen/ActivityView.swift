@@ -160,7 +160,10 @@ struct ActivityView: View {
                     }
                 } else {
                     createSummary()
-                        .onAppear { title = "Summary" }
+                        .onAppear {
+                            title = "Summary"
+                            viewModel.dataManager.end()
+                        }
                         // see for extract custom gesture
                         .gesture(
                             DragGesture(minimumDistance: 50, coordinateSpace: .local)
