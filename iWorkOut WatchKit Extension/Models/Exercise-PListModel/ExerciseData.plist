@@ -140,7 +140,7 @@
 				<key>name</key>
 				<string>Plank</string>
 				<key>type</key>
-				<string>rep</string>
+				<string>duration</string>
 			</dict>
 			<dict>
 				<key>id</key>

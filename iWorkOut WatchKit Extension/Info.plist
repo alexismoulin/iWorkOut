@@ -43,6 +43,7 @@
 	<key>WKBackgroundModes</key>
 	<array>
 		<string>physical-therapy</string>
+		<string>workout-processing</string>
 	</array>
 	<key>WKWatchOnly</key>
 	<true/>

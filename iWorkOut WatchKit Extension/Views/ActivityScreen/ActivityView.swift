@@ -43,10 +43,10 @@ struct ActivityView: View {
         switch viewModel.exercise.type {
         case "rep":
             type = "Reps:"
-        case "time":
+        case "duration":
             type = "Duration(s)"
         default:
-            type = "Error"
+            type = "Error!"
         }
 
         return HStack {
@@ -60,9 +60,9 @@ struct ActivityView: View {
                 .digitalCrownRotation(
                     $setValue,
                     from: 0,
-                    through: 100,
-                    by: 1,
-                    sensitivity: .low,
+                    through: type != "Duration(s)" ? 100 : 600,
+                    by: type != "Duration(s)" ? 1 : 5,
+                    sensitivity: type != "Duration(s)" ? .low : .medium,
                     isContinuous: false,
                     isHapticFeedbackEnabled: true
                 )
