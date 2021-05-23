@@ -27,16 +27,14 @@ struct DetailView: View {
     // MARK: - Components
 
     func createRecordRow() -> some View {
-        NavigationLink(destination: DetailRecordView(fetchedRecord: viewModel.fetchedRecord)) {
-            VStack {
-                Image(systemName: "crown")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.yellow)
-                    .frame(height: 32)
-                Text("\(viewModel.fetchedRecord?.sum ?? 0)").fontWeight(.bold)
-            }
-        }.buttonStyle(PlainButtonStyle())
+        VStack {
+            Image(systemName: "crown")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.yellow)
+                .frame(height: 32)
+            Text("\(viewModel.fetchedRecord?.sum ?? 0)").fontWeight(.bold)
+        }
     }
 
     // MARK: - body
