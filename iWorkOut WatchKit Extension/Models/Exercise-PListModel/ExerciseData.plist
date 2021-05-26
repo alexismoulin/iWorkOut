@@ -39,6 +39,8 @@
 				<string>rep</string>
 			</dict>
 		</array>
+		<key>bench</key>
+		<array/>
 		<key>barbell</key>
 		<array>
 			<dict>
@@ -50,6 +52,20 @@
 				<string>weight</string>
 			</dict>
 		</array>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
 	</dict>
 	<key>biceps</key>
 	<dict>
@@ -87,13 +103,94 @@
 				<string>rep</string>
 			</dict>
 		</array>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
 	</dict>
 	<key>forearm</key>
-	<dict/>
+	<dict>
+		<key>bodyOnly</key>
+		<array/>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
+	</dict>
 	<key>back</key>
-	<dict/>
+	<dict>
+		<key>bodyOnly</key>
+		<array/>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
+	</dict>
 	<key>shoulders</key>
-	<dict/>
+	<dict>
+		<key>bodyOnly</key>
+		<array/>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
+	</dict>
 	<key>upperLegs</key>
 	<dict>
 		<key>bodyOnly</key>
@@ -115,6 +212,24 @@
 				<string>rep</string>
 			</dict>
 		</array>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
 	</dict>
 	<key>lowerLegs</key>
 	<dict>
@@ -129,6 +244,24 @@
 				<string>rep</string>
 			</dict>
 		</array>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
 	</dict>
 	<key>abdos</key>
 	<dict>
@@ -183,8 +316,47 @@
 				<string>rep</string>
 			</dict>
 		</array>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
 	</dict>
 	<key>cardio</key>
-	<dict/>
+	<dict>
+		<key>bodyOnly</key>
+		<array/>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
+	</dict>
 </dict>
 </plist>

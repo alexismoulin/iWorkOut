@@ -14,9 +14,9 @@ func loadData(muscleGroup: String, equipment: String) -> [Exercise]? {
     guard let data = try? Data(contentsOf: url) else { return nil }
     // cast the plist data to the right datastructure
     guard let fullList = try? PropertyListSerialization.propertyList(
-            from: data,
-            options: .mutableContainers,
-            format: nil
+        from: data,
+        options: .mutableContainers,
+        format: nil
     ) as? [String: [String: [[String: String]]]] else { return nil }
     // get the data only for the selected musclegroup and equipment
     guard let shortList: [[String: String]] = fullList[muscleGroup]?[equipment] else { return nil }
@@ -28,5 +28,9 @@ func loadData(muscleGroup: String, equipment: String) -> [Exercise]? {
         guard let type = exercise["type"] else { return nil }
         exerciseArray.append(Exercise(id: id, name: name, type: type))
     }
-    return exerciseArray
+    if exerciseArray.isEmpty {
+        return nil
+    } else {
+        return exerciseArray
+    }
 }
