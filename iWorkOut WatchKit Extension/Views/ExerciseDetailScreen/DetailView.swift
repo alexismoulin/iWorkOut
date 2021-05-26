@@ -5,10 +5,6 @@ struct DetailView: View {
     // MARK: - Properties
 
     @StateObject private var viewModel: ViewModel
-
-    @State private var reps: Double = 0
-    @State private var imageAnimationFrame: Int = 0
-    @State private var displayInstructions: Bool = false
     @State private var index: Int = 0
 
     var images: [UIImage?] {

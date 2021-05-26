@@ -25,8 +25,8 @@ func loadData(muscleGroup: String, equipment: String) -> [Exercise]? {
     for exercise in shortList {
         guard let id = exercise["id"] else { return nil }
         guard let name = exercise["name"] else { return nil }
-        guard let frames = exercise["type"] else { return nil }
-        exerciseArray.append(Exercise(id: id, name: name, type: frames))
+        guard let type = exercise["type"] else { return nil }
+        exerciseArray.append(Exercise(id: id, name: name, type: type))
     }
     return exerciseArray
 }

@@ -39,9 +39,41 @@
 				<string>rep</string>
 			</dict>
 		</array>
+		<key>barbell</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-2-0</string>
+				<key>name</key>
+				<string>Barbell Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+		</array>
 	</dict>
 	<key>biceps</key>
-	<dict/>
+	<dict>
+		<key>bodyOnly</key>
+		<array/>
+		<key>bench</key>
+		<array/>
+		<key>barbell</key>
+		<array/>
+		<key>pullBar</key>
+		<array/>
+		<key>dumbbell</key>
+		<array/>
+		<key>ball</key>
+		<array/>
+		<key>kettleBell</key>
+		<array/>
+		<key>weightPlate</key>
+		<array/>
+		<key>machine</key>
+		<array/>
+		<key>other</key>
+		<array/>
+	</dict>
 	<key>triceps</key>
 	<dict>
 		<key>bodyOnly</key>
