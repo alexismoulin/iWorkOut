@@ -4,7 +4,7 @@ struct DetailView: View {
 
     // MARK: - Properties
 
-    @StateObject private var viewModel: ViewModel
+    @StateObject private var viewModel: DetailViewModel
     @State private var index: Int = 0
 
     var images: [UIImage?] {
@@ -16,13 +16,13 @@ struct DetailView: View {
     // MARK: - Custom init
 
     init(dataController: DataController, dataManager: DataManager, exercise: Exercise) {
-        let viewModel = ViewModel(dataController: dataController, dataManager: dataManager, exercise: exercise)
+        let viewModel = DetailViewModel(dataController: dataController, dataManager: dataManager, exercise: exercise)
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     // MARK: - Components
 
-    func createRecordRow() -> some View {
+    var recordItem: some View {
         VStack {
             Image(systemName: "crown")
                 .resizable()
@@ -48,17 +48,19 @@ struct DetailView: View {
                     .onAppear { self.timer.start() }
                     .onDisappear { self.timer.cancel() }
 
-                NavigationLink(destination: ActivityView(
-                    dataController: viewModel.dataController,
-                    dataManager: viewModel.dataManager,
-                    exercise: viewModel.exercise,
-                    fetchedRecord: viewModel.fetchedRecord
-                )) {
+                NavigationLink(
+                    destination: ActivityView(
+                        dataController: viewModel.dataController,
+                        dataManager: viewModel.dataManager,
+                        exercise: viewModel.exercise,
+                        fetchedRecord: viewModel.fetchedRecord
+                    )
+                ) {
                     Text("START").foregroundColor(.lime)
                 }
                 .padding(.vertical)
                 Divider()
-                createRecordRow()
+                recordItem
                 Spacer()
             }
         }

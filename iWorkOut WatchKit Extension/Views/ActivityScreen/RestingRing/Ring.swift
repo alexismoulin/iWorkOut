@@ -1,15 +1,6 @@
 import SwiftUI
 // Activity ring credits by https://gist.github.com/frankfka
 
-extension Double {
-    func toRadians() -> Double {
-        return self * Double.pi / 180
-    }
-    func toCGFloat() -> CGFloat {
-        return CGFloat(self)
-    }
-}
-
 struct RingShape: Shape {
     // Helper function to convert percent values to angles in degrees
     static func percentToAngle(percent: Double, startAngle: Double) -> Double {

@@ -7,27 +7,19 @@ struct ActivityView: View {
 
     @Environment(\.presentationMode) var presentation
 
-    @State private var record: [Int: Int] = [1: 0, 2: 0, 3: 0]
-    @State private var setValue: Double = 0
-    @State private var isFocused: Bool = false
-    @State private var setNumber: Int = 1
-    @State private var timeRemaining: Int = 3
-    @State private var percent: Double = 0
-    @State private var title: String = "Get Ready!"
     @State private var isPresented: Bool = false
-    @State private var displayMode: DisplayMode = .energy
     @State private var showingAlert: Bool = false
     @State private var alertType: Int = 0
     @State private var notificationDate: Date = Date()
     @State private var correction: Bool = false
 
-    @StateObject private var viewModel: ViewModel
+    @StateObject private var viewModel: ActivityViewModel
     @StateObject private var stopWatchManager = StopWatchManager()
 
     // MARK: - Custom init
 
     init(dataController: DataController, dataManager: DataManager, exercise: Exercise, fetchedRecord: Record?) {
-        let viewModel = ViewModel(
+        let viewModel = ActivityViewModel(
             dataController: dataController,
             dataManager: dataManager,
             exercise: exercise,
@@ -38,77 +30,14 @@ struct ActivityView: View {
 
     // MARK: - components functions
 
-    func createReps() -> some View {
-        var type: String
-        switch viewModel.exercise.type {
-        case "rep":
-            type = "Reps:"
-        case "duration":
-            type = "Duration(s)"
-        default:
-            type = "Error!"
-        }
-
-        return HStack {
-            Text(type)
-            Spacer()
-            Text("\(Int(setValue))")
-                .padding()
-                .frame(width: 50)
-                .contentShape(Rectangle())
-                .focusable { isFocused = $0 }
-                .digitalCrownRotation(
-                    $setValue,
-                    from: 0,
-                    through: type != "Duration(s)" ? 100 : 600,
-                    by: type != "Duration(s)" ? 1 : 5,
-                    sensitivity: type != "Duration(s)" ? .low : .medium,
-                    isContinuous: false,
-                    isHapticFeedbackEnabled: true
-                )
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                            .strokeBorder(isFocused ? Color.green : Color.gray, lineWidth: 2))
-        }
-    }
-
-    func createSetActivity() -> some View {
-        VStack {
-            createReps()
-            Spacer()
-            HStack {
-                IconView(size: 3, displayMode: displayMode)
-                    .padding(.leading, 20)
-                Spacer()
-                VStack {
-                    Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
-                        .font(.largeTitle)
-                    Text(viewModel.dataManager.unit(displayMode: displayMode))
-                        .textCase(.uppercase)
-                }
-            }
-            .contentShape(Rectangle())
-            .onTapGesture(perform: changeDisplayMode)
-            Spacer()
-            Button("Done") {
-                record[setNumber] = Int(setValue)
-                title = "Rest"
-                timeRemaining = 120
-                setNumber += 1
-                percent = 0
-                viewModel.dataManager.pause() // pause dataManager
-                stopWatchManager.stop() // stops stopWatch
-            }
-        }
-    }
-
     func createCorrection() -> some View {
         VStack {
-            createReps()
+            ActivitySetView()
             Spacer()
             Button("Correction") {
-                record[setNumber] = Int(setValue)
-                title = "Rest"
-                setNumber += 1
+                viewModel.record[viewModel.setNumber] = Int(viewModel.value)
+                viewModel.title = "Rest"
+                viewModel.setNumber += 1
                 correction = false
             }
         }
@@ -117,9 +46,9 @@ struct ActivityView: View {
     func createSummary() -> some View {
         Form {
             SummaryView(
-                set1Value: record[1] ?? 0,
-                set2Value: record[2] ?? 0,
-                set3Value: record[3] ?? 0,
+                set1Value: viewModel.record[1] ?? 0,
+                set2Value: viewModel.record[2] ?? 0,
+                set3Value: viewModel.record[3] ?? 0,
                 calories: Int(viewModel.dataManager.totalEnergyBurned),
                 heartRate: calculateBPM()
             )
@@ -134,6 +63,13 @@ struct ActivityView: View {
         }
     }
 
+    var backGesture: some Gesture {
+        DragGesture(minimumDistance: 50, coordinateSpace: .local)
+            .onEnded { _ in
+                backScreen()
+            }
+    }
+
     // MARK: - Main body
 
     var body: some View {
@@ -141,59 +77,43 @@ struct ActivityView: View {
             if correction {
                 createCorrection()
             } else {
-                if setNumber < 4 {
-                    if timeRemaining > -1 {
-                        TimedRing(
-                            totalSeconds: setNumber == 1 ? 3 : 120,
-                            percent: $percent,
-                            timeRemaining: $timeRemaining
-                        )
-                            .gesture(
-                                DragGesture(minimumDistance: 50, coordinateSpace: .local)
-                                    .onEnded { _ in
-                                        backScreen()
-                                    }
-                            )
+                if viewModel.setNumber < 4 {
+                    if viewModel.timeRemaining > -1 {
+                        TimedRing(totalSeconds: viewModel.setNumber == 1 ? 3 : 120)
+                            .environmentObject(viewModel)
+                            .gesture(backGesture)
                     } else {
-                        createSetActivity()
+                        ActivitySetView()
+                            .environmentObject(viewModel)
+                            .environmentObject(stopWatchManager)
                             .onAppear(perform: setupSet)
                     }
                 } else {
                     createSummary()
                         .onAppear {
-                            title = "Summary"
+                            viewModel.title = "Summary"
                             viewModel.dataManager.end()
                         }
-                        // see for extract custom gesture
-                        .gesture(
-                            DragGesture(minimumDistance: 50, coordinateSpace: .local)
-                                .onEnded { _ in
-                                    backScreen()
-                                }
-                        )
+                        .gesture(backGesture)
                 }
             }
         }
-        .navigationTitle(title)
+        .navigationTitle(viewModel.title)
         .alert(isPresented: $isPresented) {
             createCustomAlert(
                 alertType: alertType,
                 CDRecordSum: viewModel.fetchedRecord?.sum ?? 0,
-                currentRecordSum: record[1]! + record[2]! + record[3]!,
+                currentRecordSum: viewModel.record[1]! + viewModel.record[2]! + viewModel.record[3]!,
                 dismissfunction: { presentation.wrappedValue.dismiss() }
             )
         }
         .onReceive(
             NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification),
-            perform: { _ in
-                movingToBackground()
-            }
+            perform: { _ in movingToBackground() }
         )
         .onReceive(
             NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification),
-            perform: { _ in
-                movingToForeground()
-            }
+            perform: { _ in movingToForeground() }
         )
         .onAppear(perform: requestPermission)
     }
@@ -201,16 +121,16 @@ struct ActivityView: View {
     // MARK: - Helper functions
 
     func backScreen() {
-        if setNumber > 1 {
-            setNumber -= 1
-            title = "Set \(setNumber)"
+        if viewModel.setNumber > 1 {
+            viewModel.setNumber -= 1
+            viewModel.title = "Set \(viewModel.setNumber)"
             correction = true
         }
     }
 
     func setupSet() {
-        title = "Set \(setNumber)"
-        if setNumber == 1 {
+        viewModel.title = "Set \(viewModel.setNumber)"
+        if viewModel.setNumber == 1 {
             viewModel.dataManager.start() // start dataManager
             stopWatchManager.start()
         } else {
@@ -221,13 +141,13 @@ struct ActivityView: View {
 
     func createNewRecord() {
         alertType = 1
-        viewModel.createNewRecord(record: record)
+        viewModel.createNewRecord(record: viewModel.record)
         isPresented = true
     }
 
     func updateExistingRecord() {
         alertType = 2
-        viewModel.updateExistingRecord(record: record)
+        viewModel.updateExistingRecord(record: viewModel.record)
         isPresented = true
     }
 
@@ -250,7 +170,7 @@ struct ActivityView: View {
         if CDRecordTotal == 0 {
            createNewRecord()
         } else {
-            if record[1]! + record[2]! + record[3]! > CDRecordTotal {
+            if viewModel.record[1]! + viewModel.record[2]! + viewModel.record[3]! > CDRecordTotal {
                 updateExistingRecord()
             } else {
                 failedBeatRecord()
@@ -258,24 +178,11 @@ struct ActivityView: View {
         }
     }
 
-    func changeDisplayMode() {
-        switch displayMode {
-        case .energy:
-            displayMode = .heartRate
-        case .heartRate:
-            displayMode = .time
-        case .oxygenSaturation:
-            displayMode = .energy
-        case .time:
-            displayMode = .energy
-        }
-    }
-
     func movingToBackground() {
         print("Moving to the background")
         notificationDate = Date()
         // StopWatchManager timer only
-        if timeRemaining == -1 {
+        if viewModel.timeRemaining == -1 {
             stopWatchManager.pause()
         }
     }
@@ -283,9 +190,9 @@ struct ActivityView: View {
     func movingToForeground() {
         print("Moving to the foreground")
         let deltaTime: Double = Date().timeIntervalSince(notificationDate)
-        if timeRemaining > -1 {
-            timeRemaining -= Int(deltaTime)
-            percent += deltaTime / 1.2
+        if viewModel.timeRemaining > -1 {
+            viewModel.timeRemaining -= Int(deltaTime)
+            viewModel.percent += deltaTime / 1.2
         } else {
             stopWatchManager.secondsElapsed += deltaTime
             stopWatchManager.start()
