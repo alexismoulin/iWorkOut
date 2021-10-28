@@ -48,10 +48,17 @@ struct SetInfoView: View {
             VStack {
                 HStack {
                     Image(systemName: "square.stack.3d.up.fill")
-                    Text("Weight").font(.system(size: 12)).padding(2)
+                    Text("Weight")
+                        .font(.system(size: 12))
+                        .padding(2)
                 }
                 Spacer()
-                Text("**\(Int(weight))** kg").font(.system(size: 14)).padding(0)
+                Text("\(Int(weight))")
+                    .font(.system(size: 14))
+                    .bold()
+                    .foregroundColor(.yellow2) +
+                Text(" kg")
+                    .font(.system(size: 14))
             }
             Slider(value: $weight, in: 0...100, step: 5).tint(.yellow2)
         }
@@ -62,10 +69,17 @@ struct SetInfoView: View {
             VStack {
                 HStack {
                     Image(systemName: "arrow.clockwise.heart.fill")
-                    Text("Set of").font(.system(size: 12)).padding(2)
+                    Text("Set of")
+                        .font(.system(size: 12))
+                        .padding(2)
                 }
                 Spacer()
-                Text("**\(Int(reps))** reps").font(.system(size: 14)).padding(0)
+                Text("\(Int(reps))")
+                    .font(.system(size: 14))
+                    .bold()
+                    .foregroundColor(.purple) +
+                Text(" reps")
+                    .font(.system(size: 14))
             }
             Slider(value: $reps, in: 0...20, step: 1).tint(.purple)
         }

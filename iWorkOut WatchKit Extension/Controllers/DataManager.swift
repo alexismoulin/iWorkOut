@@ -194,4 +194,14 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
         }
     }
 
+    func calculateBPM() -> Int {
+        let sumBPM: Double =  heartRateValues.reduce(0, +)
+        let sumMeasurements: Double = Double(heartRateValues.count)
+        if sumMeasurements == 0 {
+            return 0
+        } else {
+            return Int(sumBPM / sumMeasurements)
+        }
+    }
+
 }

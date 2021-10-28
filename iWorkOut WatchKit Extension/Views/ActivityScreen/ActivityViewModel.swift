@@ -11,6 +11,7 @@ class ActivityViewModel: NSObject, ObservableObject, NSFetchedResultsControllerD
 
     let dataController: DataController
     let dataManager: DataManager
+
     let exercise: Exercise
     let fetchedRecord: Record?
 

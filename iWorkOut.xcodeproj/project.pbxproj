@@ -21,6 +21,7 @@
 		5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D294425B1E2D5005C0E77 /* DebugView.swift */; };
 		5E6D294E25B1F2EB005C0E77 /* RecordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D294D25B1F2EB005C0E77 /* RecordForm.swift */; };
 		5E7046F526549F6A00E56451 /* AnimatedImageTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7046F426549F6A00E56451 /* AnimatedImageTimer.swift */; };
+		5E73F5AF272B47AF007FE023 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E73F5AE272B47AF007FE023 /* Summary.swift */; };
 		5E74489D262CA0AA0036616C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74489C262CA0AA0036616C /* DetailViewModel.swift */; };
 		5E7448AF262D0BEE0036616C /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7448AE262D0BEE0036616C /* SummaryView.swift */; };
 		5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */; };
@@ -118,6 +119,7 @@
 		5E6D294425B1E2D5005C0E77 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		5E6D294D25B1F2EB005C0E77 /* RecordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordForm.swift; sourceTree = "<group>"; };
 		5E7046F426549F6A00E56451 /* AnimatedImageTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageTimer.swift; sourceTree = "<group>"; };
+		5E73F5AE272B47AF007FE023 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		5E74489C262CA0AA0036616C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		5E7448AE262D0BEE0036616C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		5E78E8EC258ED40400D7E7EC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -227,13 +229,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		5E570CAA25AD50DA002D4D64 /* RecoverView */ = {
+		5E570CAA25AD50DA002D4D64 /* Recover Screen */ = {
 			isa = PBXGroup;
 			children = (
 				5E570CA525AD4B8B002D4D64 /* TimedRing.swift */,
 				5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */,
 			);
-			path = RecoverView;
+			path = "Recover Screen";
 			sourceTree = "<group>";
 		};
 		5E6D294025B1E163005C0E77 /* SharedComponents */ = {
@@ -258,6 +260,14 @@
 			path = "Start Screen";
 			sourceTree = "<group>";
 		};
+		5E73F5B0272B49CC007FE023 /* Summary Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5E73F5AE272B47AF007FE023 /* Summary.swift */,
+			);
+			path = "Summary Screen";
+			sourceTree = "<group>";
+		};
 		5E7448A9262CFCD50036616C /* ExerciseDetailScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,9 +282,10 @@
 			children = (
 				5ED69EBF262C70D5002A6DFF /* ActivityViewModel.swift */,
 				5EDA2C9925AB576900FAFB2F /* ActivityView.swift */,
-				5EB81DDA272A053200BF27FA /* Set Info */,
+				5E73F5B0272B49CC007FE023 /* Summary Screen */,
+				5EB81DDA272A053200BF27FA /* Set Info Screen */,
 				5EF6770A26C34C3C006FC4B8 /* Health Screen */,
-				5E570CAA25AD50DA002D4D64 /* RecoverView */,
+				5E570CAA25AD50DA002D4D64 /* Recover Screen */,
 			);
 			path = ActivityScreen;
 			sourceTree = "<group>";
@@ -382,12 +393,12 @@
 			path = "iWorkOut WatchKit ExtensionTests";
 			sourceTree = "<group>";
 		};
-		5EB81DDA272A053200BF27FA /* Set Info */ = {
+		5EB81DDA272A053200BF27FA /* Set Info Screen */ = {
 			isa = PBXGroup;
 			children = (
 				5E7CF0E326C1FA2200B8D781 /* SetInfoView.swift */,
 			);
-			path = "Set Info";
+			path = "Set Info Screen";
 			sourceTree = "<group>";
 		};
 		5ED69EBB262C69E0002A6DFF /* Navigation */ = {
@@ -598,6 +609,7 @@
 				5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */,
 				5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */,
 				5E7CF0E226C1F29800B8D781 /* HealthView.swift in Sources */,
+				5E73F5AF272B47AF007FE023 /* Summary.swift in Sources */,
 				5E74489D262CA0AA0036616C /* DetailViewModel.swift in Sources */,
 				5E7448AF262D0BEE0036616C /* SummaryView.swift in Sources */,
 				5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */,

@@ -7,6 +7,7 @@ class DetailViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDel
 
     let dataController: DataController
     let dataManager: DataManager
+
     let exercise: Exercise
 
     private let recordController: NSFetchedResultsController<Record>

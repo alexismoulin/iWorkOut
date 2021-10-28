@@ -10,7 +10,7 @@ struct RecordView: View {
     @State private var selectedEquipment: Equipment = .bodyOnly
 
     var exerciseList: [Exercise] {
-        loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ??
+        Exercise.loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ??
             [Exercise(id: "null", name: "No Exercise", type: "0")]
     }
 
