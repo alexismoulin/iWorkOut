@@ -184,13 +184,13 @@ class DataManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDeleg
     func unit(displayMode: DisplayMode) -> String {
         switch displayMode {
         case .energy:
-            return " calories  "
+            return "cal"
         case .heartRate:
-            return "beats / min"
+            return "bpm"
         case .oxygenSaturation:
             return " % oxygen  "
         case .time:
-            return "  seconds  "
+            return "s"
         }
     }
 

@@ -10,20 +10,14 @@ struct HealthView: View {
 
     // MARK: - Components
 
-    var healthMonitor: some View {
+    func createHealthMonitor(displayMode: DisplayMode) -> some View {
         HStack {
-            IconView(size: 3, displayMode: displayMode)
-                .padding(.leading, 20)
-            Spacer()
-            VStack {
-                Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
-                    .font(.largeTitle)
-                Text(viewModel.dataManager.unit(displayMode: displayMode))
-                    .textCase(.uppercase)
-            }
+            IconView(size: 2, displayMode: displayMode)
+            Text(viewModel.dataManager.quantity(displayMode: displayMode, stopWatchManager: stopWatchManager))
+                .font(.title)
+            Text(viewModel.dataManager.unit(displayMode: displayMode))
+                .textCase(.uppercase)
         }
-        .contentShape(Rectangle())
-        .onTapGesture(perform: changeDisplayMode)
     }
 
     private var doneButton: some View {
@@ -37,11 +31,14 @@ struct HealthView: View {
     // MARK: - Body
 
     var body: some View {
-        VStack {
-            healthMonitor
-                .padding(.top, 5)
+        ScrollView {
+        VStack(alignment: .leading, spacing: 0) {
+            createHealthMonitor(displayMode: .heartRate)
+            createHealthMonitor(displayMode: .energy)
+            createHealthMonitor(displayMode: .time)
             Spacer()
             doneButton
+        }
         }.onAppear(perform: setupSet)
     }
 
