@@ -5,6 +5,10 @@ class ActivityViewModel: NSObject, ObservableObject, NSFetchedResultsControllerD
 
     // MARK: - Properties
 
+    enum ScreenType {
+        case health, recover, setInfo, summary
+    }
+
     let dataController: DataController
     let dataManager: DataManager
     let exercise: Exercise
@@ -16,6 +20,7 @@ class ActivityViewModel: NSObject, ObservableObject, NSFetchedResultsControllerD
     @Published var timeRemaining: Int = 3
     @Published var percent: Double = 0
     @Published var value: Double = 0
+    @Published var screenType: ScreenType = .recover
 
     // MARK: - Custom init
 

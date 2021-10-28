@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ActivitySetView: View {
+struct HealthView: View {
 
     @EnvironmentObject var viewModel: ActivityViewModel
     @EnvironmentObject var stopWatchManager: StopWatchManager
@@ -26,15 +26,11 @@ struct ActivitySetView: View {
         .onTapGesture(perform: changeDisplayMode)
     }
 
-    var doneButton: some View {
+    private var doneButton: some View {
         Button("DONE") {
-            viewModel.record[viewModel.setNumber] = Int(viewModel.value)
-            viewModel.title = "Rest"
-            viewModel.timeRemaining = 120
-            viewModel.setNumber += 1
-            viewModel.percent = 0
             viewModel.dataManager.pause() // pause dataManager
             stopWatchManager.stop() // stops stopWatch
+            viewModel.screenType = .setInfo
         }
     }
 
@@ -42,12 +38,11 @@ struct ActivitySetView: View {
 
     var body: some View {
         VStack {
-            ActivityRepsView()
-            Spacer()
             healthMonitor
+                .padding(.top, 5)
             Spacer()
             doneButton
-        }
+        }.onAppear(perform: setupSet)
     }
 
     // MARK: - Helper functions
@@ -62,6 +57,17 @@ struct ActivitySetView: View {
             displayMode = .energy
         case .time:
             displayMode = .energy
+        }
+    }
+
+    func setupSet() {
+        viewModel.title = "Set \(viewModel.setNumber)"
+        if viewModel.setNumber == 1 {
+            viewModel.dataManager.start() // start dataManager
+            stopWatchManager.start()
+        } else {
+            viewModel.dataManager.resume() // resume dataManager
+            stopWatchManager.start()
         }
     }
 }

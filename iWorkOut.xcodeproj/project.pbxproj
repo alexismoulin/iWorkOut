@@ -27,8 +27,8 @@
 		5E7B5B2B259B995800911571 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7B5B2A259B995800911571 /* CoreData.framework */; };
 		5E7C6795260E672C00DEB68D /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C6794260E672C00DEB68D /* Notifications.swift */; };
 		5E7C679D260E6C7A00DEB68D /* Record-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C679C260E6C7A00DEB68D /* Record-CoreDataHelper.swift */; };
-		5E7CF0E226C1F29800B8D781 /* ActivitySetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF0E126C1F29800B8D781 /* ActivitySetView.swift */; };
-		5E7CF0E426C1FA2200B8D781 /* ActivityRepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF0E326C1FA2200B8D781 /* ActivityRepsView.swift */; };
+		5E7CF0E226C1F29800B8D781 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF0E126C1F29800B8D781 /* HealthView.swift */; };
+		5E7CF0E426C1FA2200B8D781 /* SetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF0E326C1FA2200B8D781 /* SetInfoView.swift */; };
 		5E7E7043258CE2AD0030B507 /* iWorkOut WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5E7E7042258CE2AD0030B507 /* iWorkOut WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E7E7048258CE2AE0030B507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E7047258CE2AE0030B507 /* Assets.xcassets */; };
 		5E7E704F258CE2AE0030B507 /* iWorkOut WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E7E704E258CE2AE0030B507 /* iWorkOut WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -124,8 +124,8 @@
 		5E7B5B2A259B995800911571 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5E7C6794260E672C00DEB68D /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5E7C679C260E6C7A00DEB68D /* Record-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-CoreDataHelper.swift"; sourceTree = "<group>"; };
-		5E7CF0E126C1F29800B8D781 /* ActivitySetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySetView.swift; sourceTree = "<group>"; };
-		5E7CF0E326C1FA2200B8D781 /* ActivityRepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRepsView.swift; sourceTree = "<group>"; };
+		5E7CF0E126C1F29800B8D781 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		5E7CF0E326C1FA2200B8D781 /* SetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoView.swift; sourceTree = "<group>"; };
 		5E7E703E258CE2AD0030B507 /* iWorkOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWorkOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7E7042258CE2AD0030B507 /* iWorkOut WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iWorkOut WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7E7047258CE2AE0030B507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,13 +227,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		5E570CAA25AD50DA002D4D64 /* RestingRing */ = {
+		5E570CAA25AD50DA002D4D64 /* RecoverView */ = {
 			isa = PBXGroup;
 			children = (
 				5E570CA525AD4B8B002D4D64 /* TimedRing.swift */,
 				5EDA2C9E25AB5F5400FAFB2F /* Ring.swift */,
 			);
-			path = RestingRing;
+			path = RecoverView;
 			sourceTree = "<group>";
 		};
 		5E6D294025B1E163005C0E77 /* SharedComponents */ = {
@@ -272,8 +272,9 @@
 			children = (
 				5ED69EBF262C70D5002A6DFF /* ActivityViewModel.swift */,
 				5EDA2C9925AB576900FAFB2F /* ActivityView.swift */,
-				5EF6770A26C34C3C006FC4B8 /* ActivitySet */,
-				5E570CAA25AD50DA002D4D64 /* RestingRing */,
+				5EB81DDA272A053200BF27FA /* Set Info */,
+				5EF6770A26C34C3C006FC4B8 /* Health Screen */,
+				5E570CAA25AD50DA002D4D64 /* RecoverView */,
 			);
 			path = ActivityScreen;
 			sourceTree = "<group>";
@@ -381,6 +382,14 @@
 			path = "iWorkOut WatchKit ExtensionTests";
 			sourceTree = "<group>";
 		};
+		5EB81DDA272A053200BF27FA /* Set Info */ = {
+			isa = PBXGroup;
+			children = (
+				5E7CF0E326C1FA2200B8D781 /* SetInfoView.swift */,
+			);
+			path = "Set Info";
+			sourceTree = "<group>";
+		};
 		5ED69EBB262C69E0002A6DFF /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,13 +400,12 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		5EF6770A26C34C3C006FC4B8 /* ActivitySet */ = {
+		5EF6770A26C34C3C006FC4B8 /* Health Screen */ = {
 			isa = PBXGroup;
 			children = (
-				5E7CF0E326C1FA2200B8D781 /* ActivityRepsView.swift */,
-				5E7CF0E126C1F29800B8D781 /* ActivitySetView.swift */,
+				5E7CF0E126C1F29800B8D781 /* HealthView.swift */,
 			);
-			path = ActivitySet;
+			path = "Health Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,7 +597,7 @@
 				5E8B090B26C1CEEB00FE8480 /* Activity.swift in Sources */,
 				5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */,
 				5E52F0B425A11F1C00A5AC34 /* StartView.swift in Sources */,
-				5E7CF0E226C1F29800B8D781 /* ActivitySetView.swift in Sources */,
+				5E7CF0E226C1F29800B8D781 /* HealthView.swift in Sources */,
 				5E74489D262CA0AA0036616C /* DetailViewModel.swift in Sources */,
 				5E7448AF262D0BEE0036616C /* SummaryView.swift in Sources */,
 				5E6D294525B1E2D5005C0E77 /* DebugView.swift in Sources */,
@@ -606,7 +614,7 @@
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,
 				5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */,
 				5EB437C3262E3C6B00F09B6F /* IconView.swift in Sources */,
-				5E7CF0E426C1FA2200B8D781 /* ActivityRepsView.swift in Sources */,
+				5E7CF0E426C1FA2200B8D781 /* SetInfoView.swift in Sources */,
 				5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */,
 				5ED69EC0262C70D5002A6DFF /* ActivityViewModel.swift in Sources */,
 				5E7E7058258CE2AE0030B507 /* ComplicationController.swift in Sources */,
@@ -701,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -756,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -787,7 +795,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -812,7 +820,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -832,7 +840,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -852,7 +860,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};

@@ -11,7 +11,6 @@ struct ActivityView: View {
     @State private var showingAlert: Bool = false
     @State private var alertType: Int = 0
     @State private var notificationDate: Date = Date()
-    @State private var correction: Bool = false
 
     @StateObject private var viewModel: ActivityViewModel
     @StateObject private var stopWatchManager = StopWatchManager()
@@ -30,20 +29,7 @@ struct ActivityView: View {
 
     // MARK: - components functions
 
-    func createCorrection() -> some View {
-        VStack {
-            ActivitySetView()
-            Spacer()
-            Button("Correction") {
-                viewModel.record[viewModel.setNumber] = Int(viewModel.value)
-                viewModel.title = "Rest"
-                viewModel.setNumber += 1
-                correction = false
-            }
-        }
-    }
-
-    func createSummary() -> some View {
+    var summary: some View {
         Form {
             SummaryView(
                 set1Value: viewModel.record[1] ?? 0,
@@ -63,39 +49,28 @@ struct ActivityView: View {
         }
     }
 
-    var backGesture: some Gesture {
-        DragGesture(minimumDistance: 50, coordinateSpace: .local)
-            .onEnded { _ in
-                backScreen()
-            }
-    }
-
     // MARK: - Main body
 
     var body: some View {
         VStack {
-            if correction {
-                createCorrection()
-            } else {
-                if viewModel.setNumber < 4 {
-                    if viewModel.timeRemaining > -1 {
-                        TimedRing(totalSeconds: viewModel.setNumber == 1 ? 3 : 120)
-                            .environmentObject(viewModel)
-                            .gesture(backGesture)
-                    } else {
-                        ActivitySetView()
-                            .environmentObject(viewModel)
-                            .environmentObject(stopWatchManager)
-                            .onAppear(perform: setupSet)
+            switch viewModel.screenType {
+            case .recover:
+                TimedRing()
+                    .environmentObject(viewModel)
+            case .health:
+                HealthView()
+                    .environmentObject(viewModel)
+                    .environmentObject(stopWatchManager)
+            case .setInfo:
+                SetInfoView()
+                    .environmentObject(viewModel)
+            case .summary:
+                summary
+                    .environmentObject(viewModel)
+                    .onAppear {
+                        viewModel.title = "Summary"
+                        viewModel.dataManager.end()
                     }
-                } else {
-                    createSummary()
-                        .onAppear {
-                            viewModel.title = "Summary"
-                            viewModel.dataManager.end()
-                        }
-                        .gesture(backGesture)
-                }
             }
         }
         .navigationTitle(viewModel.title)
@@ -119,25 +94,6 @@ struct ActivityView: View {
     }
 
     // MARK: - Helper functions
-
-    func backScreen() {
-        if viewModel.setNumber > 1 {
-            viewModel.setNumber -= 1
-            viewModel.title = "Set \(viewModel.setNumber)"
-            correction = true
-        }
-    }
-
-    func setupSet() {
-        viewModel.title = "Set \(viewModel.setNumber)"
-        if viewModel.setNumber == 1 {
-            viewModel.dataManager.start() // start dataManager
-            stopWatchManager.start()
-        } else {
-            viewModel.dataManager.resume() // resume dataManager
-            stopWatchManager.start()
-        }
-    }
 
     func createNewRecord() {
         alertType = 1
@@ -168,7 +124,7 @@ struct ActivityView: View {
 
     func saveWorkout(CDRecordTotal: Int64) {
         if CDRecordTotal == 0 {
-           createNewRecord()
+            createNewRecord()
         } else {
             if viewModel.record[1]! + viewModel.record[2]! + viewModel.record[3]! > CDRecordTotal {
                 updateExistingRecord()
