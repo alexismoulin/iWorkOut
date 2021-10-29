@@ -14,6 +14,6 @@ struct ContentView: View {
             DebugView()
                 .environmentObject(dataController)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
-        }
+        }.onAppear(perform: requestPermission)
     }
 }

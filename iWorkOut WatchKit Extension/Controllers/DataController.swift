@@ -3,6 +3,7 @@ import SwiftUI
 
 class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
+    // let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
         // container = NSPersistentContainer(name: "Main")
@@ -26,15 +27,6 @@ class DataController: ObservableObject {
             } catch {
                 print("Cannot save data: \(error.localizedDescription)")
             }
-        }
-    }
-
-    func save2() {
-        do {
-            try container.viewContext.save()
-            print("Saved")
-        } catch {
-            print("Cannot save data: \(error.localizedDescription)")
         }
     }
 

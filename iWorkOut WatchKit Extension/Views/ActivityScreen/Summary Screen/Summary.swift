@@ -2,9 +2,12 @@ import SwiftUI
 
 struct Summary: View {
 
-    @Environment(\.presentationMode) var presentation
+    enum AlertType: CaseIterable {
+        case new, beat, fail, error
+    }
+
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: ActivityViewModel
-    @State private var alertType: Int = 0
     @State private var isPresented: Bool = false
 
     var body: some View {
@@ -16,53 +19,89 @@ struct Summary: View {
                 calories: Int(viewModel.dataManager.totalEnergyBurned),
                 heartRate: viewModel.dataManager.calculateBPM()
             )
-            Button("SAVE") {
+            Button {
                 viewModel.dataManager.end()
-                saveWorkout(
-                    CDRecordTotal: Record.getRecord(
-                        CDRecord: viewModel.fetchedRecord,
-                        exerciseId: viewModel.exercise.id
-                    )
-                )
+                isPresented = true
+            } label: {
+                HStack {
+                    Text("Proceed").bold()
+                    Image(systemName: "checkmark.bubble")
+                }.foregroundColor(.lime)
             }
-            .foregroundColor(.green)
-        }
-        .alert(isPresented: $isPresented) {
-            createCustomAlert(
-                alertType: alertType,
-                CDRecordSum: viewModel.fetchedRecord?.sum ?? 0,
-                currentRecordSum: viewModel.record[1]! + viewModel.record[2]! + viewModel.record[3]!,
-                dismissfunction: { presentation.wrappedValue.dismiss() }
-            )
-        }
+        }.alert(
+            createAlertTitle(alertType: calculateAlertType()),
+            isPresented: $isPresented,
+            actions: {
+                Button("SAVE") {
+                    saveWorkout(alertType: calculateAlertType())
+                    dismiss.callAsFunction()
+                }
+            },
+            message: { createAlertBody(alertType: calculateAlertType()) }
+        )
     }
 
-    func createNewRecord() {
-        alertType = 1
-        viewModel.createNewRecord(record: viewModel.record)
-        isPresented = true
-    }
+    // MARK: - Helper functions
 
-    func updateExistingRecord() {
-        alertType = 2
-        viewModel.updateExistingRecord(record: viewModel.record)
-        isPresented = true
-    }
-
-    func failedBeatRecord() {
-        alertType = 3
-        isPresented = true
-    }
-
-    func saveWorkout(CDRecordTotal: Int64) {
-        if CDRecordTotal == 0 {
-            createNewRecord()
+    func calculateAlertType() -> AlertType {
+        let CKsum: Int = viewModel.fetchedRecord?.sum ?? 0
+        let sum = viewModel.record.values.reduce(0, +)
+        print("CK record: \(CKsum)")
+        print("record normal: \(sum)")
+        if CKsum == 0 {
+            print("NEW")
+            return .new
+        } else if sum > CKsum {
+            print("BEAT")
+            return .beat
+        } else if sum <= CKsum {
+            print("FAIL")
+            return .fail
         } else {
-            if viewModel.record[1]! + viewModel.record[2]! + viewModel.record[3]! > CDRecordTotal {
-                updateExistingRecord()
-            } else {
-                failedBeatRecord()
-            }
+            print("ERROR")
+            return .error
         }
     }
+
+    func saveWorkout(alertType: AlertType) {
+        switch alertType {
+        case .new:
+            viewModel.createNewRecord(record: viewModel.record)
+        case .beat:
+            viewModel.updateExistingRecord(record: viewModel.record)
+        case .fail:
+            break
+        case .error:
+            break
+        }
+    }
+
+    func createAlertTitle(alertType: AlertType) -> String {
+        switch alertType {
+        case .new:
+            return "Well Done"
+        case .beat:
+            return "Congratulations"
+        case .fail:
+            return "Try Again"
+        case .error:
+            return "Error"
+        }
+    }
+
+    func createAlertBody(alertType: AlertType) -> Text {
+        let CKsum: Int = viewModel.fetchedRecord?.sum ?? 0
+        let sum = viewModel.record.values.reduce(0, +)
+        switch alertType {
+        case .new:
+            return Text("You have completed a New Exercise.\nYour record is **\(sum)**")
+        case .beat:
+            return Text("You have beaten your previous record of **\(CKsum)**\nYour new record is **\(sum)**")
+        case .fail:
+            return Text("You didn't beat your previous record of **\(CKsum)**\nYour current score is **\(sum)**")
+        case .error:
+            return Text("Something went wrong")
+        }
+    }
+
 }

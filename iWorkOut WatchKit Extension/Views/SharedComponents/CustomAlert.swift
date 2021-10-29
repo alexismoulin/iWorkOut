@@ -1,6 +1,6 @@
 import SwiftUI
 
-func createAlertTile(type: Int) -> Text {
+func createAlertTitle(type: Int) -> Text {
     let alertTitle1: Text = Text("Well Done")
     let alertTitle2: Text = Text("Congratulations")
     let alertTitle3: Text = Text("Try Again")
@@ -18,18 +18,11 @@ func createAlertTile(type: Int) -> Text {
 
 func createAlertBody(type: Int, CDRecord: Int, currentRecord: Int) -> Text {
     let alertBody1: Text =
-        Text("You have completed a New Exercise.\nYour record is ") +
-        Text("\(currentRecord)").fontWeight(.bold).foregroundColor(.lime)
+        Text("You have completed a New Exercise.\nYour record is **\(currentRecord)**")
     let alertBody2: Text =
-        Text("You have beaten your previous record of ") +
-        Text("\(CDRecord)").fontWeight(.bold).foregroundColor(.yellow2) +
-        Text("\nYour new record is ") +
-        Text("\(currentRecord)").fontWeight(.bold).foregroundColor(.lime)
+        Text("You have beaten your previous record of **\(CDRecord)**\nYour new record is **\(currentRecord)**")
     let alertBody3: Text =
-        Text("You didn't beat your previous record of ") +
-        Text("\(CDRecord)").fontWeight(.bold).foregroundColor(.yellow2) +
-        Text("\nYour current score is ") +
-        Text("\(currentRecord)").fontWeight(.bold).foregroundColor(.lime)
+        Text("You didn't beat your previous record of **\(CDRecord)**\nYour current score is **\(currentRecord)**")
 
     switch type {
     case 1:
@@ -50,7 +43,7 @@ func createCustomAlert(
     dismissfunction: @escaping () -> Void
 ) -> Alert {
     return Alert(
-        title: createAlertTile(type: alertType),
+        title: createAlertTitle(type: alertType),
         message: createAlertBody(
             type: alertType,
             CDRecord: CDRecordSum,

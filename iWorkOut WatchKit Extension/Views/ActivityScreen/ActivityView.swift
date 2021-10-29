@@ -54,7 +54,6 @@ struct ActivityView: View {
             NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification),
             perform: { _ in movingToForeground() }
         )
-        .onAppear(perform: requestPermission)
     }
 
     // MARK: - Helper functions

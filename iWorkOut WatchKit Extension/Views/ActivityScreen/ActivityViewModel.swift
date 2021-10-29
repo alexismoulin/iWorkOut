@@ -44,7 +44,7 @@ class ActivityViewModel: NSObject, ObservableObject, NSFetchedResultsControllerD
         newRecord.heartRate = Int64(
             dataManager.heartRateValues.reduce(0, +) / Double(dataManager.heartRateValues.count)
         )
-        print("saving new record")
+        print("saving new record for exercise \(exercise.id)")
         dataController.save()
     }
 
