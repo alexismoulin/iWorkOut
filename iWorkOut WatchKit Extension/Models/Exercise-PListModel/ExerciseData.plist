@@ -96,15 +96,140 @@
 		<key>pullBar</key>
 		<array/>
 		<key>dumbbell</key>
-		<array/>
-		<key>ball</key>
-		<array/>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-4-0</string>
+				<key>name</key>
+				<string>Dumbbell Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-4-1</string>
+				<key>name</key>
+				<string>Dumbbell Decline Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-4-2</string>
+				<key>name</key>
+				<string>Dumbbell Fly</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-4-3</string>
+				<key>name</key>
+				<string>Dumbbell Incline Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+		</array>
+		<key>cable</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-5-0</string>
+				<key>name</key>
+				<string>Cable Cross-Over</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-5-1</string>
+				<key>name</key>
+				<string>Cable Decline Chest Fly</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-5-2</string>
+				<key>name</key>
+				<string>Cable Decline Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-5-3</string>
+				<key>name</key>
+				<string>Cable Incline Press Images</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-5-4</string>
+				<key>name</key>
+				<string>Cable Rope Supine Pullover</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+		</array>
 		<key>kettleBell</key>
-		<array/>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-6-0</string>
+				<key>name</key>
+				<string>Kettlebell Alternating Floor Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+		</array>
 		<key>weightPlate</key>
-		<array/>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-7-0</string>
+				<key>name</key>
+				<string>Weighted Push Up</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+		</array>
 		<key>machine</key>
-		<array/>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-8-0</string>
+				<key>name</key>
+				<string>Bench Press Machine</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-8-1</string>
+				<key>name</key>
+				<string>Machine Butterfly</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-8-2</string>
+				<key>name</key>
+				<string>Machine Incline Chest Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-8-3</string>
+				<key>name</key>
+				<string>Machine Inner Chest Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+		</array>
 		<key>other</key>
 		<array/>
 	</dict>

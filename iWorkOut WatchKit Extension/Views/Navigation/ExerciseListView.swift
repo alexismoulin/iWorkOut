@@ -11,7 +11,7 @@ struct ExerciseListView: View {
 
     var exerciseList: [Exercise] {
         Exercise.loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ??
-            [Exercise(id: "null", name: "No Exercise", type: "0")]
+        [Exercise(id: "null", name: "No Exercise", type: "0")]
     }
 
     var body: some View {
@@ -25,13 +25,16 @@ struct ExerciseListView: View {
                             .foregroundColor(.red)
                     }
                 } else {
-                    NavigationLink(destination: DetailView(
-                        dataController: dataController,
-                        dataManager: dataManager,
-                        exercise: exercise
-                    )) {
+                    NavigationLink(
+                        destination: DetailView(
+                            dataController: dataController,
+                            dataManager: dataManager,
+                            exercise: exercise
+                        )
+                    ) {
                         HStack {
                             Text(exercise.name)
+                                .font(.caption2)
                             Spacer()
                             Image("\(exercise.id)-a")
                                 .resizable()
