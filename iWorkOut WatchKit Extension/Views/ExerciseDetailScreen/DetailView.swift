@@ -65,6 +65,7 @@ struct DetailView: View {
             }
         }
         .navigationTitle(viewModel.exercise.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 
 }

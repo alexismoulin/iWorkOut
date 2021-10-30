@@ -14,7 +14,8 @@ struct StartView: View {
                     .environmentObject(dataManager),
                 label: {
                     Text("Start an Exercise")
-                })
+                }
+            )
         }
     }
 }

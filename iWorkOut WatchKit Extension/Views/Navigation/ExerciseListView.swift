@@ -44,5 +44,6 @@ struct ExerciseListView: View {
             }
         }
         .navigationTitle("\(selectedMuscle) - \(selectedEquipment)")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -16,15 +16,21 @@ struct TimedRing: View {
                 backgroundColor: Color.green.opacity(0.2),
                 foregroundColors: [.green, .blue]
             )
-            Text("\(viewModel.timeRemaining)")
-                .font(.largeTitle)
-                .onLongPressGesture {
-                    viewModel.timeRemaining = 0
-                    viewModel.percent = 100
-                }
-                .onReceive(timer) { _ in
-                    manageTimer()
-                }
+            VStack {
+                Text("\(viewModel.timeRemaining)")
+                    .font(.largeTitle)
+                Text("Long Press")
+                    .font(.system(size: 12))
+                Text("to skip")
+                    .font(.system(size: 12))
+            }
+            .onLongPressGesture {
+                viewModel.timeRemaining = 0
+                viewModel.percent = 100
+            }
+            .onReceive(timer) { _ in
+                manageTimer()
+            }
         }
     }
 

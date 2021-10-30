@@ -4,6 +4,9 @@ struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     @EnvironmentObject var dataManager: DataManager
     @FetchRequest(entity: Record.entity(), sortDescriptors: []) var fetchedResults: FetchedResults<Record>
+
+    let debugMode: Bool = false
+
     var body: some View {
         TabView {
             StartView()
@@ -11,9 +14,11 @@ struct ContentView: View {
                 .environmentObject(dataManager)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
             RecordView(fetchedResults: fetchedResults)
-            DebugView()
-                .environmentObject(dataController)
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+            if debugMode {
+                DebugView()
+                    .environmentObject(dataController)
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+            }
         }.onAppear(perform: requestPermission)
     }
 }

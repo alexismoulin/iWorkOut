@@ -19,6 +19,8 @@ struct MuscleView: View {
                         .frame(width: 50, height: 50, alignment: .trailing)
                 }
             }
-        }.navigationTitle("Exercise")
+        }
+        .navigationTitle("Exercise")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

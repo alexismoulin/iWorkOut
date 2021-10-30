@@ -11,14 +11,15 @@ struct RecordView: View {
 
     var exerciseList: [Exercise] {
         Exercise.loadData(muscleGroup: selectedMuscle.rawValue, equipment: selectedEquipment.rawValue) ??
-            [Exercise(id: "null", name: "No Exercise", type: "0")]
+        [Exercise(id: "null", name: "No Exercise", type: "0")]
     }
 
     // MARK: - Componenents
 
+    @ViewBuilder
     func createExerciseRow(exercise: Exercise) -> some View {
         if exercise.id != "null" {
-            return AnyView(NavigationLink(
+            NavigationLink(
                 destination: RecordForm(record: getRecord(recordList: fetchedResults, exerciseId: exercise.id))
             ) {
                 HStack {
@@ -26,16 +27,14 @@ struct RecordView: View {
                     Spacer()
                     Text("🏆 \(getRecordScore(recordList: fetchedResults, exerciseId: exercise.id))")
                 }
-            })
+            }
         } else {
-            return AnyView(
-                HStack {
-                    Text(exercise.name)
-                    Spacer()
-                    Text("✘")
-                        .foregroundColor(.red)
-                }
-            )
+            HStack {
+                Text(exercise.name)
+                Spacer()
+                Text("✘")
+                    .foregroundColor(.red)
+            }
         }
     }
 
@@ -73,7 +72,7 @@ struct RecordView: View {
                     Text("Barbell").font(.system(size: pickerFontSize)).tag(Equipment.barbell) // 2
                     Text("Pull Bar").font(.system(size: pickerFontSize)).tag(Equipment.pullBar) // 3
                     Text("Dumbbell").font(.system(size: pickerFontSize)).tag(Equipment.dumbbell) // 4
-                    Text("Ball").font(.system(size: pickerFontSize)).tag(Equipment.ball) // 5
+                    Text("Cable").font(.system(size: pickerFontSize)).tag(Equipment.cable) // 5
                     Text("Kettle Bell").font(.system(size: pickerFontSize)).tag(Equipment.kettleBell) // 6
                     Text("Weight Plate").font(.system(size: pickerFontSize)).tag(Equipment.weightPlate) // 7
                     Text("Machine").font(.system(size: pickerFontSize)).tag(Equipment.machine) // 8

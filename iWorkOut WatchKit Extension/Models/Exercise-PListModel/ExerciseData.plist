@@ -40,7 +40,16 @@
 			</dict>
 		</array>
 		<key>bench</key>
-		<array/>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>0-1-0</string>
+				<key>name</key>
+				<string>Bench Pushups</string>
+				<key>type</key>
+				<string>rep</string>
+			</dict>
+		</array>
 		<key>barbell</key>
 		<array>
 			<dict>
@@ -48,6 +57,38 @@
 				<string>0-2-0</string>
 				<key>name</key>
 				<string>Barbell Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-2-1</string>
+				<key>name</key>
+				<string>Barbell Decline Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-2-2</string>
+				<key>name</key>
+				<string>Barbell Decline Pullover</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-2-3</string>
+				<key>name</key>
+				<string>Barbell Incline Bench Press</string>
+				<key>type</key>
+				<string>weight</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>0-2-4</string>
+				<key>name</key>
+				<string>Barbell Wide Grip Bench Press</string>
 				<key>type</key>
 				<string>weight</string>
 			</dict>

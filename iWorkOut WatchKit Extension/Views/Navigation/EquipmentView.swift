@@ -22,6 +22,8 @@ struct EquipmentView: View {
                         .frame(width: 50, height: 50, alignment: .trailing)
                 }
             }
-        }.navigationTitle(selectedMuscle)
+        }
+        .navigationTitle(selectedMuscle)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

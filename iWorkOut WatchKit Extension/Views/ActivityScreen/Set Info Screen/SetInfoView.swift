@@ -5,23 +5,21 @@ struct SetInfoView: View {
     // MARK: - Properties
 
     @EnvironmentObject var viewModel: ActivityViewModel
-    @State private var isFocused: Bool = false
-    @State private var variable: Double = 10
+
     @State private var weight: Double = 0
     @State private var reps: Double = 0
+    @State private var duration: Double = 0
 
     var valueSaved: Int {
-        Int(reps * weight)
-    }
-
-    var type: String {
         switch viewModel.exercise.type {
         case "rep":
-            return "Reps:"
+            return Int(reps)
+        case "weight":
+            return Int(reps * weight)
         case "duration":
-            return "Duration"
+            return Int(duration)
         default:
-            return "Error!"
+            return 0
         }
     }
 
@@ -46,13 +44,12 @@ struct SetInfoView: View {
     private var weightSlider: some View {
         ZStack {
             VStack {
-                HStack {
+                HStack(spacing: 6) {
                     Image(systemName: "square.stack.3d.up.fill")
                     Text("Weight")
                         .font(.system(size: 12))
                         .padding(2)
                 }
-                Spacer()
                 Text("\(Int(weight))")
                     .font(.system(size: 14))
                     .bold()
@@ -66,14 +63,13 @@ struct SetInfoView: View {
 
     private var repsSlider: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 6) {
                 HStack {
                     Image(systemName: "arrow.clockwise.heart.fill")
                     Text("Set of")
                         .font(.system(size: 12))
                         .padding(2)
                 }
-                Spacer()
                 Text("\(Int(reps))")
                     .font(.system(size: 14))
                     .bold()
@@ -85,7 +81,27 @@ struct SetInfoView: View {
         }
     }
 
-    private var textLabel: some View {
+    private var durationSlider: some View {
+        ZStack {
+            VStack(spacing: 6) {
+                HStack {
+                    Image(systemName: "timer")
+                    Text("Duration of")
+                        .font(.system(size: 12))
+                        .padding(2)
+                }
+                Text("\(Int(duration))")
+                    .font(.system(size: 14))
+                    .bold()
+                    .foregroundColor(.blue) +
+                Text(" seconds")
+                    .font(.system(size: 14))
+            }
+            Slider(value: $duration, in: 0...100, step: 5).tint(.blue)
+        }
+    }
+
+    private var weightTextLabel: some View {
         Group {
             Text("\(Int(reps))")
                 .bold()
@@ -98,18 +114,41 @@ struct SetInfoView: View {
         }
     }
 
+    private var weightView: some View {
+        ScrollView {
+            repsSlider
+            weightSlider
+            Divider()
+            weightTextLabel
+            Spacer(minLength: 15)
+            doneButton
+        }
+    }
+
+    private var repsView: some View {
+        VStack {
+            repsSlider
+            Spacer()
+            doneButton
+        }
+    }
+
+    private var durationView: some View {
+        VStack {
+            durationSlider
+            Spacer()
+            doneButton
+        }
+    }
+
     // MARK: - body
 
     var body: some View {
-        ScrollView {
-            VStack {
-                repsSlider
-                weightSlider
-                Divider()
-                textLabel
-                Spacer(minLength: 15)
-                doneButton
-            }
+        switch viewModel.exercise.type {
+        case "rep": repsView
+        case "weight": weightView
+        case "duration": durationView
+        default: Text("Incorrect type")
         }
     }
 }

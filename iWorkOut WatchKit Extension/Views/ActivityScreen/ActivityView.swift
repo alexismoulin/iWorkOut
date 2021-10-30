@@ -46,6 +46,7 @@ struct ActivityView: View {
             }
         }
         .navigationTitle(viewModel.title)
+        .navigationBarTitleDisplayMode(.inline)
         .onReceive(
             NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification),
             perform: { _ in movingToBackground() }
