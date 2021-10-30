@@ -1,13 +1,15 @@
 import Foundation
 
+enum ExerciseType: String, CaseIterable {
+    case rep, duration, weight
+}
+
 struct Exercise: Identifiable, Codable {
     let id: String
     let name: String
     let type: String
-
-    enum ExerciseType: String, CaseIterable {
-        case rep, duration, weight
-    }
+    var muscleGroup: String = ""
+    var equipment: String = ""
 
     // loader for plist data - returns nil if there is any issue duriong the process
     static func loadData(muscleGroup: String, equipment: String) -> [Exercise]? {
@@ -37,4 +39,26 @@ struct Exercise: Identifiable, Codable {
             return exerciseArray
         }
     }
+
+    // loader for plist data - returns nil if there is any issue during the process
+    static func loadDatav2(muscleGroup: String, equipment: String) -> [Exercise]? {
+        // load the plist data
+        guard  let path     = Bundle.main.path(forResource: "ExerciseData", ofType: "plist"),
+               let xml      = FileManager.default.contents(atPath: path),
+               let fullList = try? PropertyListDecoder().decode([Exercise].self, from: xml) else { return nil }
+        // filter the array for relevant items (equipement and muscleGroup)
+        let shortList = fullList.filter { $0.equipment == equipment && $0.muscleGroup == muscleGroup }
+        return shortList
+    }
+
+    static func loadAll() throws -> [Exercise] {
+        // load the plist data
+        guard  let path     = Bundle.main.path(forResource: "ExerciseDatav2", ofType: "plist"),
+               let xml      = FileManager.default.contents(atPath: path)
+        else { fatalError("Not able to load ExerciseDatav2") }
+        // insure conformance to Exercise struct
+        let fullList = try PropertyListDecoder().decode([Exercise].self, from: xml)
+        return fullList
+    }
+
 }

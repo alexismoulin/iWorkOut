@@ -14,7 +14,3 @@ enum Equipment: String, CaseIterable, Identifiable {
     case machine // 8
     case other // 9
 }
-
-struct EquipmentStruct: Codable {
-    var exerciseList: [Exercise]
-}

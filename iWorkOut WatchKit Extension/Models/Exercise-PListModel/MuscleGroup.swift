@@ -14,7 +14,3 @@ enum MuscleGroup: String, CaseIterable, Identifiable {
     case abdos // 8
     case cardio // 9
 }
-
-struct MuscleStruct: Codable {
-    var equipmentDict: [String: EquipmentStruct]
-}

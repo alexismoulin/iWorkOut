@@ -18,4 +18,14 @@ class CloudKitTests: CKSetup {
         XCTAssertTrue(results.isEmpty)
     }
 
+    func testUniqueID() throws {
+        let results = try Exercise.loadAll()
+        let listOfIDs = results.map { $0.id }
+        let uniqueIds = listOfIDs.uniqued()
+        for id in uniqueIds {
+            let results = try dataController.loadExercise(id: id)
+            XCTAssertLessThan(results.count, 2)
+        }
+    }
+
 }
