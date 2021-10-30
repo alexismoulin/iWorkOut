@@ -54,4 +54,17 @@ class PListTests: XCTestCase {
             }
         }
     }
+
+    func testLoadData() {
+        guard let results = Exercise.loadData(
+            muscleGroup: MuscleGroup.chest.rawValue,
+            equipment: Equipment.machine.rawValue)
+        else {
+            fatalError("cannot load data")
+        }
+        XCTAssertGreaterThan(results.count, 0)
+        XCTAssertEqual(results[0].id.character(at: 0), "0")
+        XCTAssertEqual(results[0].id.character(at: 2), "8")
+    }
+
 }

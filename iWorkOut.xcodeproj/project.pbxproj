@@ -44,8 +44,7 @@
 		5E7E7058258CE2AE0030B507 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E7057258CE2AE0030B507 /* ComplicationController.swift */; };
 		5E7E705A258CE2AE0030B507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E7059258CE2AE0030B507 /* Assets.xcassets */; };
 		5E7E705D258CE2AE0030B507 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E705C258CE2AE0030B507 /* Preview Assets.xcassets */; };
-		5E7E7072258CE3650030B507 /* MuscleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E7071258CE3650030B507 /* MuscleGroup.swift */; };
-		5E7E707D258CE4320030B507 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E707C258CE4320030B507 /* Equipment.swift */; };
+		5E7E7072258CE3650030B507 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E7071258CE3650030B507 /* Enums.swift */; };
 		5E9B5BF725ABDAD00073E757 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9B5BF625ABDAD00073E757 /* HealthKit.framework */; };
 		5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B5BF925ABDB530073E757 /* DataManager.swift */; };
 		5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D0259FF07400E90941 /* ContentView.swift */; };
@@ -149,8 +148,7 @@
 		5E7E7059258CE2AE0030B507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E7E705C258CE2AE0030B507 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E7E705E258CE2AE0030B507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E7E7071258CE3650030B507 /* MuscleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleGroup.swift; sourceTree = "<group>"; };
-		5E7E707C258CE4320030B507 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		5E7E7071258CE3650030B507 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5E9B5BF625ABDAD00073E757 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E9B5BF925ABDB530073E757 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5EAC61D0259FF07400E90941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,8 +204,7 @@
 		5E5134462598BEAA008D4195 /* Exercise-PListModel */ = {
 			isa = PBXGroup;
 			children = (
-				5E7E7071258CE3650030B507 /* MuscleGroup.swift */,
-				5E7E707C258CE4320030B507 /* Equipment.swift */,
+				5E7E7071258CE3650030B507 /* Enums.swift */,
 				5E6B59E0258D15FF0049CDD9 /* Exercise.swift */,
 				5E38A724258D022300574232 /* ExerciseData.plist */,
 				5E009AAE272DE2E1008523E9 /* ExerciseDatav2.plist */,
@@ -632,7 +629,7 @@
 				5E7E7056258CE2AE0030B507 /* iWorkOutApp.swift in Sources */,
 				5E69D60025F16B7E008D397C /* StopWatchManager.swift in Sources */,
 				5EDA2C9A25AB576900FAFB2F /* ActivityView.swift in Sources */,
-				5E7E7072258CE3650030B507 /* MuscleGroup.swift in Sources */,
+				5E7E7072258CE3650030B507 /* Enums.swift in Sources */,
 				5EB81DD92729F93A00BF27FA /* Double+extension.swift in Sources */,
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,
 				5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */,
@@ -647,7 +644,6 @@
 				5E6D294E25B1F2EB005C0E77 /* RecordForm.swift in Sources */,
 				5E7046F526549F6A00E56451 /* AnimatedImageTimer.swift in Sources */,
 				5EAC61D6259FF20300E90941 /* RecordView.swift in Sources */,
-				5E7E707D258CE4320030B507 /* Equipment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
