@@ -1,12 +1,11 @@
 import CoreData
+import CloudKit
 import SwiftUI
 
 class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
-    // let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        // container = NSPersistentContainer(name: "Main")
         container = NSPersistentCloudKitContainer(name: "Main")
 
         if inMemory {
@@ -30,8 +29,22 @@ class DataController: ObservableObject {
         }
     }
 
+    /// Count the number of elements (generic) in the Core data stack
+    /// - Parameter fetchRequest: Fetch request on a generic type
+    /// - Returns: Number of elements
+    func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
+        (try? container.viewContext.count(for: fetchRequest)) ?? 0
+    }
+
     func delete(_ object: NSManagedObject) {
         container.viewContext.delete(object)
+    }
+
+    func delete(id: String) throws {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Record")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", "\(id)")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        _ = try container.viewContext.execute(batchDeleteRequest)
     }
 
     func createSample() {
@@ -44,6 +57,15 @@ class DataController: ObservableObject {
         print("sample successfully created")
     }
 
+    func loadExercise (id: String) throws -> [Record] {
+        let request: NSFetchRequest<Record> = Record.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "id = %@", "\(id)")
+        let results = try container.viewContext.fetch(request)
+        return results
+    }
+
+    /// Deletes all records from Cloudkit
     func deleteAll() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Record.fetchRequest()
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
