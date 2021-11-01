@@ -11,9 +11,9 @@ struct Exercise: Identifiable, Codable {
 
     static func loadAll() throws -> [Exercise] {
         // load the plist data
-        guard  let path     = Bundle.main.path(forResource: "ExerciseDatav2", ofType: "plist"),
+        guard  let path     = Bundle.main.path(forResource: "ExerciseData", ofType: "plist"),
                let xml      = FileManager.default.contents(atPath: path)
-        else { fatalError("Not able to load ExerciseDatav2") }
+        else { fatalError("Not able to load ExerciseData") }
         // insure conformance to Exercise struct
         let fullList = try PropertyListDecoder().decode([Exercise].self, from: xml)
         return fullList

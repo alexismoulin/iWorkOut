@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E009AAF272DE2E1008523E9 /* ExerciseDatav2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E009AAE272DE2E1008523E9 /* ExerciseDatav2.plist */; };
+		5E009AAF272DE2E1008523E9 /* ExerciseData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E009AAE272DE2E1008523E9 /* ExerciseData.plist */; };
 		5E009AB1272DEA6E008523E9 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E009AB0272DEA6E008523E9 /* Array+Extension.swift */; };
+		5E1098ED2730A6590055E9D3 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1098EC2730A6590055E9D3 /* ImageTests.swift */; };
 		5E1267D6259B889900A47AAC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E1267D5259B889900A47AAC /* CloudKit.framework */; };
 		5E143404272D9841003DD9EF /* CloudKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E143403272D9841003DD9EF /* CloudKitTests.swift */; };
 		5E143406272DBB43003DD9EF /* PListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E143405272DBB43003DD9EF /* PListTests.swift */; };
 		5E14340A272DCE74003DD9EF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E143409272DCE74003DD9EF /* String+Extension.swift */; };
 		5E38A720258CF82200574232 /* EquipmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E38A71F258CF82200574232 /* EquipmentView.swift */; };
-		5E38A725258D022300574232 /* ExerciseData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E38A724258D022300574232 /* ExerciseData.plist */; };
 		5E458194258E756200D1A0E1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E458193258E756200D1A0E1 /* DetailView.swift */; };
 		5E4C6601272D926D00AAEB03 /* CKSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C6600272D926D00AAEB03 /* CKSetup.swift */; };
 		5E51344E2598BFD9008D4195 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E51344C2598BFD9008D4195 /* Main.xcdatamodeld */; };
@@ -106,15 +106,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E009AAE272DE2E1008523E9 /* ExerciseDatav2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExerciseDatav2.plist; sourceTree = "<group>"; };
+		5E009AAE272DE2E1008523E9 /* ExerciseData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExerciseData.plist; sourceTree = "<group>"; };
 		5E009AB0272DEA6E008523E9 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		5E1098EC2730A6590055E9D3 /* ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
 		5E1267D0259B889300A47AAC /* iWorkOut WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iWorkOut WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		5E1267D5259B889900A47AAC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E143403272D9841003DD9EF /* CloudKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitTests.swift; sourceTree = "<group>"; };
 		5E143405272DBB43003DD9EF /* PListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListTests.swift; sourceTree = "<group>"; };
 		5E143409272DCE74003DD9EF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E38A71F258CF82200574232 /* EquipmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentView.swift; sourceTree = "<group>"; };
-		5E38A724258D022300574232 /* ExerciseData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExerciseData.plist; sourceTree = "<group>"; };
 		5E458193258E756200D1A0E1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		5E4C65FE272D926D00AAEB03 /* iWorkOut WatchKit ExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iWorkOut WatchKit ExtensionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4C6600272D926D00AAEB03 /* CKSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKSetup.swift; sourceTree = "<group>"; };
@@ -197,6 +197,7 @@
 				5E4C6600272D926D00AAEB03 /* CKSetup.swift */,
 				5E143403272D9841003DD9EF /* CloudKitTests.swift */,
 				5E143405272DBB43003DD9EF /* PListTests.swift */,
+				5E1098EC2730A6590055E9D3 /* ImageTests.swift */,
 			);
 			path = "iWorkOut WatchKit ExtensionTests";
 			sourceTree = "<group>";
@@ -206,8 +207,7 @@
 			children = (
 				5E7E7071258CE3650030B507 /* Enums.swift */,
 				5E6B59E0258D15FF0049CDD9 /* Exercise.swift */,
-				5E38A724258D022300574232 /* ExerciseData.plist */,
-				5E009AAE272DE2E1008523E9 /* ExerciseDatav2.plist */,
+				5E009AAE272DE2E1008523E9 /* ExerciseData.plist */,
 			);
 			path = "Exercise-PListModel";
 			sourceTree = "<group>";
@@ -566,8 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E009AAF272DE2E1008523E9 /* ExerciseDatav2.plist in Resources */,
-				5E38A725258D022300574232 /* ExerciseData.plist in Resources */,
+				5E009AAF272DE2E1008523E9 /* ExerciseData.plist in Resources */,
 				5E7E705D258CE2AE0030B507 /* Preview Assets.xcassets in Resources */,
 				5E7E705A258CE2AE0030B507 /* Assets.xcassets in Resources */,
 			);
@@ -601,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E143406272DBB43003DD9EF /* PListTests.swift in Sources */,
+				5E1098ED2730A6590055E9D3 /* ImageTests.swift in Sources */,
 				5E143404272D9841003DD9EF /* CloudKitTests.swift in Sources */,
 				5E4C6601272D926D00AAEB03 /* CKSetup.swift in Sources */,
 			);
@@ -775,7 +775,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -829,7 +829,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = watchos;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;

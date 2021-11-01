@@ -5,7 +5,9 @@ class PListTests: XCTestCase {
 
     func testLoadAllData() throws {
         let results = try Exercise.loadAll()
-        XCTAssertEqual(results.count, 35)
+        XCTAssertEqual(results.count, 48)
+        XCTAssertEqual(results.muscleFilter(filter: .chest).count, 25)
+        XCTAssertEqual(results.muscleFilter(filter: .biceps).count, 13)
     }
 
     func testUniqueData() throws {

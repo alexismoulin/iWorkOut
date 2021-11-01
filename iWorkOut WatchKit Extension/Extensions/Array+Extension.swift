@@ -13,3 +13,9 @@ extension Array where Element: Hashable {
         return buffer
     }
 }
+
+extension Array where Element == Exercise {
+    func muscleFilter(filter: MuscleGroup) -> [Exercise] {
+        return self.filter { $0.muscleGroup == filter.rawValue }
+    }
+}
