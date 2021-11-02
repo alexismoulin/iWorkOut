@@ -475,6 +475,163 @@
     </dict>
     <dict>
         <key>id</key>
+        <string>2-1-0</string>
+        <key>name</key>
+        <string>Bench Dip Images</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-1-1</string>
+        <key>name</key>
+        <string>Single Bench Dip</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-2-0</string>
+        <key>name</key>
+        <string>Barbell Back of the Head Tricep Extension</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-2-1</string>
+        <key>name</key>
+        <string>Barbell Close Grip Bench Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-2-2</string>
+        <key>name</key>
+        <string>Barbell Close Grip Press Behind the Neck</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-5-0</string>
+        <key>name</key>
+        <string>Cable High Pulley Tricep Extension</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-5-1</string>
+        <key>name</key>
+        <string>Cable Rope Triceps Pushdown</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-5-2</string>
+        <key>name</key>
+        <string>Cable Tricep Extension</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-7-0</string>
+        <key>name</key>
+        <string>Weighted Bench Dip</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-8-0</string>
+        <key>name</key>
+        <string>Dip Machine</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-8-1</string>
+        <key>name</key>
+        <string>Machine Assisted Dip</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-8-2</string>
+        <key>name</key>
+        <string>Machine Triceps Extension</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>2-8-3</string>
+        <key>name</key>
+        <string>Seated Tricep Dip</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>triceps</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <!-- Upper Legs -->
+    <dict>
+        <key>id</key>
         <string>6-0-0</string>
         <key>name</key>
         <string>Bodyweight Lunge</string>
