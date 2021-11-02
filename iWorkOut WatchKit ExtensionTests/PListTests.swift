@@ -5,10 +5,11 @@ class PListTests: XCTestCase {
 
     func testLoadAllData() throws {
         let results = try Exercise.loadAll()
-        XCTAssertEqual(results.count, 61)
+        XCTAssertEqual(results.count, 72)
         XCTAssertEqual(results.muscleFilter(filter: .chest).count, 25)
         XCTAssertEqual(results.muscleFilter(filter: .biceps).count, 13)
         XCTAssertEqual(results.muscleFilter(filter: .triceps).count, 14)
+        XCTAssertEqual(results.muscleFilter(filter: .forearm).count, 11)
     }
 
     func testUniqueData() throws {

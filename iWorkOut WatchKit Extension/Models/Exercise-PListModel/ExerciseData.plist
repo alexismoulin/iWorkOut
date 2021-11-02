@@ -629,6 +629,139 @@
         <key>equipment</key>
         <string>machine</string>
     </dict>
+    <!-- ForeArms -->
+    <dict>
+        <key>id</key>
+        <string>3-2-0</string>
+        <key>name</key>
+        <string>Barbell Palms Down Wrist Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-2-1</string>
+        <key>name</key>
+        <string>Barbell Palms Up Wrist Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-2-2</string>
+        <key>name</key>
+        <string>Barbell Reverse Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-2-3</string>
+        <key>name</key>
+        <string>Barbell Reverse Preacher Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-4-0</string>
+        <key>name</key>
+        <string>Dumbbell Seated Wrist Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-4-1</string>
+        <key>name</key>
+        <string>Dumbbell Standing Alternate Reverse Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-5-0</string>
+        <key>name</key>
+        <string>Cable Reverse Grip Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-5-1</string>
+        <key>name</key>
+        <string>Cable Standing Behind the Back Wrist Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-5-2</string>
+        <key>name</key>
+        <string>Seated Two Arm Palms Up Low Pulley Wrist Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-6-0</string>
+        <key>name</key>
+        <string>Kettlebell Bottoms Up Clean From The Hang Position</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>3-7-0</string>
+        <key>name</key>
+        <string>Weight Plate Pinch</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>forearm</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
     <!-- Upper Legs -->
     <dict>
         <key>id</key>
