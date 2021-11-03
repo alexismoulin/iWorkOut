@@ -762,6 +762,259 @@
         <key>equipment</key>
         <string>weightPlate</string>
     </dict>
+    <!-- Back -->
+    <dict>
+        <key>id</key>
+        <string>4-2-0</string>
+        <key>name</key>
+        <string>Barbell Bent Over Two Arm Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-2-1</string>
+        <key>name</key>
+        <string>Barbell Deadlift</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-2-2</string>
+        <key>name</key>
+        <string>Barbell Incline Bench Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-3-0</string>
+        <key>name</key>
+        <string>Close Grip Chin Up</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>pullBar</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-3-1</string>
+        <key>name</key>
+        <string>Close Grip Chin Up</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>pullBar</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-3-2</string>
+        <key>name</key>
+        <string>Wide Grip Rear Pull-Up</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>pullBar</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-4-0</string>
+        <key>name</key>
+        <string>Dumbbell Deadlift</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-4-1</string>
+        <key>name</key>
+        <string>Dumbbell Lying Rear Delt Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-4-2</string>
+        <key>name</key>
+        <string>Dumbbell Palms In Bent Over Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-5-0</string>
+        <key>name</key>
+        <string>Cable Seated Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-5-1</string>
+        <key>name</key>
+        <string>Cable Standing Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-5-2</string>
+        <key>name</key>
+        <string>Cable Straight Arm Pushdown</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-5-3</string>
+        <key>name</key>
+        <string>Cable Underhand Pull-down</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-5-4</string>
+        <key>name</key>
+        <string>Cable V Bar Standing Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-5-5</string>
+        <key>name</key>
+        <string>Wide Grip Pulldown Behind the Neck</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-6-0</string>
+        <key>name</key>
+        <string>Kettlebell Alternating Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-6-1</string>
+        <key>name</key>
+        <string>Kettlebell Two Arm Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-8-0</string>
+        <key>name</key>
+        <string>Machine Lat Pull Down</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-8-1</string>
+        <key>name</key>
+        <string>Seated Machine Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-9-0</string>
+        <key>name</key>
+        <string>T-Bar Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>other</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-9-1</string>
+        <key>name</key>
+        <string>T-Bar Reverse Grip Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>other</string>
+    </dict>
     <!-- Upper Legs -->
     <dict>
         <key>id</key>

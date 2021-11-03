@@ -5,11 +5,12 @@ class PListTests: XCTestCase {
 
     func testLoadAllData() throws {
         let results = try Exercise.loadAll()
-        XCTAssertEqual(results.count, 72)
+        XCTAssertEqual(results.count, 93)
         XCTAssertEqual(results.muscleFilter(filter: .chest).count, 25)
         XCTAssertEqual(results.muscleFilter(filter: .biceps).count, 13)
         XCTAssertEqual(results.muscleFilter(filter: .triceps).count, 14)
         XCTAssertEqual(results.muscleFilter(filter: .forearm).count, 11)
+        XCTAssertEqual(results.muscleFilter(filter: .back).count, 21)
     }
 
     func testUniqueData() throws {
@@ -59,16 +60,13 @@ class PListTests: XCTestCase {
         }
     }
 
-    func testLoadData() {
-        guard let results = Exercise.loadData(
-            muscleGroup: MuscleGroup.chest.rawValue,
-            equipment: Equipment.machine.rawValue)
-        else {
-            fatalError("cannot load data")
+    func testTypeNotWeight() throws {
+        let results = try Exercise.loadAll()
+        for exercice in results {
+            if exercice.id.character(at: 2)! == "0" || exercice.id.character(at: 2)! == "1" {
+                XCTAssertNotEqual(exercice.type, "weight", "\(exercice.id)")
+            }
         }
-        XCTAssertGreaterThan(results.count, 0)
-        XCTAssertEqual(results[0].id.character(at: 0), "0")
-        XCTAssertEqual(results[0].id.character(at: 2), "8")
     }
 
 }

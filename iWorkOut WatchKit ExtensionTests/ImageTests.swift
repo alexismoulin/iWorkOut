@@ -8,8 +8,8 @@ class ImageTests: XCTestCase {
         let results = try Exercise.loadAll()
         let listOfIDs = results.map { $0.id }
         for id in listOfIDs {
-            XCTAssertNotNil(UIImage(named: "\(id)-a"))
-            XCTAssertNotNil(UIImage(named: "\(id)-b"))
+            XCTAssertNotNil(UIImage(named: "\(id)-a"), "\(id)-a")
+            XCTAssertNotNil(UIImage(named: "\(id)-b"), "\(id)-b")
         }
     }
 
@@ -17,8 +17,8 @@ class ImageTests: XCTestCase {
         let results = try Exercise.loadAll()
         let listOfIDs = results.map { $0.id }
         for id in listOfIDs {
-            XCTAssertEqual(UIImage(named: "\(id)-a")?.size, CGSize(width: 256, height: 165))
-            XCTAssertEqual(UIImage(named: "\(id)-b")?.size, CGSize(width: 256, height: 165))
+            XCTAssertEqual(UIImage(named: "\(id)-a")?.size, CGSize(width: 256, height: 165), "\(id)-a")
+            XCTAssertEqual(UIImage(named: "\(id)-b")?.size, CGSize(width: 256, height: 165), "\(id)-b")
         }
     }
 }
