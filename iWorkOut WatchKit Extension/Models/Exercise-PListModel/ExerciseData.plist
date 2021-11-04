@@ -1015,6 +1015,283 @@
         <key>equipment</key>
         <string>other</string>
     </dict>
+    <!-- Shoulders -->
+    <dict>
+        <key>id</key>
+        <string>5-2-0</string>
+        <key>name</key>
+        <string>Barbell High Front Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-2-1</string>
+        <key>name</key>
+        <string>Barbell Military Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-2-2</string>
+        <key>name</key>
+        <string>Barbell Shoulder Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-2-3</string>
+        <key>name</key>
+        <string>Barbell Shrug</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-2-4</string>
+        <key>name</key>
+        <string>Barbell Upright Row</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-4-0</string>
+        <key>name</key>
+        <string>Dumbbell Alternate One-Arm Palms In Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-4-1</string>
+        <key>name</key>
+        <string>Dumbbell Alternating Arnold Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-4-2</string>
+        <key>name</key>
+        <string>Dumbbell Front Two Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-4-3</string>
+        <key>name</key>
+        <string>Dumbbell Lateral Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-4-4</string>
+        <key>name</key>
+        <string>Dumbbell Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-5-0</string>
+        <key>name</key>
+        <string>Cable Incline Pullover</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-5-1</string>
+        <key>name</key>
+        <string>Cable Reverse Fly</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-5-2</string>
+        <key>name</key>
+        <string>Cable Shrug</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-6-0</string>
+        <key>name</key>
+        <string>Kettlebell Alternating Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-6-1</string>
+        <key>name</key>
+        <string>Kettlebell Double Snatch</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-6-2</string>
+        <key>name</key>
+        <string>Kettlebell Seesaw Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-6-3</string>
+        <key>name</key>
+        <string>Kettlebell Sumo High Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-7-0</string>
+        <key>name</key>
+        <string>Weight Plate Front Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-7-1</string>
+        <key>name</key>
+        <string>Weight Plate Lying Face Down Neck Resistance</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-7-2</string>
+        <key>name</key>
+        <string>Weight Plate Shrugs</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-8-0</string>
+        <key>name</key>
+        <string>Machine Deltoid Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-8-1</string>
+        <key>name</key>
+        <string>Machine Reverse Flyes</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-8-2</string>
+        <key>name</key>
+        <string>Machine Shoulder Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
     <!-- Upper Legs -->
     <dict>
         <key>id</key>
