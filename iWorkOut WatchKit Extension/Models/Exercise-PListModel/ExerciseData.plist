@@ -1319,6 +1319,223 @@
     </dict>
     <dict>
         <key>id</key>
+        <string>6-1-0</string>
+        <key>name</key>
+        <string>Bodyweight Step Up</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-1-1</string>
+        <key>name</key>
+        <string>Box Jump</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-1-2</string>
+        <key>name</key>
+        <string>Reverse Hyper on Flat Bench</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-2-0</string>
+        <key>name</key>
+        <string>Barbell Front Squat</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-2-1</string>
+        <key>name</key>
+        <string>Barbell Lunge</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-2-2</string>
+        <key>name</key>
+        <string>Barbell Squat</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-4-0</string>
+        <key>name</key>
+        <string>Dumbbell Jump Squat</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-4-1</string>
+        <key>name</key>
+        <string>Dumbbell Lunges</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-4-2</string>
+        <key>name</key>
+        <string>Dumbbell Pile Squat</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-4-3</string>
+        <key>name</key>
+        <string>Dumbbell Squat</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-5-0</string>
+        <key>name</key>
+        <string>Cable Pull Through</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-5-1</string>
+        <key>name</key>
+        <string>Cable Standing Leg Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-6-0</string>
+        <key>name</key>
+        <string>Kettlebell Front Squats</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>kettleBell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-8-0</string>
+        <key>name</key>
+        <string>Hack Squat</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-8-1</string>
+        <key>name</key>
+        <string>Leg Extension</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-8-2</string>
+        <key>name</key>
+        <string>Leg Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-8-3</string>
+        <key>name</key>
+        <string>Prone Leg Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>6-8-4</string>
+        <key>name</key>
+        <string>Seated Leg Curl</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>upperLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <!-- Lower Legs -->
+    <dict>
+        <key>id</key>
         <string>7-0-0</string>
         <key>name</key>
         <string>One Leg Calf Raise</string>
@@ -1329,6 +1546,7 @@
         <key>equipment</key>
         <string>bodyOnly</string>
     </dict>
+    <!-- Abdos -->
     <dict>
         <key>id</key>
         <string>8-0-0</string>
