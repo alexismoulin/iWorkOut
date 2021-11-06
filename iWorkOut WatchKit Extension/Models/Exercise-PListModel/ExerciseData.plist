@@ -1546,6 +1546,102 @@
         <key>equipment</key>
         <string>bodyOnly</string>
     </dict>
+    <dict>
+        <key>id</key>
+        <string>7-1-0</string>
+        <key>name</key>
+        <string>Donkey Calf Raises</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-2-0</string>
+        <key>name</key>
+        <string>Barbell Rocking Standing Calf Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-4-0</string>
+        <key>name</key>
+        <string>Dumbbell Standing Calf Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-8-0</string>
+        <key>name</key>
+        <string>Calf Press On Leg Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-8-1</string>
+        <key>name</key>
+        <string>Hack Calf Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-8-2</string>
+        <key>name</key>
+        <string>Machine Calf Press</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-8-3</string>
+        <key>name</key>
+        <string>Seated Calf Raise</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>7-8-4</string>
+        <key>name</key>
+        <string>Standing Calf Raises</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>lowerLegs</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
     <!-- Abdos -->
     <dict>
         <key>id</key>
