@@ -81,7 +81,9 @@ struct RecordView: View {
             List(exerciseList) { exercise in
                 createExerciseRow(exercise: exercise)
             }
-        }.navigationTitle("Records")
+        }
+        .navigationTitle("Records")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     // MARK: - Helper functions

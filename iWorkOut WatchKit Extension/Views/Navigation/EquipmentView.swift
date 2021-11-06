@@ -1,9 +1,15 @@
 import SwiftUI
 
 struct EquipmentView: View {
+
+    // MARK: - Properties
+
     @EnvironmentObject var dataController: DataController
     @EnvironmentObject var dataManager: DataManager
     let selectedMuscle: String
+
+    // MARK: - body
+
     var body: some View {
         List(Equipment.allCases) { equipment in
             NavigationLink(
