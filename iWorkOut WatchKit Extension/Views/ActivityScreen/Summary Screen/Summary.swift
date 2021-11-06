@@ -2,6 +2,8 @@ import SwiftUI
 
 struct Summary: View {
 
+    // MARK: - Properties
+
     enum AlertType: CaseIterable {
         case new, beat, fail, error
     }
@@ -9,6 +11,8 @@ struct Summary: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: ActivityViewModel
     @State private var isPresented: Bool = false
+
+    // MARK: - body
 
     var body: some View {
         Form {

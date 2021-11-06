@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ExerciseListView: View {
 
+    // MARK: - Properties
+
     @EnvironmentObject var dataController: DataController
     @EnvironmentObject var dataManager: DataManager
 
@@ -13,16 +15,39 @@ struct ExerciseListView: View {
         Exercise.loadData(muscleGroup: selectedMuscle, equipment: selectedEquipment) ?? [.missing]
     }
 
+    // MARK: - components
+
+    func createMissingExercise(name: String) -> some View {
+        HStack {
+            Text(name)
+            Spacer()
+            Text("✘")
+                .foregroundColor(.red)
+        }
+    }
+
+    @ViewBuilder
+    func createExerciseImage(exercise: Exercise) -> some View {
+        if exercise.type == ExerciseType.duration.rawValue {
+            Image(exercise.id)
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+        } else {
+            Image("\(exercise.id)-a")
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
+    }
+
+    // MARK: - body
+
     var body: some View {
         GeometryReader { geo in
             List(exerciseList) { exercise in
                 if exercise.id == "null" {
-                    HStack {
-                        Text(exercise.name)
-                        Spacer()
-                        Text("✘")
-                            .foregroundColor(.red)
-                    }
+                    createMissingExercise(name: exercise.name)
                 } else {
                     NavigationLink(
                         destination: DetailView(
@@ -35,11 +60,8 @@ struct ExerciseListView: View {
                             Text(exercise.name)
                                 .font(.caption2)
                             Spacer()
-                            Image("\(exercise.id)-a")
-                                .resizable()
-                                .scaledToFit()
+                            createExerciseImage(exercise: exercise)
                                 .frame(width: geo.size.width * 0.45)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
                         }.frame(height: 60, alignment: .center)
                     }
                 }

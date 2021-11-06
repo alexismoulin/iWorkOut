@@ -33,21 +33,35 @@ struct DetailView: View {
         }
     }
 
+    var animatedImage: some View {
+        Image(uiImage: images[index % 2] ?? UIImage(named: "null")!)
+            .resizable()
+            .scaledToFit()
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .onReceive(timer.publisher) { _ in
+                index += 1
+            }
+            .onAppear { self.timer.start() }
+            .onDisappear { self.timer.cancel() }
+    }
+
+    var staticImage: some View {
+        Image(viewModel.exercise.id)
+            .resizable()
+            .scaledToFit()
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+
     // MARK: - body
 
     var body: some View {
         ScrollView {
             VStack {
-                Image(uiImage: images[index % 2] ?? UIImage(named: "null")!)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .onReceive(timer.publisher) { _ in
-                        index += 1
-                    }
-                    .onAppear { self.timer.start() }
-                    .onDisappear { self.timer.cancel() }
-
+                if viewModel.exercise.type == ExerciseType.duration.rawValue {
+                    staticImage
+                } else {
+                    animatedImage
+                }
                 NavigationLink(
                     destination: ActivityView(
                         dataController: viewModel.dataController,
