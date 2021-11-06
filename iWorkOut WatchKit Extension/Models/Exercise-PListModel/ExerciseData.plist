@@ -1715,5 +1715,257 @@
         <key>equipment</key>
         <string>bodyOnly</string>
     </dict>
+    <dict>
+        <key>id</key>
+        <string>8-1-0</string>
+        <key>name</key>
+        <string>Bench Plank</string>
+        <key>type</key>
+        <string>duration</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-1-1</string>
+        <key>name</key>
+        <string>Decline Ab Reach</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-1-2</string>
+        <key>name</key>
+        <string>Decline Bench Leg Raise</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-1-3</string>
+        <key>name</key>
+        <string>Decline Oblique Crunch</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-1-4</string>
+        <key>name</key>
+        <string>Hip Thrust</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-1-5</string>
+        <key>name</key>
+        <string>Seated Leg Tucks</string>
+        <key>type</key>
+        <string>rep</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>bench</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-2-0</string>
+        <key>name</key>
+        <string>Barbell Press Sit-Up</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-2-1</string>
+        <key>name</key>
+        <string>Barbell Seated Twist</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-2-2</string>
+        <key>name</key>
+        <string>Barbell Side Bend</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>barbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-3-0</string>
+        <key>name</key>
+        <string>Hanging Knee Raise</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>pullBar</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-3-1</string>
+        <key>name</key>
+        <string>Hanging Leg Raise</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>pullBar</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-4-0</string>
+        <key>name</key>
+        <string>Dumbbell Cobra Prone on Exercise Ball</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-4-1</string>
+        <key>name</key>
+        <string>Dumbbell Side Bend</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-4-2</string>
+        <key>name</key>
+        <string>Dumbbell Wood Chops</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>dumbbell</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-5-0</string>
+        <key>name</key>
+        <string>Cable Crunch</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-5-1</string>
+        <key>name</key>
+        <string>Cable Judo Flip</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-5-2</string>
+        <key>name</key>
+        <string>Cable Side Bends</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>cable</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-7-0</string>
+        <key>name</key>
+        <string>Weight Plate Decline Crunch</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-7-1</string>
+        <key>name</key>
+        <string>Weight Plate Side Bend</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>weightPlate</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-8-0</string>
+        <key>name</key>
+        <string>Machine Ab Crunch</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-8-1</string>
+        <key>name</key>
+        <string>Oblique Raises on Parallel Bars</string>
+        <key>type</key>
+        <string>weight</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>machine</string>
+    </dict>
 </array>
 </plist>
