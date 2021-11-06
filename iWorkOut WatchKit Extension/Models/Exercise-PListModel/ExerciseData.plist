@@ -805,7 +805,7 @@
         <key>name</key>
         <string>Close Grip Chin Up</string>
         <key>type</key>
-        <string>weight</string>
+        <string>reps</string>
         <key>muscleGroup</key>
         <string>back</string>
         <key>equipment</key>
@@ -817,7 +817,7 @@
         <key>name</key>
         <string>Close Grip Chin Up</string>
         <key>type</key>
-        <string>weight</string>
+        <string>reps</string>
         <key>muscleGroup</key>
         <string>back</string>
         <key>equipment</key>
@@ -829,7 +829,7 @@
         <key>name</key>
         <string>Wide Grip Rear Pull-Up</string>
         <key>type</key>
-        <string>weight</string>
+        <string>reps</string>
         <key>muscleGroup</key>
         <string>back</string>
         <key>equipment</key>
@@ -1010,6 +1010,18 @@
         <string>T-Bar Reverse Grip Row</string>
         <key>type</key>
         <string>weight</string>
+        <key>muscleGroup</key>
+        <string>back</string>
+        <key>equipment</key>
+        <string>other</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>4-9-2</string>
+        <key>name</key>
+        <string>Exercise Ball Prone Leg Raise</string>
+        <key>type</key>
+        <string>reps</string>
         <key>muscleGroup</key>
         <string>back</string>
         <key>equipment</key>
@@ -1291,6 +1303,18 @@
         <string>shoulders</string>
         <key>equipment</key>
         <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>5-9-0</string>
+        <key>name</key>
+        <string>Band Seated Shoulder Press on Exercise Ball</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>shoulders</string>
+        <key>equipment</key>
+        <string>other</string>
     </dict>
     <!-- Upper Legs -->
     <dict>
@@ -1966,6 +1990,54 @@
         <string>abdos</string>
         <key>equipment</key>
         <string>machine</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-9-0</string>
+        <key>name</key>
+        <string>Crunches with Legs on an Exercise Ball</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>other</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-9-1</string>
+        <key>name</key>
+        <string>Exercise Ball Knee Roll</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>other</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-9-2</string>
+        <key>name</key>
+        <string>Exercise Ball Leg Lifts</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>other</string>
+    </dict>
+    <dict>
+        <key>id</key>
+        <string>8-9-3</string>
+        <key>name</key>
+        <string>Exercise Ball Roll Down Images</string>
+        <key>type</key>
+        <string>reps</string>
+        <key>muscleGroup</key>
+        <string>abdos</string>
+        <key>equipment</key>
+        <string>other</string>
     </dict>
 </array>
 </plist>
