@@ -44,7 +44,6 @@
 		5E7E705A258CE2AE0030B507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E7059258CE2AE0030B507 /* Assets.xcassets */; };
 		5E7E705D258CE2AE0030B507 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E705C258CE2AE0030B507 /* Preview Assets.xcassets */; };
 		5E7E7072258CE3650030B507 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E7071258CE3650030B507 /* Enums.swift */; };
-		5E86041927372D82007BA380 /* CardioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E86041827372D81007BA380 /* CardioView.swift */; };
 		5E9B5BF725ABDAD00073E757 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9B5BF625ABDAD00073E757 /* HealthKit.framework */; };
 		5E9B5BFA25ABDB530073E757 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B5BF925ABDB530073E757 /* DataManager.swift */; };
 		5EAC61D1259FF07400E90941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC61D0259FF07400E90941 /* ContentView.swift */; };
@@ -148,7 +147,6 @@
 		5E7E705C258CE2AE0030B507 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E7E705E258CE2AE0030B507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E7E7071258CE3650030B507 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		5E86041827372D81007BA380 /* CardioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioView.swift; sourceTree = "<group>"; };
 		5E9B5BF625ABDAD00073E757 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E9B5BF925ABDB530073E757 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5EAC61D0259FF07400E90941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -400,7 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				5E7E7053258CE2AE0030B507 /* MuscleView.swift */,
-				5E86041827372D81007BA380 /* CardioView.swift */,
 				5E38A71F258CF82200574232 /* EquipmentView.swift */,
 				5E6B59EB258D42B80049CDD9 /* ExerciseListView.swift */,
 			);
@@ -632,7 +629,6 @@
 				5EB81DD92729F93A00BF27FA /* Double+extension.swift in Sources */,
 				5E38A720258CF82200574232 /* EquipmentView.swift in Sources */,
 				5E78E8ED258ED40400D7E7EC /* Color+Extension.swift in Sources */,
-				5E86041927372D82007BA380 /* CardioView.swift in Sources */,
 				5EB437C3262E3C6B00F09B6F /* IconView.swift in Sources */,
 				5E7CF0E426C1FA2200B8D781 /* SetInfoView.swift in Sources */,
 				5E570CA625AD4B8B002D4D64 /* TimedRing.swift in Sources */,
@@ -851,6 +847,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -876,6 +873,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -896,6 +894,7 @@
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				IBSC_MODULE = iWorkOut_WatchKit_Extension;
 				INFOPLIST_FILE = "iWorkOut WatchKit App/Info.plist";
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -916,6 +915,7 @@
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				IBSC_MODULE = iWorkOut_WatchKit_Extension;
 				INFOPLIST_FILE = "iWorkOut WatchKit App/Info.plist";
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -932,7 +932,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R28KNM82KD;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -946,7 +946,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R28KNM82KD;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

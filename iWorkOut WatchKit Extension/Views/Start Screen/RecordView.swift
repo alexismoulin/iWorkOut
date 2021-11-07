@@ -23,6 +23,8 @@ struct RecordView: View {
             ) {
                 HStack {
                     Text((exercise.name))
+                        .font(.caption2)
+                        .lineLimit(2)
                     Spacer()
                     Text("🏆 \(getRecordScore(recordList: fetchedResults, exerciseId: exercise.id))")
                 }
@@ -76,7 +78,9 @@ struct RecordView: View {
                     Text("Weight Plate").font(.system(size: pickerFontSize)).tag(Equipment.weightPlate) // 7
                     Text("Machine").font(.system(size: pickerFontSize)).tag(Equipment.machine) // 8
                     Text("Other").font(.system(size: pickerFontSize)).tag(Equipment.other) // 9
-                }.frame(height: 60).clipped()
+                }
+                .frame(height: 60)
+                .clipped()
             }
             List(exerciseList) { exercise in
                 createExerciseRow(exercise: exercise)

@@ -20,12 +20,16 @@ struct ContentView: View {
                 .environmentObject(dataManager),
             label: {
                 HStack {
-                    Text("Start an Exercise")
-                        .font(.caption2)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal)
-                        .foregroundColor(.lime)
+                    VStack {
+                        Text("Start an")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.lime)
+                        Text("Exercise")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.lime)
+                    }.frame(width: 100)
                     Spacer()
                     Image("start")
                         .resizable()
@@ -45,12 +49,16 @@ struct ContentView: View {
                 .environmentObject(dataManager),
             label: {
                 HStack {
-                    Text("Check your Records")
-                        .font(.caption2)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal)
-                        .foregroundColor(.yellow2)
+                    VStack {
+                        Text("Check your")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.yellow2)
+                        Text("Records")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.yellow2)
+                    }.frame(width: 100)
                     Spacer()
                     Image(systemName: "crown.fill")
                         .resizable()
@@ -67,7 +75,9 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            startButton.padding(.top)
+            startButton
+                .padding(.top)
+                .padding(.top)
             Spacer()
             recordButton.padding(.bottom)
         }
