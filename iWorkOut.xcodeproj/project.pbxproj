@@ -114,6 +114,7 @@
 		5E143405272DBB43003DD9EF /* PListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListTests.swift; sourceTree = "<group>"; };
 		5E143409272DCE74003DD9EF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E38A71F258CF82200574232 /* EquipmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentView.swift; sourceTree = "<group>"; };
+		5E4350B227385FCA00BFF200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E458193258E756200D1A0E1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		5E4C65FE272D926D00AAEB03 /* iWorkOut WatchKit ExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iWorkOut WatchKit ExtensionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4C6600272D926D00AAEB03 /* CKSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKSetup.swift; sourceTree = "<group>"; };
@@ -319,6 +320,7 @@
 		5E7E7037258CE2AD0030B507 = {
 			isa = PBXGroup;
 			children = (
+				5E4350B227385FCA00BFF200 /* Info.plist */,
 				5E7E7046258CE2AD0030B507 /* iWorkOut WatchKit App */,
 				5E7E7052258CE2AE0030B507 /* iWorkOut WatchKit Extension */,
 				5E4C65FF272D926D00AAEB03 /* iWorkOut WatchKit ExtensionTests */,
@@ -944,6 +946,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R28KNM82KD;
+				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -958,6 +961,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R28KNM82KD;
+				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
