@@ -189,6 +189,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5E2A332A2738479000BA25C2 /* Record Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D294D25B1F2EB005C0E77 /* RecordForm.swift */,
+				5EAC61D5259FF20300E90941 /* RecordView.swift */,
+			);
+			path = "Record Screen";
+			sourceTree = "<group>";
+		};
 		5E4C65FF272D926D00AAEB03 /* iWorkOut WatchKit ExtensionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,8 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				5EAC61D0259FF07400E90941 /* ContentView.swift */,
-				5EAC61D5259FF20300E90941 /* RecordView.swift */,
-				5E6D294D25B1F2EB005C0E77 /* RecordForm.swift */,
 				5E6D294425B1E2D5005C0E77 /* DebugView.swift */,
 			);
 			path = "Start Screen";
@@ -368,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				5E6D294925B1E35C005C0E77 /* Start Screen */,
+				5E2A332A2738479000BA25C2 /* Record Screen */,
 				5ED69EBB262C69E0002A6DFF /* Navigation */,
 				5E7448A9262CFCD50036616C /* ExerciseDetailScreen */,
 				5E7448AA262CFCFF0036616C /* ActivityScreen */,
@@ -930,9 +938,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R28KNM82KD;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -944,9 +952,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R28KNM82KD;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

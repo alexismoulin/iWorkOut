@@ -33,9 +33,9 @@
 		<string>com.apple.watchkit</string>
 	</dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>We read your health data during workouts</string>
+	<string>This App reads your health data during workouts to provide you real time information on Heart Rate and Calory burn</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>We need to save your completed workouts</string>
+	<string>This App needs to save your completed workouts within your iCloud for syncing your records among all your devices</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
