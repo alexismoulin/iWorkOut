@@ -19,7 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>This App reads your health data during workouts to provide you real time information on Heart Rate and Calory burn</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>This App needs to save your completed workouts within your iCloud for syncing your records among all your devices</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -27,9 +31,5 @@
 	</array>
 	<key>WKWatchKitApp</key>
 	<true/>
-	<key>NSHealthShareUsageDescription</key>
-	<string>This App reads your health data during workouts to provide you real time information on Heart Rate and Calory burn</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>This App needs to save your completed workouts within your iCloud for syncing your records among all your devices</string>
 </dict>
 </plist>
