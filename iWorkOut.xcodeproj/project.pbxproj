@@ -848,7 +848,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "iWorkOut WatchKit Extension/iWorkOut WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"iWorkOut WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				ENABLE_PREVIEWS = YES;
@@ -858,7 +858,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -875,7 +875,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "iWorkOut WatchKit Extension/iWorkOut WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"iWorkOut WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				ENABLE_PREVIEWS = YES;
@@ -885,7 +885,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -903,11 +903,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				IBSC_MODULE = iWorkOut_WatchKit_Extension;
 				INFOPLIST_FILE = "iWorkOut WatchKit App/Info.plist";
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -925,11 +925,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				IBSC_MODULE = iWorkOut_WatchKit_Extension;
 				INFOPLIST_FILE = "iWorkOut WatchKit App/Info.plist";
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -944,10 +944,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				INFOPLIST_FILE = Info.plist;
-				MARKETING_VERSION = 0.1.1;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This App reads your health data during workouts to provide you real time information on Heart Rate and Calory burn";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This App needs to save your completed workouts within your iCloud for syncing your records among all your devices";
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -959,10 +961,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = R28KNM82KD;
 				INFOPLIST_FILE = Info.plist;
-				MARKETING_VERSION = 0.1.1;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This App reads your health data during workouts to provide you real time information on Heart Rate and Calory burn";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This App needs to save your completed workouts within your iCloud for syncing your records among all your devices";
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.iWorkOut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
