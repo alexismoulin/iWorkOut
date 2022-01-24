@@ -1,5 +1,4 @@
 import SwiftUI
-import UserNotifications
 
 struct ActivityView: View {
 
@@ -47,6 +46,7 @@ struct ActivityView: View {
         }
         .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
+        /*
         .onReceive(
             NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification),
             perform: { _ in movingToBackground() }
@@ -55,6 +55,7 @@ struct ActivityView: View {
             NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification),
             perform: { _ in movingToForeground() }
         )
+         */
     }
 
     // MARK: - Helper functions
@@ -62,7 +63,6 @@ struct ActivityView: View {
     func movingToBackground() {
         print("Moving to the background")
         notificationDate = Date()
-        // StopWatchManager timer only
         if viewModel.timeRemaining == -1 {
             stopWatchManager.pause()
         }
@@ -72,8 +72,13 @@ struct ActivityView: View {
         print("Moving to the foreground")
         let deltaTime: Double = Date().timeIntervalSince(notificationDate)
         if viewModel.timeRemaining > -1 {
-            viewModel.timeRemaining -= Int(deltaTime)
-            viewModel.percent += deltaTime / 1.2
+            if viewModel.timeRemaining - Int(deltaTime) > 0 {
+                viewModel.timeRemaining -= Int(deltaTime)
+                viewModel.percent += deltaTime / 1.2
+            } else {
+                viewModel.timeRemaining = 1
+                viewModel.percent = 99
+            }
         } else {
             stopWatchManager.secondsElapsed += deltaTime
             stopWatchManager.start()
